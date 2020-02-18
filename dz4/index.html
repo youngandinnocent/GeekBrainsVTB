@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Картинки</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
+    <div class="root">
+      <div class="profile root__section">
+        <button class="button user-info__button user-info__button_type_add">
+          Добавить пост
+        </button>
+        <button class="button user-info__button user-info__button_type_del">
+          Удалить все посты
+        </button>
+      </div>
+      <div class="places-list root__section"></div>
+      <div class="popup">
+        <div class="popup__content">
+          <img src="./images/close.svg" alt="" class="popup__close" />
+          <h3 class="popup__title">Новый пост</h3>
+          <form class="popup__form" name="new">
+            <input
+              type="text"
+              name="name"
+              class="popup__input popup__input_type_name"
+              placeholder="Название поста"
+            />
+            <input
+              type="text"
+              name="about"
+              class="popup__input popup__input_type_about"
+              placeholder="Ссылка на картинку"
+            />
+            <input
+              type="text"
+              name="link"
+              class="popup__input popup__input_type_link-url"
+              placeholder="Описание"
+            />
+            <input
+              type="text"
+              name="source"
+              class="popup__input popup__input_type_link-source"
+              placeholder="Ссылка на источник"
+            />
+            <button type="submit" class="button popup__button">
+              Добавить пост
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
