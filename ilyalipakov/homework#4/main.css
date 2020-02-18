@@ -1,0 +1,116 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.todo {
+  width: 500px;
+  box-sizing: border-box;
+  margin: 20px auto 0px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+
+  border-radius: 10px;
+}
+
+.todo__title {
+  color: blueviolet;
+  font: 30px Arial, sans-serif;
+  text-align: center;
+}
+
+.todo__input-text,
+.todo__textarea {
+  display: block;
+  width: 96%;
+  margin: 0px auto;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.todo__input-text {
+  height: 30px;
+  padding: 20px;
+  font: 14px Arial, sans-serif;
+}
+
+.todo__textarea {
+  padding: 20px;
+  font: 14px Arial, sans-serif;
+}
+
+.todo__btn-add,
+.todo__btn-delete {
+  width: 96%;
+  height: 40px;
+  margin: 0px auto;
+  text-align: center;
+  background: blueviolet;
+  color: white;
+  font: 20px Arial, sans-serif;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.todo__list {
+  box-sizing: border-box;
+  padding: 20px;
+
+  font: 14px Arial, sans-serif;
+}
+
+.todo__list-card {
+  margin: 10px auto;
+  box-sizing: border-box;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.todo__list__name {
+  padding-bottom: 10px;
+  color: rgb(128, 70, 0);
+}
+
+.todo__list__desc {
+  padding-bottom: 10px;
+  color: rgb(43, 226, 80);
+  display: block;
+}
+
+.todo__list__link {
+  width: 50px;
+  height: 50px;
+  padding-bottom: 5px;
+  color: rgba(140, 17, 152, 0.317);
+  display: block;
+}
+
+.todo__list__src {
+  color: aqua;
+}
+
+.error-field {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgb(193, 193, 193);
+  box-sizing: border-box;
+  padding: 20px;
+
+  border-radius: 10px;
+}
+
+.error-message {
+  font: bold 14px Arila, sans-serif;
+  color: brown;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
