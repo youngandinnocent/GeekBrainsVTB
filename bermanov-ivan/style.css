@@ -1,0 +1,91 @@
+.form {
+    background: rgb(240, 239, 240);
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 380px;
+    margin: 30px auto;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.header {
+    margin-top: 0;
+}
+
+
+.field,
+.textarea {
+    margin-top: 10px;
+    width: 220px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+
+.textarea {
+    height: 70px;
+}
+
+.field::-moz-placeholder {
+    color: rgb(95, 95, 95);
+}
+
+.field::-webkit-input-placeholder {
+    color: rgb(95, 95, 95);
+}
+
+textarea::-moz-placeholder {
+    color: rgb(95, 95, 95);
+}
+
+.textarea::-webkit-input-placeholder {
+    color: rgb(95, 95, 95);
+}
+
+.submit {
+    width: 120px;
+    background: rgb(143, 167, 245);
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background: rgb(93, 129, 248);
+}
+
+.reset {
+    width: 150px;
+    background: red;
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.card {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 300px;
+    background: rgb(248, 232, 110);
+    padding: 10px;
+}
+
+.article {
+    display: flex;
+    flex-wrap: wrap;
+}
