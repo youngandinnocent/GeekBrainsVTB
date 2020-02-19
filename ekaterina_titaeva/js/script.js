@@ -1,9 +1,17 @@
-let masCards = [];
 let root = document.getElementById("root");
+let form = document.getElementById('postForm');
 
-let form = document.forms[0];
+function deleteCards() {
+    root.innerHTML = "";
+}
 
-function addCard(elem, num) { // формируем карточку
+form.onsubmit = function () {   // формируем карточку
+
+    let name = this.elements[0].value
+    let description = this.elements[1].value
+    let img = this.elements[2].value
+    let source = this.elements[3].value
+
     let cardElem = document.createElement('div');
     cardElem.classList.add('card');
 
@@ -12,15 +20,14 @@ function addCard(elem, num) { // формируем карточку
     let imgElem = document.createElement('img');
     let sourceElem = document.createElement('a');
     let button = document.createElement('button');
-    nameElem.innerText = elem.name;
-    descrElem.innerText = elem.description;
-    imgElem.setAttribute('src', elem.img);
-    sourceElem.innerText = elem.source;
-    sourceElem.setAttribute('href', elem.source);
+    nameElem.innerText = name;
+    descrElem.innerText = description;
+    imgElem.setAttribute('src', img);
+    sourceElem.innerText = source;
+    sourceElem.setAttribute('href', source);
     button.innerText = "Удалить";
     button.setAttribute('type', 'submit');
-    button.setAttribute('id', num);
-    button.setAttribute('onclick', 'deleteOneCard(this)');
+    button.addEventListener('click', function () { cardElem.remove(); });
 
     cardElem.appendChild(nameElem);
     cardElem.appendChild(descrElem);
@@ -28,28 +35,6 @@ function addCard(elem, num) { // формируем карточку
     cardElem.appendChild(sourceElem);
     cardElem.appendChild(button);
     root.appendChild(cardElem);
-}
-
-form.onsubmit = function () {
-    masCards.push({ // добавляем данные в массив
-        name: this.elements[0].value,
-        description: this.elements[1].value,
-        img: this.elements[2].value,
-        source: this.elements[3].value
-    })
-
-    addCard(masCards[masCards.length - 1], masCards.length - 1);
 
     return false;
-}
-
-function deleteCards() {
-    root.innerHTML = "";
-    masCards = [];
-}
-
-function deleteOneCard(card) {
-    masCards.splice(card.id, 1);
-    root.innerHTML = "";
-    masCards.forEach((elem, index) => addCard(elem, index));
 }
