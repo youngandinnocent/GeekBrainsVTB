@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-th lesson</title>
+	<link rel="stylesheet" href="./4_style.css">
+</head>
+	<body class="container">
+		<button class="card__button--delete">Удалить все карты</button>
+		<form class="card__form form" name="card">
+			<input class="form__field" type="text" name="title" placeholder="Название поста" required>
+			<textarea name="description" cols="30" rows="10" placeholder="Описание поста" required></textarea>
+			<input class="form__field" type="text" name='link' placeholder="Какая-то ссылка" required>
+			<input class="form__field" type="text" name='resource' placeholder="Какой-то источник" required>
+			<input class="form__field" type="submit" value="Добавить">
+		</form>
+		<ul class="card__list list"></ul>
+	</body>
+	<script type="text/javascript" src="./4_script.js"></script>
+</html>
