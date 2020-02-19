@@ -1,9 +1,8 @@
 'use strict';
 
-
 let cardForm = document.querySelector('.card__form');
 let cardList = document.querySelector('.card__list');
-let cardsButtonDelete = document.querySelector('.card__button--delete');
+let cardsButtonDelete = document.querySelector('.cards__button--delete');
 
 cardForm.addEventListener('submit', handleSubmit);
 cardsButtonDelete.addEventListener('click', deleteCards);
@@ -35,6 +34,11 @@ function handleSubmit(evt) {
 	cardResource.innerText = resource.value;
 	newCard.appendChild(cardResource);
 
+	let cardButtonDelete = document.createElement('button');
+	cardButtonDelete.innerText = 'Х';
+	cardButtonDelete.setAttribute('onclick', 'deleteCard(this)');
+	newCard.appendChild(cardButtonDelete);
+
 	cardList.appendChild(newCard);
 
 	// TODO Clear fields of the form
@@ -47,4 +51,9 @@ function deleteCards() {
 		// cardList.removeChild(card);
 		card.remove();
 	}
+}
+
+function deleteCard(button) {
+	let card = button.parentNode;
+	card.remove();
 }
