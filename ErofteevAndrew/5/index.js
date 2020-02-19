@@ -1,17 +1,47 @@
 let btnNextElem = document.querySelector('.nav-button--next');
 let btnPrevElem = document.querySelector('.nav-button--prev');
-let paginationElems = document.querySelectorAll('.pagination-item');
 let sliderElem = document.querySelector('.slider');
 let slideElems = document.querySelectorAll('.slide');
 let slideElem = document.querySelector('.slide');
-let currentSlide;
+let overlay = document.querySelector('.overlay');
+let currentSlide = 1;
+
+document.querySelector('.pagination').innerHTML = '';
+for (let i = 0; i < slideElems.length; i++) {
+    const paginationElem = document.createElement('li');
+    paginationElem.classList.add('pagination-item');
+    if(i === 0) paginationElem.classList.add('pagination-item--active');
+
+    paginationElem.setAttribute('data-pagination-id', String(i+1))
+    document.querySelector('.pagination').append(paginationElem); 
+}
+let paginationElems = document.querySelectorAll('.pagination-item');
 
 window.addEventListener('resize', resize);
-btnNextElem.addEventListener('click', () => moveToSlide(currentSlide + 1));
-btnPrevElem.addEventListener('click', () => moveToSlide(currentSlide - 1));
+btnNextElem.addEventListener('click', () => moveToSlide(+currentSlide + 1));
+btnPrevElem.addEventListener('click', () => moveToSlide(+currentSlide - 1));
 paginationElems.forEach((elem) => {
     elem.addEventListener('click', () => moveToSlide(elem.getAttribute('data-pagination-id')));
 })
+slideElems.forEach((elem) => {
+    elem.addEventListener('click', () => showModal(elem));
+})
+overlay.addEventListener('click', (ev) => {
+    closeModal(ev);
+}, true)
+
+function showModal(slide){
+    overlay.append(slide.cloneNode(true));
+    overlay.classList.remove('overlay--hidden');
+}
+
+function closeModal(ev) {
+    ev.stopPropagation();
+    if(ev.target.classList.contains('overlay')) {
+        overlay.innerHTML = '';
+        overlay.classList.add('overlay--hidden');
+    }
+}
 
 function moveToSlide(id) {
     let targetSlide = id;
@@ -43,4 +73,3 @@ function resize() {
 }
 
 resize();
-moveToSlide(1);
