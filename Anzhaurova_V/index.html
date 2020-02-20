@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <form  action="" method="get" class="form-wrap">
+        <div class="post-form" id = "post_form">
+            <label for="post_title">Введите название поста:</label>
+            <input type="text" name="name" id="post_title" required >
+            <label for="post_text">Введите текст</label>
+            <textarea id="post_text" name="text" rows="5" cols="33" required></textarea>
+            <label for="post_link_img">Ввведите ссылку на изображение:</label>
+            <input type="url" name="url" id="post_link_img"
+                       placeholder="https://example.com"
+                       pattern="https://.*" size="30"
+                       required>
+            <label for="post_link_source">Ввведите ссылку на источник:</label>
+            <input type="url" name="url" id="post_link_source"
+                       placeholder="https://example.com"
+                       pattern="https://.*" size="30"
+                       required>
+            <div class="post-btn-add">
+                <input type="button" id="post_btn_add" value="Добавить" class="btn-add">
+            </div>
+            <div class="post-btn-del">
+                <input type="submit" id="post_btn_del_all" value="Удалить все" class="btn-del-all">
+            </div>
+        </div>
+    </form>
+
+
+    <script src = "js/script.js"></script>
+</body>
+</html>
