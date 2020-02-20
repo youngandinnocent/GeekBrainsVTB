@@ -148,17 +148,33 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: gray 0,4;
+    background-color: rgba(85, 85, 85, 0.6);
 }
 
 .modal-content {   
     background-color: #fefefe;
     color: #000;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 40px;
+    border: 1px solid blue;
+    box-shadow: 0 0 5px blue;
     width: 50%;
+}
+
+.modal-content>h1 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.modal-content>div {
+    color: blue;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
 .modal-text {

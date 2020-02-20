@@ -40,6 +40,16 @@ let data = [
         name: 'Анна Петровна',
         position: 'Ген. директор всего'
     },
+    {
+        title: 'Отзывы партнеров',
+        text: `4Разнообразный и богатый опыт сложившаяся структура организации требуют определения и уточнения направлений прогрессивного развития. 
+
+        Разнообразный и богатый опыт сложившаяся структура организации требуют определения и уточнения направлений прогрессивного развития. `,
+        imgUrl: 'https://images.theconversation.com/files/301743/original/file-20191114-26207-lray93.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip',
+        avatar: 'img/avatar.png',
+        name: 'Анна Петровна',
+        position: 'Ген. директор всего'
+    },
 ]
 
 let cardSize = {};
@@ -97,6 +107,8 @@ data.forEach(function(elem){
     let modal = document.createElement('div');
     let modalContent = document.createElement('div');
     let modalText = document.createElement('p');
+    let modalHeader = document.createElement('h1');
+    let modalClose = document.createElement('div');
 
     cardImg.style.backgroundImage = `url(${elem.imgUrl})`;
     cardImg.classList.add('card-img');
@@ -123,9 +135,13 @@ data.forEach(function(elem){
     modalContent.classList.add('modal-content');
     modalText.classList.add('modal-text');
     modalText.innerText = elem.text;
+    modalHeader.innerText = elem.title;
+    modalClose.innerText = 'CLOSE';
     cardElem.appendChild(modal);
     modal.appendChild(modalContent);
+    modalContent.appendChild(modalHeader);
     modalContent.appendChild(modalText);
+    modalContent.appendChild(modalClose);
 
     cardTitle.style.left = screenContainer.offsetWidth*elemIndex + 41 + 'px';
     cardText.style.left = screenContainer.offsetWidth*elemIndex + 466 + 'px';
@@ -133,20 +149,31 @@ data.forEach(function(elem){
     cardName.style.left = screenContainer.offsetWidth*elemIndex + 289 + 'px';
     cardPosition.style.left = screenContainer.offsetWidth*elemIndex + 289 + 'px';
 
-    function openModal() { 
+    cardImg.addEventListener('click', () => { 
         modal.style.display = 'block'; 
-        modal.addEventListener('click', function(event) {
-            if (!(event.currentTarget === modalContent)) {
-                modal.style.display = 'none';
-                console.log(123);
-            }
-        })
-    }
+    });
+    cardText.addEventListener('click', () => { 
+        modal.style.display = 'block'; 
+    });
+    modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+    })
 
-    cardElem.addEventListener('click', openModal)
-
+    
     elemIndex++;
 });
+
+window.onclick = function() {
+    let modalDiv = document.getElementsByClassName('modal')[pageIndex];
+    if (modalDiv.style.display === 'block') {
+        modalDiv.onclick =  function(event) {
+            console.log(event.target);
+            if (event.target == modalDiv) {
+                modalDiv.style.display = 'none';
+            }
+        }
+    }
+}
 
 function goRight() {
     pageIndex++;
