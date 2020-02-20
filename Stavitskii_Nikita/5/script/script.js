@@ -122,6 +122,12 @@ data.forEach(function(elem){
     cardName.classList.add('card-name');
     cardPosition.innerText = elem.position;
     cardPosition.classList.add('card-position');
+    cardSize.width = screenContainer.offsetWidth;
+    cardSize.height = screenContainer.offsetHeight;
+    cardContainer.style.width = cardSize.width * data.length + 'px';
+    cardContainer.style.left = -pageIndex*cardSize.width + 'px';
+    cardElem.style.width = cardSize.width + 'px';
+    cardElem.style.height = cardSize.height + 'px';
 
     cardContainer.appendChild(cardElem);
     cardElem.appendChild(cardImg);
@@ -194,6 +200,10 @@ function goLeft() {
     if (pageIndex < 0) {
         pageIndex = data.length - 1;
     }; 
+    let prevActive = document.getElementsByClassName('pagination-active')[0];
+    prevActive.classList.remove('pagination-active');
+    let activePage = document.querySelectorAll('div.pagination-elem')[pageIndex];
+    activePage.classList.add('pagination-active');
 
     cardContainer.style.left = -pageIndex*cardSize.width + 'px';
 }
@@ -205,19 +215,13 @@ triggerRight.addEventListener('click', goRight);
 
 document.querySelector('div.pagination-elem').classList.add('pagination-active');
 
-resize();
+/* resize();
 
 function resize() {
-    cardSize.width = screenContainer.offsetWidth;
-    cardSize.height = screenContainer.offsetHeight;
     let cards = document.querySelectorAll('.cardContainer>div');
     cards.forEach(elem => {
-        elem.style.width = cardSize.width + 'px';
-        elem.style.height = cardSize.height + 'px';
     });
 
-    cardContainer.style.width = cardSize.width * data.length + 'px';
-    cardContainer.style.left = -pageIndex*cardSize.width + 'px';
 } 
 
-window.addEventListener('resize', resize);
+window.addEventListener('resize', resize); */
