@@ -155,14 +155,13 @@ data.forEach(function(elem){
     cardName.style.left = screenContainer.offsetWidth*elemIndex + 289 + 'px';
     cardPosition.style.left = screenContainer.offsetWidth*elemIndex + 289 + 'px';
 
-    cardImg.addEventListener('click', () => { 
+    cardElem.addEventListener('click', () => { 
         modal.style.display = 'block'; 
     });
-    cardText.addEventListener('click', () => { 
-        modal.style.display = 'block'; 
-    });
-    modalClose.addEventListener('click', () => {
+    
+    modalClose.addEventListener('click', function(event) {
         modal.style.display = 'none';
+        event.stopPropagation();
     })
 
     
@@ -176,6 +175,7 @@ window.onclick = function() {
             console.log(event.target);
             if (event.target == modalDiv) {
                 modalDiv.style.display = 'none';
+                event.stopPropagation();
             }
         }
     }
