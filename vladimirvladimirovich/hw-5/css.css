@@ -1,0 +1,163 @@
+﻿* {font-family: 'Roboto';}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;    
+}
+
+.arrowLeft, .arrowRight {
+    position: absolute;
+    top:248px;
+    display:block;
+    font-size: 150px;
+    line-height:150px;
+    font-weight: 100;
+    font-style: normal;
+    color: maroon;
+    text-decoration: none;
+    z-index: 100;
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.arrowLeft {left: 40px;}
+.arrowRight {right: 40px;}
+
+.spotsContainer {
+    position: absolute; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+}
+.spot {
+    display:block;
+    background: #EC406E;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    height:21px;
+    width:21px;
+    border-radius:21px;
+    padding:0;
+    margin:0 10px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+.spot.active {
+    background: #414778;
+    border: 2px solid #EC406E;
+}
+
+.sliderContainer {
+    position: relative;
+    max-width: 1400px;
+    width:80%;
+    height: 60vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.slidesContainer {
+    position: relative;
+    display:flex;
+    padding: 0;
+    margin: 0;
+    transition: left .9s;
+}
+
+.slideContainer {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    cursor:pointer;    
+}
+
+.slideContainer h4 {
+    position: absolute;
+    width:300px;
+    padding:10px;
+    margin: 0;
+    left: 40px;
+    top: 15px;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 24px;
+    line-height: 100%;
+    background: grey;
+    color: maroon;
+    border-radius: 10px;
+    border: 0;
+    opacity:0.8;
+}
+
+.slideContainer p {
+    position: absolute;
+    width: 500px;
+    padding: 10px;
+    margin: 0;    
+    right: 40px;
+    bottom: 25px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 100%;
+    background:none;
+    color: white;
+    border-radius: 0;
+    border: 0;
+}
+
+
+#modalWindow {
+    position: absolute;
+    display:none;    
+    padding: 0;
+    margin: 0;
+    top:20%;
+    max-width: 1400px;
+    width:80%;
+    height: 60vh;
+    overflow: hidden; 
+    border-radius:50px;
+    z-index:1000;
+    border:2px solid white;
+}
+#aroundModalWindow {
+    display:none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; 
+    z-index:500;
+    background:black;
+    opacity:.9;
+    cursor:pointer;
+}
+
+.show {display: flex !important;}
+
+
+
+
+
+
+
+
+
+
+
+
