@@ -1,0 +1,182 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.screenContainer {
+    width: 1440px;
+    height: 612px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cardContainer {
+    display: flex;
+    position: absolute;
+    transition: left .5s;
+}
+
+.card-title {
+    position: absolute;
+    width: 412px;
+    height: 53px;
+    font-size: 45px;
+    line-height: 53px;
+    font-weight: bold;
+    top: 25px;
+}
+
+.card-text {
+    position: absolute;
+    width: 778px;
+    height: 203px;
+    top: 155px;
+    z-index: 2;
+    font-size: 25px;
+    line-height: 29px;
+}
+
+.card-avatar {
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    top: 155px;
+}
+
+.card-name, .card-position {
+    position: absolute;
+    width: 161px;
+    height: 36px;
+}
+
+.card-name {
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: bold;
+    top: 249px;
+}
+
+.card-position {
+    top: 273px;
+    font-size: 15px;
+}
+
+.card-img {
+    box-shadow: inset 2000px 0 0 0 rgba(39, 60, 117, 0.6);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.triggerLeft{
+    position: absolute;
+    top: 50%;
+    left: 135px;
+    width: 64px;
+    height: 64px;
+    border-color: #000;
+    margin-top: -31px;
+    cursor: pointer;
+    z-index: 10;
+    border-bottom: 6px solid;
+    border-left: 6px solid;
+    transform: rotate(45deg);
+}
+
+.triggerRight{
+    position: absolute;
+    top: 50%;
+    right: 135px;
+    width: 64px;
+    height: 64px;
+    border-color: #000;
+    margin-top: -31px;
+    cursor: pointer;
+    z-index: 10;
+    border-bottom: 6px solid;
+    border-left: 6px solid;
+    transform: rotate(-135deg);
+}
+
+.bgimg {
+    width: 100%;
+}
+
+.pagination {
+    position: relative;
+    margin: 0 auto;
+    height: 21px;
+    top: 446px;
+}
+
+.pagination-elem {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    z-index: 10;
+    background: #414778;
+    border: 2px solid #EC406E;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.pagination-active {
+    background: #EC406E;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 11;
+    padding-top: 300px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: gray 0,4;
+    background-color: rgba(85, 85, 85, 0.6);
+}
+
+.modal-content {   
+    background-color: #fefefe;
+    color: #000;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid blue;
+    box-shadow: 0 0 5px blue;
+    width: 50%;
+}
+
+.modal-content>h1 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.modal-content>div {
+    color: blue;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.modal-text {
+    color: #000;
+}
