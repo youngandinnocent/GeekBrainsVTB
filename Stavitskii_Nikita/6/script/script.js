@@ -7,13 +7,6 @@ class MyDeadline extends HTMLElement {
         setInterval(() => this.setTimer(), 1000)
         this.setTimer();
         this.style.background = green;
-        
-        let btn = this.getElementsByTagName('button')[0];
-        btn.addEventListener('click', ()=> {
-            console.log('deleting');
-            //btn.parentNode.remove();
-        });
-        window.onstorage = event => { this.setTimer() };
     }
 
     disconnectedCallback() {
@@ -43,7 +36,7 @@ class MyDeadline extends HTMLElement {
             deadlineTimer.innerHTML = `
             <h2>${title}</h2>
             <p>${deltaDays}D:${deltaHours}H:${deltaMins}M:${deltaSecs}S</p>
-            <button class='remove-btn' onclick="event.currentTarget.parentNode.remove()">Remove Deadline</button>`
+            <button class='remove-btn' onclick='this.parentNode.remove()'>Remove Deadline</button>`
             
             if (delta < day) {
                 setTimeout (()=> { 
@@ -87,7 +80,7 @@ inputContainer.appendChild(titleElem);
 inputContainer.appendChild(deadlineElem);
 inputContainer.appendChild(confirmBtn);
 
-if (deadlines === []) {
+if (localStorage.deadlines === '') {
     localStorage.setItem('deadlines', deadlines);
 } else {
     deadlines = JSON.parse(localStorage.deadlines);
@@ -119,18 +112,23 @@ confirmBtn.onclick = () => {
     });
     
     localStorage.setItem('deadlines', JSON.stringify(deadlines));
-    /* setTimeout(() => {
+    setTimeout(() => {
         document.location.reload(true);
-    }, 0) */; 
+    }, 0); 
 }
 
-let btnGrp = document.getElementsByClassName('remove-btn');
-for (let i = 0; i < btnGrp.length; i++) {
-    document.getElementsByClassName('remove-btn')[i];
-    btn.addEventListener('click', ()=> {
-        console.log('deleting');
-        //btn.parentNode.remove();
-    });
-}
+/* let btnGrp = document.getElementsByClassName('remove-btn');
+setTimeout(() => {
+    for (let i = 0; i < btnGrp.length; i++) {
+        btn = btnGrp[i];
+        btn.onclick = () => {
+            console.log(i)
+            btn.parentNode.remove();
+            setTimeout(() => {
+                document.location.reload(true);
+            }, 0); 
+        };
+    }
+}, 0); */
 
 customElements.define('deadline-timer', MyDeadline);
