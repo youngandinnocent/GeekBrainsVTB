@@ -43,7 +43,7 @@ class MyDeadline extends HTMLElement {
             deadlineTimer.innerHTML = `
             <h2>${title}</h2>
             <p>${deltaDays}D:${deltaHours}H:${deltaMins}M:${deltaSecs}S</p>
-            <button class='remove-btn'>Remove Deadline</button>`
+            <button class='remove-btn' onclick="event.currentTarget.parentNode.remove()">Remove Deadline</button>`
             
             if (delta < day) {
                 setTimeout (()=> { 
@@ -126,8 +126,8 @@ confirmBtn.onclick = () => {
 
 let btnGrp = document.getElementsByClassName('remove-btn');
 for (let i = 0; i < btnGrp.length; i++) {
-    console.log(i)
-    btnGrp[i].addEventListener('click', ()=> {
+    document.getElementsByClassName('remove-btn')[i];
+    btn.addEventListener('click', ()=> {
         console.log('deleting');
         //btn.parentNode.remove();
     });
