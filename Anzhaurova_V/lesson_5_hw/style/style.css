@@ -1,0 +1,260 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.viewContainer {
+    width: 1440px;
+    height: 612px;
+    overflow: hidden;
+    position: relative;
+}
+.cardContainer {
+    display: flex;
+    position: absolute;
+    transition: left .9s;
+}
+.cardBackground {
+    width: 100%;
+    box-shadow: inset 2000px 0 0 0 rgba(39, 60, 117, 0.6);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cardTitle {
+    position: absolute;
+    left: 41px;
+    top: 25px;
+    font-family: 'Roboto',sans-serif;
+    font-weight: bold;
+    font-size: 45px;
+    color: #FFFFFF;
+}
+.cardParagraph {
+    width: 778px;
+    height: 203px;
+    position: absolute;
+    left: 466px;
+    top: 155px;
+    font-size: 25px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+
+.cardClientName{
+    position: absolute;
+    width: 161px;
+    height: 36px;
+    left: 289px;
+    top: 249px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.cardPosition {
+    position: absolute;
+    top: 272px;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.cardPhoto {
+    border-radius: 50px;
+    position: absolute;
+    left: 322px;
+    top: 155px;
+}
+
+
+/*Левая кнопка*/
+.triggerLeft {
+    cursor: pointer;
+    height: 0px;
+    width: 60px;
+    position: absolute;
+    left: 173px;
+    top: 330px;
+    transform: rotate(180deg);
+}
+.triggerLeftTop,
+.triggerLeftBottom {
+    background: #FFFFFF;
+    height: 10px;
+    left: -30px;
+    position: absolute;
+    top: 60px;
+    width: 65px;
+}
+.triggerLeftTop {
+    top: 64px;
+}
+.triggerLeftTop {
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+.triggerLeftBottom {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+.triggerLeftTop::after,
+.triggerLeftBottom::after {
+    background: #000;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+}
+.triggerLeftTop::after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0s;
+}
+.triggerLeftBottom::after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0.15s;
+}
+.triggerLeft:hover .triggerLeftTop::after {
+    left: 0;
+    transition-delay: 0.15s;
+}
+.triggerLeft:hover .triggerLeftBottom::after {
+    right: 0;
+    transition-delay: 0s;
+}
+
+
+/*Правая кнопка*/
+.triggerRight {
+    cursor: pointer;
+    height: 0px;
+    width: 60px;
+    position: absolute;
+    right: 135px;
+    top: 200px;
+}
+.triggerRightTop,
+.triggerRightBottom {
+    cursor: pointer;
+    background: #FFFFFF;
+    height: 10px;
+    left: -30px;
+    position: absolute;
+    top: 60px;
+    width: 65px;
+}
+.triggerRightTop {
+    top: 64px;
+}
+.triggerRightTop {
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+.triggerRightBottom {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+.triggerRightTop::after, .triggerRightBottom::after {
+    background: #000;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+}
+.triggerRightTop::after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0s;
+}
+.triggerRightBottom::after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0.15s;
+}
+.triggerRight:hover .triggerRightTop::after,
+.triggerLeft:hover .triggerLeftTop::after {
+    left: 0;
+    transition-delay: 0.15s;
+}
+.triggerRight:hover .triggerRightBottom::after,
+.triggerLeft:hover .triggerLeftBottom::after  {
+    right: 0;
+    transition-delay: 0s;
+}
+
+.paginator {
+    position: absolute;
+    top: 446px;
+    left: 689px;
+}
+.paginator-elem {
+    position: absolute;
+    cursor: pointer;
+    width: 21px;
+    height: 21px;
+    z-index: 10;
+    background: #414778;
+    border: 2px solid #EC406E;
+    border-radius: 11px;
+    box-sizing: border-box;
+}
+
+.paginator-active {
+    background: #EC406E;
+}
+
+.modalWindow {
+    display: none;
+    position: fixed;
+    z-index: 11;
+    padding: 30px;
+    left: 20%;
+    top: 30%;
+    overflow: auto;
+    background: #ffffff;
+    width: 400px;
+    height: 300px;
+}
+
+.modalCont {
+    background-color: #fefefe;
+    color: #000;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid blue;
+    box-shadow: 0 0 5px blue;
+    width: 50%;
+}
+
+.modalCont>h3 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.modalCont>div {
+    color: blue;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.modalTxt {
+    color: #000;
+}
+
