@@ -46,10 +46,8 @@ rootElement.appendChild(viewContainer);
 
 viewContainer.classList.add('viewContainer');
 cardContainer.classList.add('cardContainer');
-btnLeft.classList.add('btnLeft');
-btnRight.classList.add('btnRight');
-btnLeft.classList.add('btn');
-btnRight.classList.add('btn');
+btnLeft.classList.add('btnLeft', 'btn');
+btnRight.classList.add('btnRight', 'btn');
 
 cardContainer.style.left = 0;
 let cardHeight = viewContainer.offsetHeight;
@@ -85,7 +83,6 @@ function openWindow() {
 
 data.forEach((elem, index) => {
     let cardElem = document.createElement('div');
-    cardElem.id = 'card' + index;
     let imgContainer = document.createElement('div');
     let nameElem = document.createElement('p');
     let locElem = document.createElement('p');
@@ -113,26 +110,25 @@ data.forEach((elem, index) => {
     cardElem.addEventListener('click', function () { openWindow(); });
 })
 
-function cardMove(id) {
-    pageIndex = Number(id.match(/\d+/)[0]);
+function cardMove(index) {
+    pageIndex = index;
     let pastBtn = document.querySelector('.curBtn');
     pastBtn.classList.toggle("curBtn");
-    let curBtn = document.getElementById(id);
+    let curBtn = document.querySelector('.btnContainer').children[index];
     curBtn.classList.toggle('curBtn');
     cardContainer.style.left = - pageIndex * cardWidth + 'px';
 }
 
 let btnContainer = document.createElement('div');
-for (let i = 0; i < data.length; i++) {
+data.forEach((elem, index) => {
     let btnRound = document.createElement('button');
     btnRound.classList.add('btnRound');
-    btnRound.id = 'btn' + i;
     btnContainer.appendChild(btnRound);
-    btnRound.addEventListener('click', function () { cardMove(btnRound.id); });
-}
+    btnRound.addEventListener('click', function () { cardMove(index); });
+});
 viewContainer.appendChild(btnContainer);
 btnContainer.classList.add('btnContainer');
-document.getElementById('btn0').classList.add('curBtn');
+document.querySelector('.btnContainer').children[0].classList.add('curBtn');
 
 resize();
 
@@ -154,12 +150,10 @@ function resize() {
 window.addEventListener('resize', resize);
 
 function goLeft() {
-    let idLet = 'btn'
-    pageIndex === data.length - 1 ? cardMove(idLet + 0) : cardMove(idLet + (pageIndex + 1));
+    pageIndex === data.length - 1 ? cardMove(0) : cardMove(pageIndex + 1);
 }
 function goRight() {
-    let idLet = 'btn'
-    pageIndex === 0 ? cardMove(idLet + (data.length - 1)) : cardMove(idLet + (pageIndex - 1));
+    pageIndex === 0 ? cardMove(data.length - 1) : cardMove(pageIndex - 1);
 }
 
 btnLeft.addEventListener('click', goRight);
