@@ -119,15 +119,15 @@ confirmBtn.onclick = () => {
     });
     
     localStorage.setItem('deadlines', JSON.stringify(deadlines));
-    setTimeout(() => {
+    /* setTimeout(() => {
         document.location.reload(true);
-    }, 0); 
+    }, 0) */; 
 }
 
 let btnGrp = document.getElementsByClassName('remove-btn');
 for (let i = 0; i < btnGrp.length; i++) {
-    console.log(i)
-    btnGrp[i].addEventListener('click', ()=> {
+    btn = document.getElementsByClassName('remove-btn');
+    btn.addEventListener('click', ()=> {
         console.log('deleting');
         //btn.parentNode.remove();
     });
