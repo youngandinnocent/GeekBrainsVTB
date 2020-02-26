@@ -31,7 +31,6 @@ h2, p {
     padding-right: 20px;
     padding-left: 20px;
     display: block;
-    vertical-align: top;
     max-width: 75%;
     border-radius: 10px;
 }

@@ -14,7 +14,7 @@ class MyDeadline extends HTMLElement {
         let array = JSON.parse(localStorage.deadlines);
         array.splice(timerIndex, 1);
         localStorage.setItem('deadlines', JSON.stringify(array));
-        document.location.reload(true);
+        deadlines = JSON.parse(localStorage.deadlines);
     }
 
     setTimer() {
@@ -35,13 +35,16 @@ class MyDeadline extends HTMLElement {
 
             deadlineTimer.innerHTML = `
             <h2>${title}</h2>
-            <p>${deltaDays}D:${deltaHours}H:${deltaMins}M:${deltaSecs}S</p>
+            <p>${deltaDays}D:${deltaHours}H:${deltaMins}M:${deltaSecs}S left till deadline</p>
             <button class='remove-btn' onclick='this.parentNode.remove()'>Remove Deadline</button>`
             
-            if (delta < day) {
+            if (delta < 0) {
+                deadlineTimer.style.background = red;
+            } else if (delta < day) {
                 setTimeout (()=> { 
-                    deadlineTimer.style.transition = `background ${delta}ms`;
-                    deadlineTimer.style.background = red;
+                    let newGreen = Math.floor(delta/day * 255);
+                    let newRed = 255 - newGreen;
+                    deadlineTimer.style.background = `rgb(${newRed}, ${newGreen}, 0)`;
                 }, 0);
             }
 
@@ -90,7 +93,7 @@ for (let i = 0; i<deadlines.length; i++) {
     let timerElem = document.createElement('deadline-timer');
     rootElem.appendChild(timerElem);
 
-/*     let timerTitle = document.createElement('h2');
+/*  let timerTitle = document.createElement('h2');
     let timerText = document.createElement('p');
     let removeBtn = document.createElement('button');
     removeBtn.classList.add('remove-btn');
@@ -104,17 +107,14 @@ for (let i = 0; i<deadlines.length; i++) {
 }
 
 confirmBtn.onclick = () => {
-    let titleVal = titleElem.value;
-    let deadlineTimeValue = deadlineElem.value;
+    let timerElem = document.createElement('deadline-timer');
     deadlines.push({ 
-        title: titleVal,
-        deadline: deadlineTimeValue
+        title: titleElem.value,
+        deadline: deadlineElem.value
     });
     
     localStorage.setItem('deadlines', JSON.stringify(deadlines));
-    setTimeout(() => {
-        document.location.reload(true);
-    }, 0); 
+    rootElem.appendChild(timerElem);
 }
 
 /* let btnGrp = document.getElementsByClassName('remove-btn');
