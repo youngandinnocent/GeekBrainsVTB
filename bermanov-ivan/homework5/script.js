@@ -96,10 +96,8 @@ data.forEach((elem, i) => {
 
     const modal = document.createElement('div');
     modal.innerHTML = cardElem.innerHTML;
-    modal.classList.add('modal');
-    modal.classList.add('none');
-    cardElem.append(modal);
-
+    modal.classList.add('modal', 'none');
+    viewContainer.append(modal);
     cardElem.addEventListener('click', () => modal.classList.toggle('none'));
 
     cardBackground.append(cardElem);
