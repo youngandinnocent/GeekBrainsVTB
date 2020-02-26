@@ -80,7 +80,7 @@ inputContainer.appendChild(titleElem);
 inputContainer.appendChild(deadlineElem);
 inputContainer.appendChild(confirmBtn);
 
-if (localStorage.deadlines === '') {
+if (localStorage.deadlines === '' || localStorage.deadlines === undefined) {
     localStorage.setItem('deadlines', deadlines);
 } else {
     deadlines = JSON.parse(localStorage.deadlines);
