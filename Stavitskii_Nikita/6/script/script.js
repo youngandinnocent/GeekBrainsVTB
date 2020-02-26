@@ -71,7 +71,7 @@ inputContainer.classList.add('input-container');
 titleElem.classList.add('deadline-title');
 titleElem.setAttribute('placeholder', 'Enter the task name')
 deadlineElem.classList.add('deadline-time');
-deadlineElem.setAttribute('placeholder', new Date())
+deadlineElem.setAttribute('placeholder', '2020-02-25 18:00')
 confirmBtn.classList.add('confirm-btn');
 confirmBtn.innerText = 'Confirm';
 
