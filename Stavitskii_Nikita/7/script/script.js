@@ -90,15 +90,15 @@ submit.addEventListener('click', (event) => {
                     })
             })
         }
-    })
+    }, error => console.log(error));
 })
 
 let getPage = pageId => {
     fetch(`https://reqres.in/api/users?page=${pageId}`)
     .then(resp => { 
         return resp.json();
-    })
-    .then(resp => resp.data)
+    }, error => console.log(error))
+    .then(resp => resp.data, error => console.log(error))
     .then(resp => resp.forEach(element => {
         let cardElem = document.createElement('div');
         let cardText = document.createElement('div');
@@ -137,7 +137,7 @@ let getPage = pageId => {
                     }
                 })
         })
-    }))
+    }), error => console.log(error))
 }
 
 let pageId = 1;
