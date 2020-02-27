@@ -89,6 +89,9 @@ submit.addEventListener('click', (event) => {
                         }
                     })
             })
+        } else {
+            console.error(response.status);
+            
         }
     }, error => console.log(error));
 })
