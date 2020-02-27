@@ -1,13 +1,15 @@
 class Card extends HTMLElement {
   constructor() {
     super();
-
     this.timerId = null;
   }
 
   connectedCallback() {
     const title = this.getAttribute('title');
     const desc = this.getAttribute('desc');
+    const date = this.getAttribute('date');
+    const time = this.getAttribute('time');
+    const index = this.getAllCardsFromStorage().length;
 
     this.innerHTML = `
       <div class="card">
@@ -26,14 +28,20 @@ class Card extends HTMLElement {
       </div>
     `;
 
-    this.renderDeadline();
+    this.setAttribute('index', index + 1);
+    this.addDataToStorage({ index: index + 1, title, desc, date, time });
+
+    this.renderDeadline(date, time);
 
     this.timerId = setInterval(() => {
-      this.renderDeadline();
+      this.renderDeadline(date, time);
     }, 1000);
   }
 
   disconnectedCallback() {
+    const index = parseInt(this.getAttribute('index'));
+    this.deleteDataFromStorage(index);
+
     clearInterval(this.timerId);
   }
 
@@ -48,14 +56,11 @@ class Card extends HTMLElement {
     return { days, hours, minutes, seconds };
   }
 
-  renderDeadline() {
+  renderDeadline(date, time) {
     const cardDay = this.querySelector('.card__day');
     const cardHours = this.querySelector('.card__hours');
     const cardMinutes = this.querySelector('.card__minutes');
     const cardSecond = this.querySelector('.card__seconds');
-
-    const date = this.getAttribute('date');
-    const time = this.getAttribute('time');
 
     const { days, hours, minutes, seconds } = this.calculateDeadline(
       date,
@@ -66,5 +71,54 @@ class Card extends HTMLElement {
     cardHours.innerHTML = hours;
     cardMinutes.innerHTML = minutes;
     cardSecond.innerHTML = seconds;
+  }
+
+  // TODO: LocalStorage;
+  addDataToStorage(card) {
+    const cards = this.getAllCardsFromStorage();
+    let isHasCard = false;
+
+    cards.forEach(cardFromHere => {
+      if (this.deepEqual(cardFromHere, card)) {
+        isHasCard = true;
+      }
+    });
+
+    if (!isHasCard) {
+      localStorage.setItem('cards', JSON.stringify([...cards, card]));
+    }
+  }
+
+  deepEqual(obj1, obj2) {
+    return (
+      JSON.stringify({
+        title: obj1.title,
+        desc: obj1.desc,
+        date: obj1.date,
+        time: obj1.time,
+      }) ===
+      JSON.stringify({
+        title: obj2.title,
+        desc: obj2.desc,
+        date: obj2.date,
+        time: obj2.time,
+      })
+    );
+  }
+
+  deleteDataFromStorage(index) {
+    const cards = this.getAllCardsFromStorage();
+    const idx = cards.findIndex(card => {
+      return card.index === index;
+    });
+
+    localStorage.setItem(
+      'cards',
+      JSON.stringify([...cards.slice(0, idx), ...cards.slice(idx + 1)])
+    );
+  }
+
+  getAllCardsFromStorage() {
+    return JSON.parse(localStorage.getItem('cards')) || [];
   }
 }

@@ -70,9 +70,17 @@ function createCardWith(data) {
   card.setAttribute('desc', data.desc);
   card.setAttribute('date', data.date);
   card.setAttribute('time', data.time);
+
   cards.appendChild(card);
 }
 
-// Cards deadlines
+const allcards = JSON.parse(localStorage.getItem('cards')) || [];
 
-// dd hh mm ss
+allcards.forEach(card => {
+  createCardWith({
+    title: card.title,
+    desc: card.desc,
+    date: card.date,
+    time: card.time,
+  });
+});
