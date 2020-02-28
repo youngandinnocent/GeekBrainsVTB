@@ -70,6 +70,9 @@ function createCardWith(data) {
   card.setAttribute('desc', data.desc);
   card.setAttribute('date', data.date);
   card.setAttribute('time', data.time);
+  if (data.index) {
+    card.setAttribute('index', data.index);
+  }
 
   cards.appendChild(card);
 }
@@ -78,6 +81,7 @@ const allcards = JSON.parse(localStorage.getItem('cards')) || [];
 
 allcards.forEach(card => {
   createCardWith({
+    index: card.index,
     title: card.title,
     desc: card.desc,
     date: card.date,

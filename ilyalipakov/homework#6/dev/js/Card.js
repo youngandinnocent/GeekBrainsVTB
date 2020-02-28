@@ -9,7 +9,17 @@ class Card extends HTMLElement {
     const desc = this.getAttribute('desc');
     const date = this.getAttribute('date');
     const time = this.getAttribute('time');
-    const index = this.getAllCardsFromStorage().length;
+    let index = parseInt(this.getAttribute('index'));
+    const cards = this.getAllCardsFromStorage() || [];
+
+    // let isHasCard = this.checkIsCard(cards, { title, desc, date, time });
+
+    // if (isHasCard) {
+    //   console.log(1);
+    // }
+    if (!index) {
+      index = cards.length + 1;
+    }
 
     this.innerHTML = `
       <div class="card">
@@ -28,8 +38,8 @@ class Card extends HTMLElement {
       </div>
     `;
 
-    this.setAttribute('index', index + 1);
-    this.addDataToStorage({ index: index + 1, title, desc, date, time });
+    this.setAttribute('index', index);
+    this.addDataToStorage({ index, title, desc, date, time });
 
     this.renderDeadline(date, time);
 
@@ -76,17 +86,21 @@ class Card extends HTMLElement {
   // TODO: LocalStorage;
   addDataToStorage(card) {
     const cards = this.getAllCardsFromStorage();
-    let isHasCard = false;
-
-    cards.forEach(cardFromHere => {
-      if (this.deepEqual(cardFromHere, card)) {
-        isHasCard = true;
-      }
-    });
+    let isHasCard = this.checkIsCard(cards, card);
 
     if (!isHasCard) {
       localStorage.setItem('cards', JSON.stringify([...cards, card]));
     }
+  }
+
+  checkIsCard(cards, card) {
+    for (let i = 0; i < cards.length; i++) {
+      if (this.deepEqual(cards[i], card)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   deepEqual(obj1, obj2) {
