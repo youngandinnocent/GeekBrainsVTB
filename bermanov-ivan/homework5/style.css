@@ -146,3 +146,7 @@ body {
 .modal .centerBlock {
     top: 0;
 }
+
+.none {
+    display: none;
+}

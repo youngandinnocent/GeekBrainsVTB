@@ -40,8 +40,8 @@ viewContainer.classList.add('viewContainer');
 const cardContainer = document.createElement('div');
 cardContainer.classList.add('cardContainer');
 cardContainer.style.left = 0;
-viewContainer.appendChild(cardContainer);
-rootElem.appendChild(viewContainer);
+viewContainer.append(cardContainer);
+rootElem.append(viewContainer);
 
 const triggerLeft = document.createElement('button');
 const triggerRight = document.createElement('button');
@@ -51,8 +51,8 @@ triggerRight.innerText = '>';
 triggerLeft.classList.add('triggerLeft');
 triggerRight.classList.add('triggerRight');
 
-viewContainer.appendChild(triggerLeft);
-viewContainer.appendChild(triggerRight);
+viewContainer.append(triggerLeft);
+viewContainer.append(triggerRight);
 
 data.forEach((elem, i) => {
     const cardBackground = document.createElement('div');
@@ -80,47 +80,28 @@ data.forEach((elem, i) => {
     const avatarParagraph = document.createElement('p');
     avatarParagraph.classList.add('avatarParagraph');
     avatarParagraph.innerText = elem.avatarParagraph;
-    avatar.appendChild(avatarImg);
-    avatar.appendChild(avatarHeader);
-    avatar.appendChild(avatarParagraph);
+    avatar.append(avatarImg);
+    avatar.append(avatarHeader);
+    avatar.append(avatarParagraph);
 
     const paragraph = document.createElement('p');
     paragraph.classList.add('paragraph');
     paragraph.innerText = elem.paragraph;
 
-    centerBlock.appendChild(avatar);
-    centerBlock.appendChild(paragraph);
+    centerBlock.append(avatar);
+    centerBlock.append(paragraph);
 
-    cardElem.appendChild(header);
-    cardElem.appendChild(centerBlock);
+    cardElem.append(header);
+    cardElem.append(centerBlock);
 
-    // Почему-то добавляет все модалки первой карте, не могу понять причину
-    cardElem.addEventListener('click', (e) => {
-        if (!document.querySelector('.cardElem .modal')) {
-            const modal = document.createElement('div');
-            modal.innerHTML = cardElem.innerHTML;
-            modal.classList.add('modal');
-            cardElem.appendChild(modal);
-        } else {
-            document.querySelector('.cardElem .modal').remove();
-        }
+    const modal = document.createElement('div');
+    modal.innerHTML = cardElem.innerHTML;
+    modal.classList.add('modal', 'none');
+    viewContainer.append(modal);
+    cardElem.addEventListener('click', () => modal.classList.toggle('none'));
 
-        // Вот тут пробую с таргетом, но всё-равно добавляет модалки к первой карте
-
-        // const targetElem = e.target.closest('.cardElem');
-        // console.log(targetElem);
-        // if (!targetElem.lastChild.classList.contains('modal')) {
-        //     const modal = document.createElement('div');
-        //     modal.innerHTML = targetElem.innerHTML;
-        //     modal.classList.add('modal');
-        //     targetElem.appendChild(modal);
-        // } else {
-        //     targetElem.lastChild.remove();
-        // }
-    });
-
-    cardBackground.appendChild(cardElem);
-    cardContainer.appendChild(cardBackground);
+    cardBackground.append(cardElem);
+    cardContainer.append(cardBackground);
 });
 
 let pageIndex = 0;
@@ -129,7 +110,7 @@ const cardMove = (id) => {
     pageIndex = id;
     const currentDot = document.querySelector('.active');
     currentDot.classList.remove('active');
-    const nextDot = document.querySelector(`#dot${pageIndex}`);
+    const nextDot = document.querySelectorAll('.dots')[pageIndex];
     nextDot.classList.add('active');
     cardContainer.style.left = -pageIndex * viewContainer.offsetWidth + 'px';
 }
@@ -138,7 +119,7 @@ for (let i = 0; i < data.length; i++) {
     const dot = document.createElement('button');
     dot.classList.add('dots');
     dot.setAttribute('id', `dot${i}`);
-    viewContainer.appendChild(dot);
+    viewContainer.append(dot);
     dot.addEventListener('click', () => cardMove(dot.getAttribute('id').slice(3)));
 }
 
