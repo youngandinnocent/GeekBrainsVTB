@@ -12,11 +12,6 @@ class Card extends HTMLElement {
     let index = parseInt(this.getAttribute('index'));
     const cards = this.getAllCardsFromStorage() || [];
 
-    // let isHasCard = this.checkIsCard(cards, { title, desc, date, time });
-
-    // if (isHasCard) {
-    //   console.log(1);
-    // }
     if (!index) {
       index = cards.length + 1;
     }
@@ -77,10 +72,21 @@ class Card extends HTMLElement {
       time
     );
 
+    this.updateBackground(days);
+
     cardDay.innerHTML = days;
     cardHours.innerHTML = hours;
     cardMinutes.innerHTML = minutes;
     cardSecond.innerHTML = seconds;
+  }
+
+  updateBackground(deadline) {
+    const card = this.querySelector('.card');
+    if (deadline == 0) {
+      card.classList.add('warning');
+    } else if (deadline < 0) {
+      card.classList.add('danger');
+    }
   }
 
   // TODO: LocalStorage;
@@ -91,33 +97,6 @@ class Card extends HTMLElement {
     if (!isHasCard) {
       localStorage.setItem('cards', JSON.stringify([...cards, card]));
     }
-  }
-
-  checkIsCard(cards, card) {
-    for (let i = 0; i < cards.length; i++) {
-      if (this.deepEqual(cards[i], card)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  deepEqual(obj1, obj2) {
-    return (
-      JSON.stringify({
-        title: obj1.title,
-        desc: obj1.desc,
-        date: obj1.date,
-        time: obj1.time,
-      }) ===
-      JSON.stringify({
-        title: obj2.title,
-        desc: obj2.desc,
-        date: obj2.date,
-        time: obj2.time,
-      })
-    );
   }
 
   deleteDataFromStorage(index) {
@@ -134,5 +113,35 @@ class Card extends HTMLElement {
 
   getAllCardsFromStorage() {
     return JSON.parse(localStorage.getItem('cards')) || [];
+  }
+
+  // TODO: Check methods
+  checkIsCard(cards, card) {
+    for (let i = 0; i < cards.length; i++) {
+      if (this.deepEqual(cards[i], card)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  deepEqual(obj1, obj2) {
+    return (
+      JSON.stringify({
+        index: obj1.index,
+        title: obj1.title,
+        desc: obj1.desc,
+        date: obj1.date,
+        time: obj1.time,
+      }) ===
+      JSON.stringify({
+        index: obj2.index,
+        title: obj2.title,
+        desc: obj2.desc,
+        date: obj2.date,
+        time: obj2.time,
+      })
+    );
   }
 }
