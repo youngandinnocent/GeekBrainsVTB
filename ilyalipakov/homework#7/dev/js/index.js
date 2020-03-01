@@ -4,6 +4,7 @@ let maxId;
 const cardsElems = document.querySelector('.cards');
 const form = document.querySelector('.form');
 
+// EVENTS
 form.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -65,34 +66,6 @@ document.addEventListener('scroll', () => {
   }
 });
 
-const createCardForUser = user => {
-  const card = createElem('div', 'card');
-  card.id = user.id;
-  maxId = ++user.id;
-  const cardInfo = createElem('div', 'card__info');
-  const cardEmail = createElem('p', 'card__email', user.email);
-  const cardFirstName = createElem('p', 'card__firstname', user.first_name);
-  const cardLastname = createElem('p', 'card__lastname', user.last_name);
-  const cardAvatar = createElem('img', 'card__avata');
-  const deleteCard = createElem('div', 'card__delete', 'Удалить');
-
-  loadImg(
-    cardAvatar,
-    'card__avatar',
-    user.avatar,
-    `${user.first_name} ${user.last_name}`
-  );
-
-  card.appendChild(cardInfo);
-  card.appendChild(deleteCard);
-  cardInfo.appendChild(cardEmail);
-  cardInfo.appendChild(cardFirstName);
-  cardInfo.appendChild(cardLastname);
-  cardInfo.appendChild(cardAvatar);
-
-  return card;
-};
-
 const createElem = (tag, clazz, text) => {
   const elem = document.createElement(tag);
   elem.classList.add(clazz);
@@ -104,6 +77,7 @@ const createElem = (tag, clazz, text) => {
   return elem;
 };
 
+// NETWORK
 const getDataUsers = page => {
   fetch(`https://reqres.in/api/users?page=${page}`)
     .then(response => response.json())
@@ -144,6 +118,35 @@ function createNewUser({ id, first_name, last_name, email, avatar }) {
     },
   }).then(response => response.ok);
 }
+
+// ELEMENTS
+const createCardForUser = user => {
+  const card = createElem('div', 'card');
+  card.id = user.id;
+  maxId = ++user.id;
+  const cardInfo = createElem('div', 'card__info');
+  const cardEmail = createElem('p', 'card__email', user.email);
+  const cardFirstName = createElem('p', 'card__firstname', user.first_name);
+  const cardLastname = createElem('p', 'card__lastname', user.last_name);
+  const cardAvatar = createElem('img', 'card__avata');
+  const deleteCard = createElem('div', 'card__delete', 'Удалить');
+
+  loadImg(
+    cardAvatar,
+    'card__avatar',
+    user.avatar,
+    `${user.first_name} ${user.last_name}`
+  );
+
+  card.appendChild(cardInfo);
+  card.appendChild(deleteCard);
+  cardInfo.appendChild(cardEmail);
+  cardInfo.appendChild(cardFirstName);
+  cardInfo.appendChild(cardLastname);
+  cardInfo.appendChild(cardAvatar);
+
+  return card;
+};
 
 const loadImg = (imgElem, clazz, link, alt) => {
   imgElem.setAttribute('src', link);
