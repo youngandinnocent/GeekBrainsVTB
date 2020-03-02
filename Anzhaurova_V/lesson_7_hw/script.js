@@ -56,8 +56,9 @@ window.addEventListener("scroll", function(){
 
 //реализовать кнопку удаления у каждой карточки пользователя, которая отправляет запрос на удаление на сервер и при успешном ответе удаляет элемент из DOM
 function  removeCard(elem) {
-    let userId = parseInt(elem.getAttribute('id'));
-    fetch(`https://reqres.in/api/users?id=${userId}`)
+    console.log(elem.parentNode.getAttribute('user-id'))
+    let userId = parseInt(elem.parentNode.getAttribute('user-id'));
+    fetch(`https://reqres.in/api/users/?id=${userId}`)
         .then(response => response.ok).then(() => {
             elem.closest('.user-card').remove();
         })
@@ -71,17 +72,12 @@ document.querySelector('.card_form').addEventListener('submit', (ev) => {
     document.querySelectorAll('.card_form label>input').forEach(newCard => {
         newObj[newCard.name] = newCard.value
     });
-    document.querySelectorAll('.user-card').forEach(userCard => {
-        console.log(userCard.getAttribute("user-id"))
-    });
-
 
     createUser(newObj).then(status => {
         if(status === 201) {
-            let maxID = 1;
+            let maxId = 1;
             document.querySelectorAll('.user-card').forEach(userCard=> {
-                //maxID = Math.max(newCard.id, maxID);
-                newObj.id = Math.max(userCard.getAttribute("user-id"), maxID) + 1;
+                newObj.id = Math.max(userCard.getAttribute("user-id"), maxId) + 1;
             })
             document.body.prepend(getUserElem(newObj));
         }
@@ -111,6 +107,8 @@ function getUserElem(obj) {
 
     return false
 }
+
+//https://anzhaurova.github.io/GeekBrainsVTB/Anzhaurova_V/lesson_7_hw/
 
 
 
