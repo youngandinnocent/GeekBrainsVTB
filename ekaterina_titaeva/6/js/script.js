@@ -31,10 +31,6 @@ class MyElement extends HTMLElement {
         }
     }
 
-    static get observedAttributes() {  // массив имен атрибутов для отслеживания изменений
-        return ['deadLine'];
-    }
-
 }
 
 customElements.define('my-element', MyElement); // связываем элемент с классом
@@ -64,7 +60,7 @@ function createElem(elem) { // рисуем карточку
 
     cardDl.classList.add('card');
 
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (event) {
         deleteDL(event);
         cardDl.remove();
     });
