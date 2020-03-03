@@ -40,4 +40,5 @@ button{
     font: 14px Arial, sans-serif;
     margin: 10px;
     color: white;
+    cursor: pointer;
 }
