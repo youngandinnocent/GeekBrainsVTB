@@ -27,6 +27,7 @@ function checkName() {
     } else {
         nameElem.style.border = '2px solid red';
         icon.classList.add('failure');
+        isUserValid = false;
     }
 }
 
@@ -41,6 +42,7 @@ function checkEmail() {
     } else {
         emaiElem.style.border = '2px solid red';
         icon.classList.add('failure');
+        isEmailValid = false;
     }
 }
 
@@ -55,6 +57,7 @@ function checkPassword() {
     } else {
         passwordElem.style.border = '2px solid red';
         icon.classList.add('failure');
+        isPwValid = false;
     }
     isPwSame();
 }
@@ -70,20 +73,52 @@ function isPwSame() {
     } else {
         passwordCheckElem.style.border = '2px solid red';
         icon.classList.add('failure');
+        isPwCheckValid = false;
     }
 }
 
 function submitForm(event) {
+    if (!isUserValid) {
+        nameElem.classList.add('failed');
+        setTimeout(() => {
+            nameElem.classList.remove('failed')
+        }, 500);
+    }
+    if (!isEmailValid) {
+        emaiElem.classList.add('failed');
+        setTimeout(() => {
+            emaiElem.classList.remove('failed')
+        }, 500);
+    }
+    if (!isPwValid) {
+        passwordElem.classList.add('failed');
+        setTimeout(() => {
+            passwordElem.classList.remove('failed')
+        }, 500);
+    }
+    if (!isPwCheckValid) {
+        passwordCheckElem.classList.add('failed');
+        setTimeout(() => {
+            passwordCheckElem.classList.remove('failed')
+        }, 500);
+    }
+
+
     if (isUserValid && isEmailValid && isPwValid && isPwCheckValid) {
         users.forEach((user) => {
             let pattern = new RegExp(`${nameElem.value}`);
             let reversePattern = new RegExp(`${user.username}`);
-            if (pattern.test(user.username)) {
+            let icon = nameElem.nextElementSibling;
+            if (pattern.test(user.username) || reversePattern.test(nameElem.value)) {
                 console.log('User exists');
                 userExists = true;
-            } else if (reversePattern.test(nameElem.value)) {
-                console.log('User exists');
-                userExists = true;
+                nameElem.style.border = '2px solid red';
+                icon.classList.add('failure');
+                isUserValid = false;
+                nameElem.classList.add('failed');
+                setTimeout(() => {
+                    nameElem.classList.remove('failed')
+                }, 500);
             }
         })
         if (!userExists) {
@@ -96,11 +131,6 @@ function submitForm(event) {
             localStorage.setItem('users', JSON.stringify(users));
         }
     }
-
-    if (!isUserValid) {}
-    if (!isEmailValid) {}
-    if (!isPwValid) {}
-    if (!isPwCheckValid) {}
 
     submit.addEventListener('click', submitForm);
     event.preventDefault();
