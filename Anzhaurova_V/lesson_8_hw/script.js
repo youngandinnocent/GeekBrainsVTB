@@ -1,6 +1,6 @@
 /* реализовать HTML форму регистрации со следующими полями:
--name	(Допустимы символы латиницы,кириллицы, цифры и _ от 5 до 10 символов)
--email	(должен иметь вид example@domen.ru )
+-name   (Допустимы символы латиницы,кириллицы, цифры и _ от 5 до 10 символов)
+-email  (должен иметь вид example@domen.ru )
 -password1 (минимум 10 символов, обязательна одна цифра и одна буква капсом)
 -password2 (проверка совпадения с password1)
 при верном указании значений логин почта и пароль должны сохраняться в localstorage в виде массива объектов (каждый объект это данные одного пользователя).
@@ -16,10 +16,7 @@ user и superuser не допустимо (user является частью su
 let userForms = [];
 
 //получаем данные из форм
-let login= document.getElementById('login');
-let email = document.getElementById('email');
-let pass = document.getElementById('pass');
-let pass2 = document.getElementById('passwordTwo');
+
 let btnSubmit = document.getElementById('uf-btn--submit');
 
 //регулярки для валидации login
@@ -64,28 +61,32 @@ function check3() {
 }
 passElem.addEventListener('input', check3);
 
+
+function createObj(obj) {
+    let userForms = [];
+    if (localStorage.getItem("userInfo") != undefined) {
+        userForms = JSON.parse(localStorage.getItem("userInfo"));
+    }
+    userForms.push(obj)
+    localStorage.setItem("userInfo", JSON.stringify(userForms));
+}
+
+//createObj(userInfo);
 //навешиваем событие по клику на кнопку submit
 btnSubmit.addEventListener('click',  (ev) => {
     ev.preventDefault();
-    let userInfo = {};
+
+
+    //объект c данными формы
+    let login= document.getElementById('login');
+    let email = document.getElementById('email');
+    let pass = document.getElementById('pass');
+    let pass2 = document.getElementById('passwordTwo');
+    let userInfo = {
+        "login" : login.value,
+        "email" : email.value,
+        "pass" : pass.value
+    };
+
+    createObj(userInfo);
 });
-
-//объект c данными формы
-let userInfo = {
-    "login" : login.value,
-    "email" : email.value,
-    "pass" : pass.value
-};
-
-//запихиваем в массив объекты
-function createObj() {
-    let userForms = [];
-    userForms.push(userInfo);
-    localStorage.setItem("userInfo", JSON.stringify(userForms));
-
-    if (localStorage.getItem("userInfo") !== undefined) {
-        userForms = JSON.parse(localStorage.getItem("userInfo"));
-    }
-
-}
-
