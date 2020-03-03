@@ -9,7 +9,7 @@ const render = (name, lastName, avatar, email, id) => {
     const button = document.createElement('button');
     button.textContent = 'DELETE';
     div.append(title, paragraph, button);
-    
+
     title.textContent = `${name} ${lastName}`;
     img.src = avatar;
     paragraph.textContent = email;
