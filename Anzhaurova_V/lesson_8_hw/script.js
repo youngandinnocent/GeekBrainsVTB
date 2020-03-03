@@ -26,13 +26,13 @@ let btnSubmit = document.getElementById('uf-btn--submit');
 // Допустимы символы латиницы,кириллицы, цифры и _ от 5 до 10 символов
 let loginElem = document.querySelector('#login');
 function check1(){
-     let value = loginElem.value;
-     let pattern = /^[a-zA-Zа-яёА-Яё0-9_]{5,10}$/;
-     if (pattern.test(value)) {
-         loginElem.style.border = '5px solid green';
-     }else {
-         loginElem.style.border = '5px solid red';
-     }
+    let value = loginElem.value;
+    let pattern = /^[a-zA-Zа-яёА-Яё0-9_]{5,10}$/;
+    if (pattern.test(value)) {
+        loginElem.style.border = '5px solid green';
+    }else {
+        loginElem.style.border = '5px solid red';
+    }
 }
 loginElem.addEventListener('input', check1);
 
@@ -53,10 +53,10 @@ emailElem.addEventListener('input', check2);
 //регулярки для валидации password
 //минимум 10 символов, обязательна одна цифра и одна буква капсом
 let passElem = document.querySelector('#pass');
-function check3(){
+function check3() {
     let value = passElem.value;
     let pattern = /^(?=.*?[A-Z])(?=.*?[0-9]).{10,}$/;
-    if (pattern.test(value) && passElem === passElemTwo) {
+    if (pattern.test(value)) {
         passElem.style.border = '5px solid green';
     }else {
         passElem.style.border = '5px solid red';
@@ -64,24 +64,18 @@ function check3(){
 }
 passElem.addEventListener('input', check3);
 
-let passElemTwo = document.querySelector('#passwordTwo');
-    if (passElemTwo === passElem) {
-        passElem.style.border = '5px solid green';
-    }
-
-}
-
-
 //навешиваем событие по клику на кнопку submit
-btnSubmit.addEventListener('submit',  (ev) => {
+btnSubmit.addEventListener('click',  (ev) => {
     ev.preventDefault();
-    //объект c данными формы
-    let userInfo = {
-        "login" : login.value,
-        "email" : email.value,
-        "pass" : pass.value
-    };
+    let userInfo = {};
 });
+
+//объект c данными формы
+let userInfo = {
+    "login" : login.value,
+    "email" : email.value,
+    "pass" : pass.value
+};
 
 //запихиваем в массив объекты
 function createObj() {
@@ -94,7 +88,4 @@ function createObj() {
     }
 
 }
-
-
-
 
