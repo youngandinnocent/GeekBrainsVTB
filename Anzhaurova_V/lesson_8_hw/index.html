@@ -11,17 +11,20 @@
 <body>
 <form  class="user-form" action="POST" >
     <div class="flex-row">
-        <input id="login" class="form--input" placeholder="Введите логин" type="text" >
+        <input id="login" class="form--input" placeholder="Введите логин" type="text" oninput="errorCounter()">
     </div>
     <div class="flex-row">
-        <input  id="email" class="form--input" placeholder="Введите e-mail" type="text">
+        <input  id="email" class="form--input" placeholder="Введите e-mail" type="text" oninput="errorCounter()">
     </div>
     <div class="flex-row">
-        <input  id="pass" class="form--input" placeholder="Введите пароль" type="password" >
+        <input  id="pass" class="form--input" placeholder="Введите пароль" type="password" oninput="errorCounter()">
     </div>
     <div class="flex-row">
-        <input  id="passwordTwo" class="form--input"  type="password" placeholder="Подтвердите пароль">
-        <input id="uf-btn--submit" class="uf--submit" type="submit" value='Зарегистрироваться'>
+        <input  id="passwordTwo" class="form--input"  type="password" placeholder="Подтвердите пароль" oninput="errorCounter()">
+    </div>
+
+    <div class="flex-row">
+        <input id="uf-btn--submit" class="uf--submit" type="submit" value='Зарегистрироваться' disabled>
     </div>
 </form>
 <script src="script.js"></script>

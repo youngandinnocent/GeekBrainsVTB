@@ -12,23 +12,36 @@
     пример:
 user и superuser не допустимо (user является частью superuser)*/
 
-//массив в котором будут объекты с формами
-let userForms = [];
 
-//получаем данные из форм
 
 let btnSubmit = document.getElementById('uf-btn--submit');
 
 //регулярки для валидации login
 // Допустимы символы латиницы,кириллицы, цифры и _ от 5 до 10 символов
 let loginElem = document.querySelector('#login');
+
+function getFormData() {
+    let login= document.getElementById('login');
+    let email = document.getElementById('email');
+    let pass = document.getElementById('pass');
+    //let pass2 = document.getElementById('passwordTwo');
+    return {
+        "login" : login.value,
+        "email" : email.value,
+        "pass" : pass.value
+    };
+}
+
+
 function check1(){
     let value = loginElem.value;
     let pattern = /^[a-zA-Zа-яёА-Яё0-9_]{5,10}$/;
     if (pattern.test(value)) {
         loginElem.style.border = '5px solid green';
+        return 0;
     }else {
         loginElem.style.border = '5px solid red';
+        return  1;
     }
 }
 loginElem.addEventListener('input', check1);
@@ -41,8 +54,10 @@ function check2(){
     let pattern = /^[a-z]+@[a-z]{2,6}\.[a-z]{2,4}$/i;
     if (pattern.test(value)) {
         emailElem.style.border = '5px solid green';
+        return 0;
     }else {
         emailElem.style.border = '5px solid red';
+        return  1;
     }
 }
 emailElem.addEventListener('input', check2);
@@ -55,11 +70,43 @@ function check3() {
     let pattern = /^(?=.*?[A-Z])(?=.*?[0-9]).{10,}$/;
     if (pattern.test(value)) {
         passElem.style.border = '5px solid green';
+        return  0;
     }else {
         passElem.style.border = '5px solid red';
+        return  1;
     }
 }
 passElem.addEventListener('input', check3);
+
+
+let passTwoElem = document.querySelector('#passwordTwo')
+function check4() {
+    let thisVal = passTwoElem.value;
+    let passElem = document.querySelector('#pass').value;
+    if (thisVal == passElem && thisVal.length > 3) {
+        passTwoElem.style.border = '5px solid green';
+        return  0;
+    } else {
+        passTwoElem.style.border = '5px solid red';
+        return  1;
+    }
+
+}
+passTwoElem.addEventListener('input', check4);
+
+
+function errorCounter() {
+    let res = Number(check1())+Number(check2())+Number(check3())+Number(check4());
+    console.log(res)
+    if (res === 0) {
+        document.getElementById('uf-btn--submit').removeAttribute("disabled");
+    } else {
+        if (document.getElementById('uf-btn--submit').getAttribute("disabled")) {
+            document.getElementById('uf-btn--submit').setAttribute("disabled");
+        }
+    }
+    return res;
+}
 
 
 function createObj(obj) {
@@ -75,18 +122,16 @@ function createObj(obj) {
 //навешиваем событие по клику на кнопку submit
 btnSubmit.addEventListener('click',  (ev) => {
     ev.preventDefault();
-
-
     //объект c данными формы
-    let login= document.getElementById('login');
-    let email = document.getElementById('email');
-    let pass = document.getElementById('pass');
-    let pass2 = document.getElementById('passwordTwo');
-    let userInfo = {
-        "login" : login.value,
-        "email" : email.value,
-        "pass" : pass.value
-    };
-
+    let userInfo = getFormData();
     createObj(userInfo);
 });
+
+
+
+/*
+form.querySelector("input[type='submit']").onclick=function(){
+    document.querySelector(".form").classList.add("animClass");
+    setTimeout("form.querySelector('user-form').submit()",animDur+100);
+    return false;
+}*/

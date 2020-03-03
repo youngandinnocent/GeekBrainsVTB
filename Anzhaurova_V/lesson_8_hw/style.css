@@ -122,3 +122,7 @@ body {
  }
 }
 ::placeholder { color: whitesmoke; }
+
+.uf--submit[disabled] {
+    background: gray;
+}
