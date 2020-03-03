@@ -44,10 +44,7 @@ body {
 .wrapper {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 50px;
-    padding-right: 250px;
-    bottom: 50px;
-    padding-left: 50px;
+    padding: 50px 250px 50px 50px;
     max-width: 730px;
 }
 
