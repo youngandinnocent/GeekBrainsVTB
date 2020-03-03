@@ -18,11 +18,7 @@ document.querySelector('.form').addEventListener('submit', (ev) => {
 	createUser(firstName, lastName, email, avatar)
 		.then(status => {
 			if(status === 201) {
-				let maxID = 1;
-				document.querySelectorAll('.user-card').forEach(card => {
-					maxID = Math.max(card.id, maxID);
-				})
-				document.body.prepend(getUserElem(maxID, firstName, lastName, email, avatar));
+				document.body.prepend(getUserElem(firstName, lastName, email, avatar));
 			}
 		})
 })
@@ -63,8 +59,8 @@ function getPosts(id){
 		.then(res => res.json())
 		.then(res => {
 			res.data.forEach(user => {
-				const { id, email, first_name, last_name, avatar } = user;
-				document.body.append(getUserElem(id, first_name, last_name, email, avatar));
+				const { email, first_name, last_name, avatar } = user;
+				document.body.append(getUserElem(first_name, last_name, email, avatar));
 			});
 		})
 		.then(() => {
@@ -73,10 +69,9 @@ function getPosts(id){
 		});	
 }
 
-function getUserElem(id, firstName, lastName, email, avatar) {
+function getUserElem(firstName, lastName, email, avatar) {
 	let userElem = document.createElement('div');
 	userElem.classList.add('user-card');
-	userElem.id = id;
 	userElem.innerHTML = `
 		<img class='user-avatar' src=${avatar} height='128' width='128'>
 		<div class='user-info'>
