@@ -66,32 +66,8 @@ form * {
     border-color: green;
 }
 
-.valid::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    width: 15px;
-    height: 15px;
-    background-color: green;
-    border-radius: 50%;
-    transform: translateY(-50%);
-}
-
 .not-valid {
     border-color: red;
-}
-
-.not-valid::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    width: 15px;
-    height: 15px;
-    background-color: red;
-    border-radius: 50%;
-    transform: translateY(-50%);
 }
 
 .shaking {

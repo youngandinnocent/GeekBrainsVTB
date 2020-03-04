@@ -27,7 +27,7 @@ let patternName = /(^[А-ЯЁа-яёA-Za-z0-9_]{5,10}$)/i,
     arrayUsers = [];
 
 if (localStorage.Users == null) {
-    localStorage.setItem('Users', arrayUsers);
+    localStorage.setItem('Users', '[]');
 }
 
 function regExpForm(_this) {
@@ -76,6 +76,17 @@ function paintingGreen(field) {
     field.classList.remove('not-valid');
 }
 
+function createPushObj(nameValue, emailValue, passwordValue) {
+    alert('User добавлен!');
+    let objUser = {};
+    objUser['name'] = nameValue;
+    objUser['email'] = emailValue;
+    objUser['password'] = passwordValue;
+    arrayUsers = JSON.parse(localStorage.Users);
+    arrayUsers.push(objUser);
+    localStorage.setItem('Users', JSON.stringify(arrayUsers));
+}
+
 function addUser(e) {
     e.preventDefault();
     let nameValue = document.querySelector('[name="name"]').value,
@@ -86,27 +97,24 @@ function addUser(e) {
         (patternEmail.test(emailValue)) &&
         (patternPassword.test(passwordValue)) &&
         (confirmValue == passwordValue)) {
-        if (localStorage.Users.length == 0) {
-            alert('User добавлен!');
-            let objUser = {};
-            objUser['name'] = nameValue;
-            objUser['email'] = emailValue;
-            objUser['password'] = passwordValue;
-            arrayUsers.push(objUser);
-            localStorage.setItem('Users', JSON.stringify(arrayUsers));
+        if (JSON.parse(localStorage.Users).length == 0) {
+            createPushObj(nameValue, emailValue, passwordValue);
         } else {
-            (JSON.parse(localStorage.Users)).forEach(user => {
-                if (nameValue.indexOf(user.name, 0) != -1) {
-                    alert('Недопустимое значение имени!');
-                }
-            });
+            let str = JSON.stringify(JSON.parse(localStorage.Users));
+            if (nameValue.indexOf(str) == -1) {
+                // Всегда возвращается -1. Типа "Нико" нет в "Николай". Не пойму почему. ٩(ʘ益ʘ)۶
+                createPushObj(nameValue, emailValue, passwordValue);
+            } else {
+                alert('Недопустимое значение имени!');
+            }
         }
     } else {
         let notValid = document.getElementsByClassName('not-valid');
         for (let item of notValid) {
+            item.classList.add('shaking');
             setTimeout(() => {
-                item.classList.add('shaking');
-            }, 300);
+                item.classList.remove('shaking');
+            }, 500);
         }
     }
 }
