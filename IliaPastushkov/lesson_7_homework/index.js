@@ -37,10 +37,9 @@ async function getUsersDataFromId(pageID) {
     renderFromJSON(usersData);
 }
 
-async function deleteCard(card) {
-    let response = await fetch("https://reqres.in/api/users?page=1", {
-        method: 'DELETE',
-        body: card,
+async function deleteCard(cardId) {
+    let response = await fetch(`https://reqres.in/api/users/${cardId}`, {
+        method: 'DELETE'
     }); // завершается с заголовками ответа
     if (response.ok) { // если HTTP-статус в диапазоне 200-299 получаем тело ответа
         console.log(response.statusText);
@@ -96,8 +95,15 @@ function renderFromJSON(objArr) {
         card.addEventListener("click", function () {
             let target = event.target;
             if (target.tagName === "BUTTON") {
-                let response = deleteCard(card);
-                card.remove();
+                deleteCard(userObj.id).then(status => {
+                    if (status === 204) {
+                        card.remove();
+                        console.log(status);
+                    } else
+                    {
+                        console.log("ERRRRORRR!!!")
+                    }
+                });
             }
         });
 
@@ -117,18 +123,24 @@ window.addEventListener("scroll", function () {
 
 console.log(email_input.type);
 
-addButton.addEventListener("click", function () {
-    let newItem =[];
-    let obj = {};
-
-    obj.id = idCounter;
-    obj.email = email_input.value;
-    obj.first_name = name_input.value;
-    obj.last_name = surname_input.value;
-    obj.avatar = avatar_img.value;
-    newItem.push(obj);
-    idCounter++;
-    console.log(email_input.value);
-    renderFromJSON(newItem);
-
+addButton.addEventListener("click", async function () {
+    let response = await fetch(`https://reqres.in/api/users`, {
+        method: 'POST'
+    }); // завершается с заголовками ответа
+    if (response.ok) { // если HTTP-статус в диапазоне 200-299 получаем тело ответа
+        let newItem =[];
+        let obj = {};
+        obj.id = idCounter;
+        obj.email = email_input.value;
+        obj.first_name = name_input.value;
+        obj.last_name = surname_input.value;
+        obj.avatar = avatar_img.value;
+        newItem.push(obj);
+        idCounter++;
+        console.log(email_input.value);
+        renderFromJSON(newItem);
+    } else {
+        alert("Ошибка HTTP: " + response.status);
+    }
+    return response.status;
 });
