@@ -154,6 +154,9 @@ window.addEventListener('scroll', () => {
         setTimeout(() => {
             if (canLoad) {
                 pageId++;
+                if (pageId === 2) {
+                    pageId = 1;
+                }
                 getPage(pageId);
                 canLoad = false;
             }

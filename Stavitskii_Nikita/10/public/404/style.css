@@ -30,6 +30,7 @@ p {
 
 .button {
     font-size: 15px;
+    font-weight: 700;
     text-decoration: none;
     background-color: rgb(255, 136, 0);
     color: #333333;

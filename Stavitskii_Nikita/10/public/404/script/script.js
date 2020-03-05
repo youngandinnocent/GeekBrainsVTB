@@ -7,7 +7,7 @@ let countToNum = () => {
     let intId = setInterval(() => {
         numElem.innerHTML = `<p>${a}</p>`;
         if (++a === 405) clearInterval(intId);
-    }, 0.8);
+    }, 0.5);
 }
 
 countToNum();
