@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.carousel__track-container {
+    width: 80%;
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel__track {
+    display: flex;
+    position: absolute;
+    transition: left .5s;
+}
+ .carousel__slide {
+    width: 100%;
+    box-shadow: inset 2000px 0 0 0 rgba(39, 60, 117, 0.6);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
+.carousel__slide-title {
+    position: absolute;
+    left: 41px;
+    top: 25px;
+    font-family: 'Roboto',sans-serif;
+    font-weight: bold;
+    font-size: 45px;
+    color: #FFFFFF;
+}
+.carousel__slide-descr {
+    width: 550px;
+    height: 203px;
+    position: absolute;
+    left: 466px;
+    top: 155px;
+    font-weight: 100;
+    font-size: 25px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+.carousel__slide-photo {
+    border-radius: 50px;
+    position: absolute;
+    left: 322px;
+    top: 155px;
+}
+.carousel__slide-name {
+    position: absolute;
+    width: 161px;
+    height: 36px;
+    left: 289px;
+    top: 249px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: center;
+}
+.carousel__slide-position {
+    position: absolute;
+    top: 272px;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+}
+.carousel__button {
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+.carousel__button img {
+    width: 70%;
+}
+.carousel__button--left {
+    left: 230px;
+    z-index: 10;
+}
+
+.carousel__button--right {
+    right: 230px;
+}
+.carousel__nav {
+    position: absolute;
+    top: 600px;
+    left: 644px;
+
+}
+.carousel_indicator {
+    cursor: pointer;
+    width: 21px;
+    height: 21px;
+    z-index: 10;
+    background: #414778;
+    border: 2px solid #EC406E;
+    border-radius: 11px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+.current-slide {
+    background: #EC406E;
+}
+
