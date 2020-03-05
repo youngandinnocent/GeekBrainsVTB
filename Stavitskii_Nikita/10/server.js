@@ -20,7 +20,7 @@ let loadHtml = async(req, folder, res) => {
 
         text += `Path: ${filePath}, HTTP method: ${req.method}, 
         Server response status: ${res.statusCode}, Got response in ${timeDiff}\n`;
-        
+
         fsp.writeFile('log.txt', text, 'utf-8');
     })
 }
@@ -61,11 +61,6 @@ let server = http.createServer((req, res) => {
         loadHtml(req, '/404', res)
     }
 
-})
-
-
-server.listen(3000, () => {
-    console.log('server run')
-})
+}).listen(3000, () => console.log('Server run'));
 
 module.exports = server;
