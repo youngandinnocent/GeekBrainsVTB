@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: #4C539E;
+}
+#root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.viewContainer{
+    width: 80%;
+    height: 65vh;
+    overflow: hidden;
+    position: relative; 
+}
+.cardContainer{
+    display: flex; 
+    position: absolute; 
+    transition: left .5s;
+}
+.card{
+    display: flex;
+    background-color: #FFEDAD;
+    justify-content: center;
+    align-items: center;
+}
+.card>div{
+    padding: 20px;
+    text-align: center;
+}
+.card>p{
+    padding: 20px;
+}
+img{
+    width: 250px;
+    border-radius: 10%;
+}
+.nameCard{
+    font-weight: bold;
+}
+.btn{
+    position: absolute;
+    font-size: 50px;
+    cursor: pointer;
+    z-index: 2;    
+    background: none;
+    border: none;
+}
+.viewContainer>p{
+    position: absolute;
+    z-index: 2;  
+    top: 20px;
+    left: 20px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.btnLeft{
+    left: 10px;
+}
+.btnRight{
+    right: 10px;
+}
+.btnContainer{
+    z-index: 2;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.btnRound{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #4C539E;
+    margin-right: 5px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.curBtn{
+    background-color: #4C539E;
+
+}
+.background{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index:3;
+    background-color: gray;
+    opacity: .5;
+}
+.modalWin{
+    position: fixed;
+    z-index: 4;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 2px solid #4C539E;
+    opacity: 1;
+}
+.modalWin img{
+    width: 500px;
+    border-radius: none;
+}
