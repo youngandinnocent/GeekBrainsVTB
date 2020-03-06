@@ -85,10 +85,10 @@ form.onsubmit = async function () {   // обрабатываем данные �
 
     let info = {
         id: 0,
-        first_name: this.elements[0].value,
-        last_name: this.elements[1].value,
-        email: this.elements[2].value,
-        avatar: this.elements[3].value
+        first_name: document.querySelector('#first_name').value,
+        last_name: document.querySelector('#last_name').value,
+        email: document.querySelector('#email').value,
+        avatar: document.querySelector('#img').value
     }
 
     let status = await addUserData(info);
