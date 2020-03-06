@@ -43,58 +43,16 @@ body {
 
 .wrapper {
     display: flex;
-    flex-wrap: wrap;
-    padding: 50px 250px 50px 50px;
-    max-width: 730px;
-}
-
-.card {
-    position: relative;
-    width: 200px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    padding: 10px;
-    text-align: center;
-    background-color: #ffffff;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
-}
-
-.card .wrap-img {
-    min-height: 180px;
-    margin-bottom: 10px;
-}
-
-.card img {
-    display: block;
-    width: 100%;
-}
-
-.card p {
-    margin-bottom: 10px;
-    overflow: hidden;
-}
-
-.card a {
-    font-size: 12px;
-}
-
-.remove {
-    position: absolute;
-    right: 10px;
-    padding: 5px 9px;
-    background-color: #ffffff;
-    box-shadow: 0 0 5px 0 rgba(255, 0, 0, 0.3);
-    cursor: pointer;
+    justify-content: center;
+    padding: 50px;
 }
 
 form {
-    position: fixed;
-    top: 0;
-    right: 0;
     display: flex;
     flex-direction: column;
     width: 250px;
     padding: 10px;
+    background-color: #ffffff;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -103,10 +61,43 @@ form * {
     border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+.valid {
+    position: relative;
+    border-color: green;
+}
+
+.not-valid {
+    border-color: red;
+}
+
+.shaking {
+    animation: shaking 0.5s linear;
+}
+
 form > *:not(:last-child) {
     margin-bottom: 10px;
 }
 
 form button:hover {
     background-color: rgba(255, 0, 0, 0.3);
+}
+
+@keyframes shaking {
+    0% {
+        transform: translateX(-3px);
+    }
+    25% {
+        transform: translateX(7px);
+    }
+    50% {
+        transform: translateX(-7px);
+    }
+
+    75% {
+        transform: translateX(7px);
+    }
+
+    100% {
+        transform: translateX(3px);
+    }
 }
