@@ -54,7 +54,7 @@ function passwordCheck(_this) {
     if (verifiablePass.length) {
         for (let i = 0; i < patternConfirm.length; i++) {
             for (let j = 0; j < verifiablePass.length; j++) {
-                if (i == j) {
+                if (patternConfirm[i] == verifiablePass[j]) {
                     paintingGreen(_this);
                 } else {
                     paintingRed(_this);
