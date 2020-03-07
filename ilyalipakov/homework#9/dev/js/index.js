@@ -7,7 +7,6 @@ const boss = new Person('Boss', 'Bossov', 99);
 
 const tom = new Person('Tom', 'Kruz', 40);
 const john = new Person('John', 'Smit', 33);
-const eric = new Person('Eric', 'Bigov', 44);
 
 const bread = new Person('Bread', 'Pit', 45);
 const bart = new Person('Bart', 'Simpson', 14);
@@ -23,35 +22,34 @@ tom.addFriend(marge);
 bread.addFriend(bart);
 bread.addFriend(liza);
 
-// variables
 const widthRect = 160;
 const heightRect = 60;
-const offsetY = 50;
-const centerX = canvas.width / 2 - widthRect / 2;
+const kafHeight = canvas.height / 2.5;
 
-function drawTree(main, x, y) {
+function drawTree(main, x = 10, y = 20) {
   drawRect(main, x, y, widthRect, heightRect);
 
-  const allWidth = x * 2; // 440
-  let i = 0.5;
+  let i = 1;
   for (const human of main.friends) {
-    const leftSide = 0;
-    const rightSide = 0;
+    const xChild = x + 300;
+    const yChild =
+      y +
+      ((i++ - Math.round((human.friends.length + 1) / 2) + 1) * kafHeight) /
+        i++;
 
-    const xChild = (allWidth / main.friends.length) * i++;
-    const yChild = y + heightRect + offsetY;
-
+    drawLine(x, y, xChild, yChild);
     drawTree(human, xChild, yChild);
   }
 }
 
-drawTree(boss, 0 + centerX, 0 + offsetY);
+drawTree(boss);
 
 // Methods draw
-function drawLine(dx, dy, x, y) {
+function drawLine(x, y, xChild, yChild) {
   ctx.lineWidth = 2;
-  ctx.moveTo(dx, dy);
-  ctx.lineTo(x, y);
+  ctx.beginPath();
+  ctx.moveTo(x + 160, y + 20);
+  ctx.lineTo(xChild, yChild + 20);
   ctx.stroke();
 }
 
@@ -59,6 +57,7 @@ function drawRect(user, x, y, width, height) {
   ctx.strokeStyle = 'white';
   ctx.strokeRect(x, y, width, height);
   drawData(user, x + 10, y + 25);
+  ctx.stroke();
 }
 
 function drawData(user, x, y) {
