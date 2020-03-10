@@ -1,0 +1,70 @@
+form{
+    border: 3px #230672 solid;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 330px;
+    margin: 0 auto;
+    text-align: center;
+    font: 20px Arial, sans-serif;
+    color: #230672;
+}
+p{
+    position: relative;
+    text-align: right;
+}
+input{
+    border: 1px #230672 solid;
+    border-radius: 5px;
+    min-height: 30px;
+    min-width: 250px;
+    font: 14px Arial, sans-serif;
+}
+button{
+    min-width: 150px;
+    min-height: 30px;
+    background-color: #230672;
+    border-radius: 5px;
+    border: none;
+    font: 14px Arial, sans-serif;
+    margin: 10px;
+    color: white;
+    cursor: pointer;
+}
+.wrong input{
+    border: 1px solid red;
+}
+.right input{
+    border: 1px solid green;
+}
+.wrong:after {
+    position: absolute;
+    display: block;
+    content: '\2718';
+    right: 2px;
+    top: 2px;
+    width: 25px;
+    height: 25px;
+    color: red;
+}
+.right:after {
+    position: absolute;
+    display: block;
+    content: '\2714';
+    right: 2px;
+    top: 2px;
+    width: 25px;
+    height: 25px;
+    color: green; 
+}
+.pulse{
+    animation: radial-pulse 2s infinite;
+}
+@keyframes radial-pulse {
+    0% {
+      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
+    }
+   
+    100% {
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+  }
