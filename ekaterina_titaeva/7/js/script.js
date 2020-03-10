@@ -79,7 +79,7 @@ function uploadData() { // проверка скрола
     numStr === 1 ? renderUser(++numStr) : renderUser(--numStr);
 }
 
-form.onsubmit = async function () {   // обрабатываем данные с формы
+async function formSubmit() {   // обрабатываем данные с формы
 
     event.preventDefault();
 
@@ -96,6 +96,7 @@ form.onsubmit = async function () {   // обрабатываем данные �
         createCard(info);
 }
 
+document.getElementById("postForm").addEventListener('submit', formSubmit);
 renderUser(numStr)
 setTimeout(() => {
     uploadData();

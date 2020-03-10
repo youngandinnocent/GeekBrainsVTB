@@ -5,11 +5,11 @@ const cardWidth = 150;
 const cardHeight = 30;
 
 class Person {
-    constructor(name, lastName, age, friends = []) {
+    constructor(name, lastName, age) {
         this.name = name;
         this.lastName = lastName;
         this.age = parseInt(age);
-        this.friends = [...friends];
+        this.friends = [];
     }
 
     addFriend(obj) {
@@ -43,8 +43,11 @@ let Dasha = new Person('Дарья', 'Пичугина', 22);
 
 let Vika = new Person('Виктория', 'Киселева', 22);
 Vika.addFriend(Dasha);
-let Yana = new Person('Яна', 'Делегеоз', 22, [Dima, Dinara]);
-let me = new Person('Екатерина', 'Титаева', 22, [Yana]);
+let Yana = new Person('Яна', 'Делегеоз', 22);
+Yana.addFriend(Dima);
+Yana.addFriend(Dinara);
+let me = new Person('Екатерина', 'Титаева', 22);
+me.addFriend(Yana);
 me.addFriend(Vika);
 
 paint(me);
