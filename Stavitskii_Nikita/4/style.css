@@ -52,13 +52,6 @@ form {
     border-radius: 10px;
 }
 
-
-#root {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-
 .avatar {
     background-color: whitesmoke;
     height: 200px;
