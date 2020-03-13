@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export class Message extends Component {
     state = {
-        author: '',
+        author: 'User',
         text: ''
     };
 
@@ -28,7 +28,6 @@ export class Message extends Component {
     };
 
     render() {
-        this.state.author = "User";
         const {author, text} = this.state;
         return (
             <div>
