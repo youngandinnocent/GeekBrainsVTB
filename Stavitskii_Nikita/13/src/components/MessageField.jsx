@@ -18,8 +18,6 @@ export class MessageField extends Component {
 
     handleMessageSend = (message) => {
         this.setState({ messages: [ ...this.state.messages, message ] });
-        console.log(message);
-        console.log(this.state.messages)
     };
 
     render() {
@@ -29,7 +27,7 @@ export class MessageField extends Component {
 
         return (
             <div>
-                <Message onSend={this.handleMessageSend} new="TestNew" />
+                <Message onSend={this.handleMessageSend} />
                 <ul>
                     {messageElements}
                 </ul>

@@ -7,13 +7,8 @@ export class Message extends Component {
         text: ''
     };
 
-    static propTypes = {
-        text: PropTypes.string,
-    };
-
     static  defaultProps = {
         onSend: () => {},
-        author: 'User',
     };
 
     handleInputChange = (event) => {
@@ -23,7 +18,7 @@ export class Message extends Component {
         });
     };
 
-    handleInputSend = (e) => {
+    handleInputSend = () => {
         const {onSend} = this.props;
 
         if(typeof onSend === 'function'){
@@ -33,13 +28,13 @@ export class Message extends Component {
     };
 
     render() {
+        this.state.author = "User";
         const {author, text} = this.state;
         return (
             <div>
                 <input name="author" type="text" value={author} onChange={this.handleInputChange} /><br />
-                <textarea name="text" value={text} onChange={this.handleInputChange} /><br />
+                <textarea name="text" value={text} onChange={this.handleInputChange} placeholder="Enter your message here" /><br />
                 <button onClick={this.handleInputSend}>Send message</button><br />
-                <div>{ this.props.text }</div>
             </div>
         )
     }
