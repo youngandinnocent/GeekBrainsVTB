@@ -5,32 +5,47 @@ import { MessageList } from './components/MessageList'
 class Chat extends Component {
 
     state = {
-        valueInput: '',
-        messageData: ['one', 'two', 'three']
+        author: '',
+        text: '',
+        messageData: []
     };
 
     handeleChange = (event) => {
-        this.setState({ valueInput: event.target.value });
+        let id = event.target.id;
+
+        this.setState({
+            [id] : event.target.value
+        });
     };
 
     handleClick = () => {
         this.setState((state) => {
             return {
-                valueInput: '',
-                messageData: [...state.messageData, state.valueInput]
+                author: '',
+                text: '',
+                messageData: [...state.messageData, {author: state.author, text: state.text}]
             }
         });
     };
 
+    handleAddBot = (author, text) =>{
+        this.setState((state) => {
+            return {
+                messageData: [...state.messageData, {author, text}]
+            }
+        });
+    }
+
     render() {
 
-        const { valueInput } = this.state;
+        const { author, text } = this.state;
 
         return (
             <div>
-                <input value={valueInput} onChange={this.handeleChange} placeholder='Введите сообщение'></input>
+                <input id='author' value={author} onChange={this.handeleChange} placeholder='Введите имя'></input>
+                <input id={'text'} value={text} onChange={this.handeleChange} placeholder='Введите сообщение'></input>
                 <button onClick={this.handleClick}>Добавить</button>
-                <MessageList messages={this.state.messageData} />
+                <MessageList messages={this.state.messageData} handleAddBot={this.handleAddBot} />
             </div>
         )
     }

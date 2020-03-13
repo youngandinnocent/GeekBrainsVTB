@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 export class Message extends Component {
+
     render() {
+
+        const {author, text} = this.props.dataMessage;
+
         return (
-            <div>{this.props.text}</div>
+            <div>{author} : {text}</div>
         )
     }
 };
