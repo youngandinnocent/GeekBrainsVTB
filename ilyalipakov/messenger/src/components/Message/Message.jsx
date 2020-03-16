@@ -28,7 +28,7 @@ class Message extends Component {
         const formYTop = messengerForm.offsetTop;
 
         if (messageYBottom >= formYTop) {
-            messageList.scrollTo(0, formYTop + 10);
+            messageList.scrollTo(0, messageYBottom + 10);
         }
     };
 
