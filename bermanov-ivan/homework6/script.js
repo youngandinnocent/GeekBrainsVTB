@@ -1,9 +1,7 @@
 // описываем кастомный элемент - таймер обратного отсчета - с методами рендеринга, обновления и отключения
 class MyDeadline extends HTMLElement {
-    constructor(title, year, month, date, hours, minutes) {
-        super();
-        this.setAttribute('title', String(title));
-        this.setAttribute('deadline', new Date(+year, +month - 1, +date, +hours, +minutes));
+    constructor() {
+        super()
     }
 
     render() {
@@ -16,25 +14,19 @@ class MyDeadline extends HTMLElement {
 
     update() {
         const deltaTime = new Date(new Date(this.deadline) - new Date());
-        if (deltaTime.getTime() < 1000) {
+
+        if (deltaTime.getTime() < 0) {
             this.disconnectedCallback();
             this.innerHTML = `
                 <h1>You must do: ${this.title}</h1>
                 <p>Deadline: 0 day 0 hours 0 minutes 0 seconds </p>
             `;
-            this.parentElement.style.background = 'red';
         } else {
             const deltaDate = Math.floor(deltaTime.getTime() / 24 / 60 / 60 / 1000);
             const deltaHours = deltaTime.getUTCHours();
             const deltaMinutes = deltaTime.getUTCMinutes();
             const deltaSeconds = deltaTime.getUTCSeconds();
             
-            if (deltaDate >= 1) {
-                this.parentElement.style.background = 'green';
-            } else if (deltaDate < 1 && deltaDate >= 0) {
-                this.parentElement.style.background = 'orange';
-            }
-    
             this.innerHTML = `
                 <h1>You must do: ${this.title}</h1>
                 <p>Deadline: ${deltaDate} day ${deltaHours} hours ${deltaMinutes} minutes ${deltaSeconds} seconds </p>
@@ -95,10 +87,14 @@ const makeDeadline = () => {
     if (deadline.length > 0) {
         deadline.forEach((d) => {
             const task = document.createElement('div');
-            task.classList.add('task');
+            task.classList.add('task', 'transition');
+            const duration = new Date(new Date(d.year, d.month - 1, d.date, d.hours, d.minutes) - new Date());
+            task.style.transitionDuration = `${duration / 1000}s`;
+            setTimeout(() => task.classList.add('finalColor'));
     
-            const elem = new MyDeadline(d.name, d.year, d.month, d.date, d.hours, d.minutes);
-            const deleteBtn = document.createElement('button');
+            const elem = document.createElement('my-deadline');
+            elem.setAttribute('title', `${d.name}`);
+            elem.setAttribute('deadline', `${d.year}-${d.month}-${d.date} ${d.hours}:${d.minutes}`);            const deleteBtn = document.createElement('button');
             deleteBtn.classList.add('deleteBtn');
             deleteBtn.textContent = 'DELETE';
             task.append(elem, deleteBtn);
@@ -116,9 +112,8 @@ const makeDeadline = () => {
 
     // добавляем дедлайны по клику
     button.addEventListener('click', () => {
-        const task = document.createElement('div');
-        task.classList.add('task');
         const deltaTime = new Date(new Date(year.value, month.value - 1, date.value, hours.value, minutes.value) - new Date());
+        console.log(deltaTime);
         if (deltaTime.getTime() < 1000) {
             error.textContent = 'Date is not correct';
         } else {
@@ -137,7 +132,14 @@ const makeDeadline = () => {
 
             localStorage.setItem('deadline', JSON.stringify(deadline)); // засовываем дедлайны в сторедж
 
-            const elem = new MyDeadline(data.name, data.year, data.month, data.date, data.hours, data.minutes);
+            const task = document.createElement('div');
+            task.classList.add('task', 'transition');
+            task.style.transitionDuration = `${deltaTime / 1000}s`;
+            setTimeout(() => task.classList.add('finalColor'));
+
+            const elem = document.createElement('my-deadline');
+            elem.setAttribute('title', `${data.name}`);
+            elem.setAttribute('deadline', `${data.year}-${data.month}-${data.date} ${data.hours}:${data.minutes}`);
             const deleteBtn = document.createElement('button');
             deleteBtn.classList.add('deleteBtn');
             deleteBtn.textContent = 'DELETE';
