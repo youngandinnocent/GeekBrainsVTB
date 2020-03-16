@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import { Message } from './Message'
+import { Message, messageType } from '../Message'
+
+// import './MessageList.css';
 
 export class MessageList extends Component {
+    // static propTypes = {
+    //     items: PropTypes.arrayOf(
+    //         PropTypes.shape(messageType)
+    //     )
+    // };
 
     componentDidUpdate() {
         const { handleAddBot } = this.props;
