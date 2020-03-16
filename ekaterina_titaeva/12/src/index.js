@@ -14,7 +14,7 @@ class Chat extends Component {
         let id = event.target.id;
 
         this.setState({
-            [id] : event.target.value
+            [id]: event.target.value
         });
     };
 
@@ -23,15 +23,15 @@ class Chat extends Component {
             return {
                 author: '',
                 text: '',
-                messageData: [...state.messageData, {author: state.author, text: state.text}]
+                messageData: [...state.messageData, { author: state.author, text: state.text }]
             }
         });
     };
 
-    handleAddBot = (author, text) =>{
+    handleAddBot = (author, text) => {
         this.setState((state) => {
             return {
-                messageData: [...state.messageData, {author, text}]
+                messageData: [...state.messageData, { author, text }]
             }
         });
     }
@@ -43,7 +43,7 @@ class Chat extends Component {
         return (
             <div>
                 <input id='author' value={author} onChange={this.handeleChange} placeholder='Введите имя'></input>
-                <input id={'text'} value={text} onChange={this.handeleChange} placeholder='Введите сообщение'></input>
+                <input id='text' value={text} onChange={this.handeleChange} placeholder='Введите сообщение'></input>
                 <button onClick={this.handleClick}>Добавить</button>
                 <MessageList messages={this.state.messageData} handleAddBot={this.handleAddBot} />
             </div>
