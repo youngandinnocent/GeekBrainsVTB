@@ -5,10 +5,6 @@ const calculator = (operandOne, operandTwo, operation) => {
             return undefined;
     } else if (isNaN(operandOne) || isNaN(operandTwo)) {
         return NaN;
-    } else if (operandOne
-        && (operandTwo === 0 || operandTwo === '' || operandTwo === null)
-        && operation === '/') {
-            return new Error();
     } else {
         switch (operation) {
             case '+':
@@ -18,6 +14,11 @@ const calculator = (operandOne, operandTwo, operation) => {
             case '*':
                 return operandOne * operandTwo;
             case '/':
+                if (operandOne
+                    && (operandTwo === 0 || operandTwo === '' || operandTwo === null)
+                    && operation === '/') {
+                        return new Error();
+                }
                 return operandOne / operandTwo;
             default:
                 return undefined;
