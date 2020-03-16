@@ -1,15 +1,17 @@
 import React from "react";
 
-import Message from "./Message.jsx";
+import Message from "../Message";
 
-const MessageField = ({messages}) => {
+import './MessageList.css';
+
+const MessageList = ({messages}) => {
     const messageList = messages.map((message) => <Message message={message}/>);
 
     return (
-        <div className="message-field">
+        <div className="message-list">
             {messageList}
         </div>
     )
 };
 
-export default MessageField;
+export default MessageList;
