@@ -1,0 +1,19 @@
+.app {
+    width: 80%;
+    height: 100%;
+    margin: 0px auto;
+}
+
+.app__wrapper {
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+}
+
+.app__chat-list {
+    width: 30%;
+}
+
+.app__messenger {
+    width: 70%;
+}

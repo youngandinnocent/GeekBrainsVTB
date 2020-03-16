@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import Messanger from "./components/Messenger";
+import App from "./components/App";
 
-class App extends Component {
-    render() {
-        return (
-            <Messanger />
-        )
-    }
-}
+import './index.css';
+
 
 ReactDOM.render(<App />,
                 document.getElementById("root"));

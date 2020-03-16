@@ -8,7 +8,7 @@ const MessageList = ({messages}) => {
     const messageList = messages.map((message) => <Message message={message}/>);
 
     return (
-        <div className="message-list">
+        <div className="messenger__message-list message-list">
             {messageList}
         </div>
     )
