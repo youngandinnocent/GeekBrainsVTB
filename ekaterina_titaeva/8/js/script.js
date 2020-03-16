@@ -51,7 +51,7 @@ email.addEventListener('input', function () { validate(this) });
 pass1.addEventListener('input', function () { validate(this) });
 pass2.addEventListener('input', function () { validate(this) });
 
-form.onsubmit = function () {
+function formSubmit() {
     event.preventDefault();
 
     let validForm = true;
@@ -83,3 +83,5 @@ form.onsubmit = function () {
             localStorage.setItem(key, JSON.stringify(arrData));
     }
 }
+
+document.getElementById("postForm").addEventListener('submit', formSubmit);
