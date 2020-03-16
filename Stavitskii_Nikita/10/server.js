@@ -22,7 +22,7 @@ let loadHtml = async(req, folder, res) => {
         Server response status: ${res.statusCode}, Got response in ${timeDiff}\n`;
 
         fsp.writeFile('log.txt', text, 'utf-8');
-    })
+    });
 }
 
 let loadFile = async(url, res, type) => {
@@ -42,12 +42,15 @@ let server = http.createServer((req, res) => {
 
     } else if (req.url === '/') {
         loadHtml(req, '/home', res);
+        console.log('html loaded')
 
     } else if(req.url.match("\.css$")){
         loadFile(req.url, res, 'css');
+        console.log(req.url, 'css loaded')
 
     } else if(req.url.match("\.js$")){
         loadFile(req.url, res, 'js');
+        console.log(req.url, 'js loaded')
 
     } else if(req.url.match("\.png$")){
         let imagePath = path.join(__dirname, 'public/slider', req.url),
