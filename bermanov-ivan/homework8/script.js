@@ -27,42 +27,12 @@ const app = () => {
       elem.style.border = '2px solid green';
       circle.textContent = 'v';
       circle.className = 'green';
-
-      switch (elem.id) {
-        case 'username':
-          circle.style.top = '23px';
-          break;
-        case 'email':
-          circle.style.top = '71px';
-          break;
-        case 'password':
-          circle.style.top = '119px';
-          break;
-        case 'verification':
-          circle.style.top = '167px';
-          break;
-      }
       return true;
 
     } else {
       elem.style.border = '2px solid red';
       circle.textContent = 'x';
       circle.className = 'red';
-
-      switch (elem.id) {
-        case 'username':
-          circle.style.top = '23px';
-          break;
-        case 'email':
-          circle.style.top = '71px';
-          break;
-        case 'password':
-          circle.style.top = '119px';
-          break;
-        case 'verification':
-          circle.style.top = '167px';
-          break;
-      }
       return false;
     }
   };
@@ -81,6 +51,7 @@ const app = () => {
       const pattern = /^(\w|[а-яё]){5,10}$/i;
       isValidForm.username = validation(e.target, pattern);
     }
+    circle.classList.add('usernameCircle');
   });
 
   // аналогично по имейлу
@@ -96,6 +67,7 @@ const app = () => {
       const pattern = /^\w+@[a-z\d]+?(?<!\.)\.ru$/i;
       isValidForm.email = validation(e.target, pattern);
     }
+    circle.classList.add('emailCircle');
   });
 
   // пароль отправляем на валидацию, а также контролим статус по верификации (следующее поле)
@@ -109,7 +81,7 @@ const app = () => {
     } else if (verification.value && verification.value !== password.value) {
       isValidForm.verification = validation(verification, new RegExp('false'));
     }
-
+    circle.classList.add('passwordCircle');
   });
 
   // сверяем пароль (используем функцию валидации с кастомными паттернами для получения true или false)
@@ -119,6 +91,7 @@ const app = () => {
     } else {
       isValidForm.verification = validation(e.target, new RegExp('false'));
     }
+    circle.classList.add('verificationCircle');
   });
 
   // вешаемся на сабмит
