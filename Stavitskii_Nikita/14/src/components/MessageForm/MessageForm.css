@@ -1,0 +1,16 @@
+.message-form {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.message-author {
+    width: 30%;
+}
+
+.message-input {
+    width: calc(70% - 56px);
+}
+
+.MuiInput-root {
+    margin-right: 20px;
+}
