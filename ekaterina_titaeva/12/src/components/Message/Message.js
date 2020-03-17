@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-// import './Message.css';
+import './Message.scss';
 
 export const messageType = {
     author: PropTypes.string.isRequired,
@@ -10,7 +10,9 @@ export const messageType = {
 };
 
 export class Message extends Component {
-    static propTypes = messageType;
+    static propTypes = {
+        dataMessage: PropTypes.shape(messageType)
+    };
 
     render() {
 
@@ -24,7 +26,7 @@ export class Message extends Component {
         return (
             <div className={classes}>
                 <div>{text}</div>
-                <div>{author}</div>
+                <div className='message-sender'>{author}</div>
             </div>
         )
     }

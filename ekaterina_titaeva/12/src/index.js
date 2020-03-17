@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import { Chat } from './components/Chat'
+import { Layout } from './components/Layout'
 
 ReactDom.render(
-    <Chat />,
+    <Layout />,
     document.getElementById('root')
 );
