@@ -1,0 +1,13 @@
+.messenger {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.messenger__message-list {
+    flex: 1 0 auto;
+}
+
+.messenger__messenger-form {
+    flex: 0 0 auto;
+}
