@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    animation: colorchange 50s; /* animation-name followed by duration in seconds*/
+       /* you could also use milliseconds (ms) or something like 2.5s */
+    -webkit-animation: colorchange 50s; /* Chrome and Safari */
+  }
+
+  @keyframes colorchange
+  {
+    0%   {background: rgba(255, 0, 0, 0.238);}
+    25%  {background: rgba(0, 255, 238, 0.455);}
+    50%  {background: blue;}
+    75%  {background: rgba(0, 128, 0, 0.625);}
+    100% {background: rgba(130, 22, 22, 0.313);}
+  }
+
+  @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+  {
+    0%   {background: rgba(255, 0, 0, 0.238);}
+    25%  {background: rgba(0, 255, 238, 0.455);}
+    50%  {background: blue;}
+    75%  {background: rgba(0, 128, 0, 0.625);}
+    100% {background: rgba(130, 22, 22, 0.313);}
+  }
