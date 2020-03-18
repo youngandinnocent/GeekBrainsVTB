@@ -16,7 +16,7 @@ export class MessageList extends Component {
 
         return (
             <div className='message-list'>
-                {messages.map(elem => <Message dataMessage={elem} />)}
+                {messages.map((item, index) => <Message key={index} dataMessage={item} />)}
             </div>
         )
     }
