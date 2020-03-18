@@ -14,11 +14,14 @@ export class MessagePage extends Component {
     }
 
     componentDidUpdate() {
-        if(this.state.messages[this.state.messages.length - 1].author !== 'Robot' && this.state.author === '' && this.state.text === '') {
+        const { author } = this.state.messages[this.state.messages.length - 1];
+        if(author !== 'Robot'){
             setTimeout(() => {
-                this.robotMessages();
+                if(this.state.messages[this.state.messages.length - 1].author !== 'Robot') {
+                    this.robotMessages();
+                }
             }, 1000);
-        } 
+        }
     } 
 
     handleMessageSend = (message) => {
