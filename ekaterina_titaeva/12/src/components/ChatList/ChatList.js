@@ -12,7 +12,7 @@ export class ChatList extends Component {
 
         return (
             <List className="chatList">
-                {chats.map(elem => <ListItem className='listItem'>{elem}</ListItem>)}
+                {chats.map((item, index) => <ListItem key={index} className='listItem'>{item}</ListItem>)}
             </List>
         )
     }
