@@ -1,0 +1,72 @@
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 10ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 4ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 2ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 3ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\slider\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 5ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 4ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\graph\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 1ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 3ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 2ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 2ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 2ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\slider\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 3ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 1ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\graph\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 2ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 2ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\slider\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 13ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 3ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\slider\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 1ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 1ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 2ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 29ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 18ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 3ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 9ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 1ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 1ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 2ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 14ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 16ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\home\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 4ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\slider\index.html, HTTP method: GET, 
+        Server response status: 200, Got response in 19ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 1ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 10ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 25ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 9ms
+Path: C:\Users\armavel\Desktop\react\geek\GeekBrainsVTB\Stavitskii_Nikita\10\static\404\index.html, HTTP method: GET, 
+        Server response status: 404, Got response in 3ms

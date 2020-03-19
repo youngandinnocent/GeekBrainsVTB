@@ -1,0 +1,18 @@
+.message {
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 15px;
+
+    color: #ffffff;
+    font: 14px Arial;
+}
+
+.message-owner {
+    align-self: flex-start;
+    background: #ff4b48;
+}
+
+.message-bot {
+    align-self: flex-end;
+    background: #ff9255;
+}

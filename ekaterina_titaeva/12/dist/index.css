@@ -1,0 +1,43 @@
+.header {
+  width: 100%;
+  height: 10px;
+  background-color: #1d2733; }
+
+.chatList {
+  background-color: #1d2733;
+  width: 30%;
+  color: white; }
+
+.listItem {
+  border-bottom: 1px solid black; }
+  .listItem:last-child {
+    border-bottom: none; }
+
+.message {
+  color: white;
+  background-color: #3e6189;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px; }
+  .message-owner {
+    align-self: flex-end; }
+  .message-bot {
+    align-self: flex-start; }
+  .message-sender {
+    font-size: 0.8em;
+    color: #94c2f3; }
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #161d27;
+  padding: 20px; }
+
+
+.chat {
+  flex-direction: column;
+  width: 70%; }
+
+.layout__flex-container {
+  display: flex; }
+

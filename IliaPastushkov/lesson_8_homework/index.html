@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main style="width: 40vw; margin-left: 30vw; margin-top: 50px">
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui black image header">
+                <div class="content">
+                    Log-in to your account
+                </div>
+            </h2>
+            <form class="ui large error form">
+                <div class="ui teal stacked segment">
+
+                    <div class="field">
+                        <div class="ui inverted right labeled left icon input">
+                            <i class="user icon check"></i>
+                            <input type="text" name="email" placeholder="Your name" id="name-input">
+                            <a class="ui tag teal label">Name</a>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="ui inverted right labeled left icon input">
+                            <i class="mail icon"></i>
+                            <input type="email" name="email" placeholder="E-mail address" id="email-input">
+                            <a class="ui tag teal label">E-mail</a>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="ui inverted right labeled left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="Password" id="pass-input">
+                            <a class="ui tag teal label">Password</a>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="ui inverted right labeled left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="Repeat password" id="repeat-pass-input">
+                            <a class="ui tag teal label">Repeat pass</a>
+                        </div>
+                    </div>
+
+                    <div class="ui fluid large teal submit button" id="login-button">Login</div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</main>
+<script src="./index.js"></script>
+</body>
+</html>
