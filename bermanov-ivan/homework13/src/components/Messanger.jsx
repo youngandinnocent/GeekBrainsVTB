@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { MessageForm } from 'components/MessageForm';
 import { MessageList } from 'components/MessageList';
 
@@ -8,14 +7,7 @@ export class Messanger extends Component {
         super(props);
     }
 
-    state = {
-        messages: [
-            {
-                author: 'Author',
-                content: 'Message'
-            },
-        ]
-    };
+    state = { messages: [] };
 
     componentDidUpdate() {
         const { author } = this.state.messages[this.state.messages.length - 1];
@@ -49,3 +41,7 @@ export class Messanger extends Component {
         );
     }
 }
+
+// Props 1.0 Messanger
+// MessageList messages = { messages } - списку сообщений из стейта пробрасывается (пропс messages) массив сообщений
+// MessageForm onSend = { this.handleMessageSend } - пробрасывается функция onSend
