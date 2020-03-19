@@ -1,4 +1,4 @@
-.messenger {
+.messanger {
     height: 100%;
     width: 50%;
     margin: auto;
@@ -10,4 +10,5 @@
 .wrapper {
     display: flex;
     justify-content: center;
+    width: 100%;
 }

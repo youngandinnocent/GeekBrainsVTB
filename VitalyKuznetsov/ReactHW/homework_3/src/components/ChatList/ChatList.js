@@ -7,7 +7,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
+import ForumIcon from '@material-ui/icons/Forum';
 import './ChatList.css';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,6 +24,7 @@ function ListItemLink(props) {
 }
 
 export default function SimpleList() {
+
   const classes = useStyles();
 
   return (
@@ -29,26 +32,30 @@ export default function SimpleList() {
       <List component="nav" aria-label="main mailbox folders">
         <ListItem button>
           <ListItemIcon>
-            <InboxIcon />
+            <ForumIcon color="primary" /> 
           </ListItemIcon>
-          <ListItemText primary="Inbox" />
+          <ListItemText primary='Mom' />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <DraftsIcon />
+            <ForumIcon color="primary" /> 
           </ListItemIcon>
-          <ListItemText primary="Drafts" />
+          <ListItemText primary="Andrew" />
         </ListItem>
-      </List>
-      <Divider />
-      <List component="nav" aria-label="secondary mailbox folders">
         <ListItem button>
-          <ListItemText primary="Trash" />
+            <ListItemIcon>
+            <ForumIcon color="primary" /> 
+          </ListItemIcon>
+          <ListItemText primary="Stefan" />
         </ListItem>
         <ListItemLink href="#simple-list">
-          <ListItemText primary="Spam" />
+            <ListItemIcon>
+            <ForumIcon color="primary" /> 
+          </ListItemIcon>
+          <ListItemText primary="Grandma" />
         </ListItemLink>
       </List>
+
     </div>
   );
 }

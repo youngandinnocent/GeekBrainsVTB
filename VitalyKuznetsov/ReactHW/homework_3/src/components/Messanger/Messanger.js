@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Messanger.css';
 import SimpleList from '../ChatList/ChatList';
-import SimpleMenu from '../Header/Header';
+import MenuAppBar from '../Header/Header';
 import { MessagePage } from '../MessagePage/MessagePage';
 
 export class Messanger extends Component {
@@ -11,7 +11,7 @@ export class Messanger extends Component {
 
         return (
             <div className='messanger'>
-                <SimpleMenu />
+            <MenuAppBar />
                 <div className='wrapper'>
                 <SimpleList />
                 <MessagePage />

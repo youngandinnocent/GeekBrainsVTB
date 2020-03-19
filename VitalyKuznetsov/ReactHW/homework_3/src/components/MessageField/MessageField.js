@@ -7,7 +7,7 @@ import './MessageField.css';
 
 export class MessageField extends Component {
     state = {
-        author: '',
+        author: 'Vitaly',
         text: ''
     };
 
@@ -25,8 +25,12 @@ export class MessageField extends Component {
 
         if(typeof onSend === 'function'){
             onSend(this.state);
+            this.setState(() => {
+               return { text: ''}
+            })
         }
     }
+
 
     handleKeyDownEnter = (event) => {
         if(event.ctrlKey && event.keyCode === 13){
@@ -38,8 +42,8 @@ export class MessageField extends Component {
         const {author, text} = this.state;
         return (
             <div className='message-field'>
-                <TextField name="author" value={author} type="text" onChange={this.handleInputChange} label="Author"/>
-                <TextField name="text" value={text} multiline autoFocus onKeyDown={this.handleKeyDownEnter} onChange={this.handleInputChange} label="Text" />
+                <TextField name="author" className='author' value={author} type="text" onChange={this.handleInputChange} label="Author"/>
+                <TextField name="text" className='text' value={text} multiline autoFocus onKeyDown={this.handleKeyDownEnter} onChange={this.handleInputChange} label="Text" />
                 <Fab variant='round' size='small' color='primary' onClick={this.handleInputSend}><SendIcon /></Fab>
             </div>
         )
