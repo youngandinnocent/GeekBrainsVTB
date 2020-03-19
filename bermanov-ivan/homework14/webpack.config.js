@@ -13,7 +13,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            components: path.resolve(__dirname, 'src')
+            components: path.resolve(__dirname, 'src', 'components')
         },
     },
 
@@ -30,7 +30,7 @@ module.exports = {
                     'style-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'sass-loader' // выполняется первым
+                    'sass-loader'
                 ],
             }
         ],
