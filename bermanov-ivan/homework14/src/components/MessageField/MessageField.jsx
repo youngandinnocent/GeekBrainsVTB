@@ -16,15 +16,17 @@ export class MessageField extends Component {
         console.log('field: ', author);
         if (author !== 'NDR-114') {
             setTimeout(() => {
-                this.setState({
-                    messages: [
-                        ...this.state.messages,
-                        {
-                            content: `Hello, ${author ? author : 'Author'}, my name is Andrew`,
-                            author: 'NDR-114'
-                        }
-                    ]
-                });
+                if (this.state.messages[this.state.messages.length - 1].author !== 'NDR-114') {
+                    this.setState({
+                        messages: [
+                            ...this.state.messages,
+                            {
+                                content: `Hello, ${author ? author : 'Author'}, my name is Andrew`,
+                                author: 'NDR-114'
+                            }
+                        ]
+                    });
+                }
             }, 1000);
         }
     }
