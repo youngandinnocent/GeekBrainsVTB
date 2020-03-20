@@ -39,8 +39,8 @@ class Message extends Component {
 
         return (
             <div className={this.classes} ref={this.getMessageRef}>
-                <span className="message__author">{message.author}: </span>
-                <span className="message__text">{message.message}</span>
+                <p className="message__text">{message.message}</p>
+                <p className="message__author">{message.author}</p>
             </div>
         );
     }

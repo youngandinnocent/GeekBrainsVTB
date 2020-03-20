@@ -1,85 +1,40 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 
 import MessageList from "../MessageList";
 import MessengerForm from "../MessengerForm";
 
-import {answerRobot} from "../../helpers/robot";
-
 import './Messenger.css';
 
-class Messenger extends Component {
+const Messenger = (props) => {
+    const {messages} = props;
+    return(
+      <div className="app__messenger messenger">
+          { messages && _renderMessenger({...props}) }
+          { !messages && _renderDefault() }
+      </div>
+    );
+};
 
-    componentDidUpdate() {
-        if (!this.state.messages.length) {
-            return;
-        }
+const _renderMessenger = (props) => {
+    const {message, messages, author, handleSendMessage, handleChange} = props;
+    return (
+      <>
+          <MessageList messages={messages}/>
+          <MessengerForm
+            handleSendMessage={handleSendMessage}
+            handleChange={handleChange}
+            message={message}
+            author={author}  />
+      </>
+    )
+};
 
-        if (this.state.messages[this.state.messages.length - 1].author !=='Robot' &&
-            this.state.author === '' &&
-            this.state.message === '') {
-            this.answerRobot();
-        }
-    }
-
-    state = {
-        messages: [],
-        message: '',
-        author: '',
-        isClick: true
-    };
-
-    handleChange = () => (e) => {
-        this.setState(
-            {
-                [e.target.name]: e.target.value
-            }
-        );
-    };
-
-    handleSendMessage = (message, author) => () => {
-        if (message === '' || author === '') {
-            return
-        }
-
-        if (!this.state.isClick) {
-            return;
-        }
-
-        this.setState((state) => {
-            return {
-                messages: [...state.messages, { author, message }],
-                author: '',
-                message: '',
-                isClick: false
-            }
-        });
-    };
-
-    answerRobot = () => {
-        setTimeout(() => {
-            this.setState((state) => {
-                return {
-                    messages: [...state.messages, {author: 'Robot', message: answerRobot()}],
-                    isClick: true
-                }
-            });
-        },1000);
-    };
-
-    render() {
-        const {messages, message, author} = this.state;
-
-        return(
-            <div className="app__messenger messenger">
-                <MessageList messages={messages}/>
-                <MessengerForm
-                    handleSendMessage={this.handleSendMessage}
-                    handleChange={this.handleChange}
-                    message={message}
-                    author={author}  />
-            </div>
-        );
-    }
+const _renderDefault = () => {
+    return (
+      <div className="messenger__nochat">
+          Выберите пожалуйста чат, чтобы начать общаться :)
+      </div>);
 }
+
 
 export default Messenger;

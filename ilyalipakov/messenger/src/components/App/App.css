@@ -8,6 +8,7 @@
     width: 100%;
     height: calc(100% - 50px);
     display: flex;
+    background: #ffffff;
 }
 
 .app__chat-list {
@@ -16,4 +17,6 @@
 
 .app__messenger {
     width: 70%;
+    border-left: 1px solid #f1f1f1;
+    border-right: 1px solid #f1f1f1;
 }

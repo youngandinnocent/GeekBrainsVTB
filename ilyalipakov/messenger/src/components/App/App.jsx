@@ -1,24 +1,34 @@
-import React, {Component} from 'react';
-import Header from "../Header";
+import React from 'react';
+
+import MessengerContainer from "../Messenger";
 import ChatList from "../ChatList";
-import Messenger from "../Messenger";
+import Spinner from "../Spinner";
+import Header from "../Header";
 
 import './App.css';
 
-class App extends Component {
+const App = (props) => {
+    const {loading, chats, chatId, current_chat_id} = props;
+    const chat = chats.find((chat) => chat.id === parseInt(chatId));
 
-    render() {
-        return (
-            <div className="app">
-                <Header/>
-                <div className="app__wrapper">
-                    <ChatList />
-                    <Messenger/>
-                </div>
-            </div>
-        );
-    }
+    return (
+      <div className="app">
+        <Header chat={chat} />
+        <div className="app__wrapper">
+          {!loading ? <RenderUI {...props} /> : <Spinner />}
+        </div>
+      </div>
+    );
+};
 
-}
+const RenderUI = (props) => {
+  const {chats, messages, chatId} = props;
+  return (
+    <>
+      <ChatList chatId={chatId} chats={chats} />
+      <MessengerContainer messages={messages} chatId={chatId} />
+    </>
+  )
+};
 
 export default App;
