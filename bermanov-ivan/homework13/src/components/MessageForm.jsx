@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class MessageForm extends Component {
     constructor(props) {
@@ -8,6 +9,18 @@ export class MessageForm extends Component {
     state = {
         author: '',
         content: ''
+    };
+
+    static propTypes = {
+        onSend: PropTypes.func.isRequired,
+        // author: PropTypes.string.isRequired,
+        // content: PropTypes.string.isRequired
+    };
+
+    static defualtProps = {
+        onSend: () => {},
+        // author: 'Author',
+        // content: 'Message'
     };
 
     handleInputChange = (event) => {
@@ -30,6 +43,7 @@ export class MessageForm extends Component {
 
     render() {
         const { author, content } = this.state;
+        console.log('form: ', this.props);
         return (
             <div>
                 <div>
@@ -44,3 +58,5 @@ export class MessageForm extends Component {
 
     }
 }
+
+// Props 2.2 MessageForm - получает пропс (функцию onSend()) от Messanger
