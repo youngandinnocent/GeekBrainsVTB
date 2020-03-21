@@ -36,5 +36,5 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'styles.[contenthash].css'
         })
-    ],
+    ]
 };
