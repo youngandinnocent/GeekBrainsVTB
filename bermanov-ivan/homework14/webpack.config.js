@@ -30,7 +30,7 @@ module.exports = {
                     'style-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'sass-loader' // выполняется первым
+                    'sass-loader'
                 ],
             }
         ],

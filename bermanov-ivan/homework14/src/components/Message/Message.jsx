@@ -16,8 +16,14 @@ export class Message extends Component {
 
     static propTypes = messageType;
 
+    static defaultProps = {
+        author: 'Author',
+        content: 'Message'
+    };
+
     render() {
         const { author, content } = this.props;
+        console.log('message: ', this.props);
         const classes = className('message', {
             'message-owner': author !== 'NDR-114',
             'message-robot': author === 'NDR-114'
@@ -25,8 +31,8 @@ export class Message extends Component {
 
         return (
             <div className = { classes }>
-                <div>{ content ? content : 'Message' }</div>
-                <div className="message-sender">{ author ? author : 'Author' }</div>
+                <div>{ content }</div>
+                <div className="message-sender">{ author }</div>
             </div>
         );
     }

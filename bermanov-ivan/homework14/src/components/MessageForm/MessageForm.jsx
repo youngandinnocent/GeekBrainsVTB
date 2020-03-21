@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
 import SendIcon from '@material-ui/icons/Send';
@@ -18,12 +17,11 @@ export class MessageForm extends Component {
     };
 
     static propTypes = {
-        onSend: PropTypes.func
+        onSend: PropTypes.func.isRequired
     };
 
-    static defultProps = {
-        onSend: () => {},
-        test: 10
+    static defaultProps = {
+        onSend: () => {}
     };
 
     handleInputChange = (event) => {
@@ -52,10 +50,11 @@ export class MessageForm extends Component {
 
     render() {
         const { author, content } = this.state;
+        console.log('form: ', this.props);
         return (
-            <div>
-                <TextField label="Author" name="author" value = { author } onChange = { this.handleInputChange } />
-                <TextField label="Content" name="content" multiline autoFocus value = { content } onKeyDown = { this.handleKeyDownEnter } onChange = { this.handleInputChange } />
+            <div className="message-form">
+                <TextField className="message-form__author" label="Author" name="author" value = { author } onChange = { this.handleInputChange } />
+                <TextField className="message-form__content" label="Content" name="content" multiline autoFocus value = { content } onKeyDown = { this.handleKeyDownEnter } onChange = { this.handleInputChange } />
                 <Fab variant="round" color="primary" onClick = { this.handleInputSend }><SendIcon /></Fab>
             </div>
         );

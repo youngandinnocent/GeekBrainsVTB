@@ -15,9 +15,10 @@ export class MessageList extends Component {
 
     render() {
         const { messages } = this.props;
+        console.log('list: ', this.props);
         return (
             <div className="message-list">
-                { messages.map((message, index) => <Message {...message} key = { index }/>) }
+                { messages.map((message, index) => <Message {...message} key = { index } />) }
             </div>
         );  
     }
