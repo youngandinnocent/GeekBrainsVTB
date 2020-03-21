@@ -2,3 +2,11 @@
     background: #ffffff;
     border-left: 1px solid #f1f1f1;
 }
+
+.chat-list a {
+    text-decoration: none;
+}
+
+.chat-list .MuiList-padding {
+    padding: 0px;
+}

@@ -5,7 +5,7 @@ import Message from "../Message";
 import './MessageList.css';
 
 const MessageList = ({messages}) => {
-    const messageList = messages.map((message) => <Message message={message}/>);
+    const messageList = messages.map((message, index) => <Message key={index} message={message}/>);
 
     return (
         <div className="messenger__message-list message-list">

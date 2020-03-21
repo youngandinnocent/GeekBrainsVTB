@@ -1,0 +1,8 @@
+.chat-item {
+    color: black;
+}
+
+.active {
+    background: #FF7172;
+    color: #ffffff;
+}

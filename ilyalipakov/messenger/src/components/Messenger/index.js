@@ -1,3 +1,3 @@
-import Messenger from './Messenger.jsx';
+import MessengerContainer from './MessengerContainer.jsx';
 
-export default Messenger;
+export default MessengerContainer;
