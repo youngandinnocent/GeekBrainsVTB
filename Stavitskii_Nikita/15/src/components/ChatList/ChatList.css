@@ -1,13 +1,21 @@
 .chat-list {
     width: 30%;
-    background-color: #5fee63;
+    background-color: #2C2F33;
 }
 
 .chat-item>div>p {
-    color: black;
+    color: #99AAB5;
+}
+
+.MuiListItem-root>div>div>input {
+    color: #99AAB5;
+}
+
+.MuiListItem-root>div>label {
+    color: #99AAB5;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: #99AAB5;
 }

@@ -7,7 +7,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import {Link} from 'react-router-dom';
 import './ChatList.css';
 import {ListItemIcon, TextField} from "@material-ui/core";
-import Fab from "@material-ui/core/Fab";
+import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
 
 export class ChatList extends Component {
@@ -54,11 +54,11 @@ export class ChatList extends Component {
                     </div>
                 )})}
                 <ListItem>
+                    <TextField fullWidth name="input" label="Enter new chat name" onChange={this.handleChange} />
                     <ListItemIcon>
                         {/*<AddCircleIcon onClick={this.handleAddChat} />*/}
-                        <Fab variant="round" color="primary" onClick={this.handleAddChat}><AddCircleIcon /></Fab>
+                        <Button color="inherit" onClick={this.handleAddChat}><AddCircleIcon /></Button>
                     </ListItemIcon>
-                    <TextField fullWidth name="input" label="Add new chat name" onChange={this.handleChange} />
                 </ListItem>
             </List>
 
