@@ -1,0 +1,13 @@
+.chat-list {
+    width: 30%;
+    background-color: #5fee63;
+}
+
+.chat-item>div>p {
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

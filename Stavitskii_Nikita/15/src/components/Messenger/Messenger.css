@@ -1,0 +1,26 @@
+.messenger {
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.no-chat {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.no-chat-container {
+    height: 100%;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: lightgreen;
+}
