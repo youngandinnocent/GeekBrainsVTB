@@ -11,15 +11,12 @@ class LayoutContainer extends Component {
     }
 
     componentDidUpdate() {
-        if (!this.props.messages.length) {
-            return;
-        }
-
         if (this.props.match.path !== '/') {
-            const {messages, chatId, sendMessage} = this.props;
-            if (messages === []) {
-                console.log(123)
+            if (!this.props.messages.length) {
+                return;
             }
+
+            const {messages, chatId, sendMessage} = this.props;
             const {author} = messages[messages.length - 1];
             if (author !== 'bot') {
                 setTimeout(() => {

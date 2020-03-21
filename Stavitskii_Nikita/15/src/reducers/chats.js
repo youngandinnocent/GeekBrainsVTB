@@ -38,9 +38,10 @@ export const chatsReducer = (state = initialState, action) => {
     switch(action.type)
     {
         case CHATS_LOAD:
+            const entryData = Array.isArray(state.entries) ? dataBackend : state.entries;
             return {
                 ...state,
-                entries: dataBackend,
+                entries: entryData,
             }
         case CHATS_SEND:
             return update(state, {
