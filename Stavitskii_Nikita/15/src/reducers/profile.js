@@ -14,6 +14,11 @@ const initialState = {
     entries: {}
 }
 
-export const profileReducer = (state = initialState) => {
-    return ({...state, entries: backendData})
+export const profileReducer = (state = initialState, action) => {
+    if (action.type === PROFILE_LOAD) {
+        console.log(123);
+        return ({...state, entries: backendData})
+    } else {
+        return state;
+    }
 }

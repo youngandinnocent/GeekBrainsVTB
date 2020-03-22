@@ -3,10 +3,12 @@ import {connect} from 'react-redux';
 
 import {Layout} from 'components/Layout';
 import {chatsLoad, chatsSend, chatsAdd} from 'actions/chats';
+import {profileLoad} from 'actions/profile'
 
 class LayoutContainer extends Component {
     componentDidMount() {
-        const {loadChats} = this.props;
+        const {loadChats, loadProfile} = this.props;
+        loadProfile();
         loadChats();
     }
 
@@ -53,7 +55,7 @@ class LayoutContainer extends Component {
             messages={messages}
             sendMessage={this.handleMessageSend}
             addChat={this.handleChatAdd}
-            profileName={profileName}
+            //profileName={profileName}
         />);
     }
 }
@@ -61,7 +63,7 @@ class LayoutContainer extends Component {
 function mapStateToProps(state, ownProps) {
     const chats = state.chats.entries;
     const {match} = ownProps;
-    const profileName = state.profile.entries[1].name;
+    //const profileName = state.profile.entries.length ? state.profile.entries[1].name : '';
 
     let messages = null;
 
@@ -80,7 +82,7 @@ function mapStateToProps(state, ownProps) {
         chats: chatsArrayForShow,
         messages,
         chatId: match ? match.params.id : null,
-        profileName,
+        //profileName,
     }
 }
 
@@ -89,6 +91,7 @@ function mapDispatchToProps(dispatch) {
         loadChats: () => dispatch(chatsLoad()),
         sendMessage: (message) => dispatch(chatsSend(message)),
         addChat: (title) => dispatch(chatsAdd(title)),
+        loadProfile: () => dispatch(profileLoad()),
     }
 }
 

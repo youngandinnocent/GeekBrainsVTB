@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import './Layout.css'
 
-import {Header} from "../Header";
+import {HeaderRedux} from "containers/HeaderContainer";
 import {ChatList} from "../ChatList";
 import {Messenger} from "../Messenger";
 
@@ -13,7 +13,7 @@ export class Layout extends Component {
 
         return (
             <div className="layout">
-                <Header profileName={profileName} />
+                <HeaderRedux />
                 <div className="messenger-container">
                     <ChatList chats={chats} messages={messages} addChat={addChat} />
                     <Messenger messages={messages} sendMessage={sendMessage} />
