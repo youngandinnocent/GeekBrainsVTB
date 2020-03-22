@@ -26,7 +26,7 @@ const mapStateToProps = (state, ownProps) => {
   const chats = state.chats.entries;
   const loading = state.chats.loading;
   const { match } = ownProps;
-  const chatId = match.params.id;
+  const chatId = match ? match.params.id : null;
   let messages = chats[chatId] ? chats[chatId].messages : null;
 
   let chatsArrayForShow = [];

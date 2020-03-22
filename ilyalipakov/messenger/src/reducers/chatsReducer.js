@@ -60,9 +60,7 @@ export const chatsReducer = (state = initialState, action) => {
         current_chat_id: id
       };
     default:
-      return {
-        ...state
-      }
+        return state
   }
 };
 

@@ -1,3 +1,3 @@
-import Profile from './Profile.jsx';
+import ProfileContainer from './ProfileContainer.jsx';
 
-export default Profile;
+export default ProfileContainer;

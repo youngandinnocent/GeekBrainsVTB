@@ -6,9 +6,10 @@ import Spinner from "../Spinner";
 import Header from "../Header";
 
 import './App.css';
+import Main from "../Main";
 
 const App = (props) => {
-    const {loading, chats, chatId, current_chat_id} = props;
+    const {loading, chats, chatId} = props;
     const chat = chats.find((chat) => chat.id === parseInt(chatId));
 
     return (
@@ -25,8 +26,7 @@ const RenderUI = (props) => {
   const {chats, messages, chatId} = props;
   return (
     <>
-      <ChatList chatId={chatId} chats={chats} />
-      <MessengerContainer messages={messages} chatId={chatId} />
+      <Main messages={messages}  chats={chats} chatId={chatId} />
     </>
   )
 };
