@@ -19,7 +19,7 @@ export class MessageForm extends Component {
     };
 
     static defaultProps = {
-        onSend: () => {},
+        onSend: () => { },
     };
 
     handeleChange = (event) => {
@@ -31,10 +31,12 @@ export class MessageForm extends Component {
     };
 
     handleClick = () => {
-        const {onSend} = this.props;
-
-        onSend(this.state);
-        this.setState({text: ''});
+        const { onSend } = this.props;
+        
+        if (this.state.text !== '') {
+            onSend(this.state);
+            this.setState({ text: '' });
+        }
     };
 
     handleEnterDown = (event) => {
@@ -47,7 +49,7 @@ export class MessageForm extends Component {
         const { author, text } = this.state;
 
         return (
-            <div>
+            <div className='messageForm'>
                 <TextField label="Author" name="author" id='author' value={author} onChange={this.handeleChange} />
                 <TextField label="Text" name="text" id='text' autoFocus multiline value={text} onChange={this.handeleChange} onKeyDown={this.handleEnterDown} />
                 <Fab variant='round' color='primary'><SendIcon onClick={this.handleClick} /></Fab>
