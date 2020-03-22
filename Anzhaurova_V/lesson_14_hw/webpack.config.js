@@ -1,44 +1,45 @@
-const path = require("path");
-const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: {
-        app: './index.jsx',
-    },
-    context: path.resolve(__dirname, "static_src"),
+    entry:path.resolve(__dirname,'src','index.js'),
+
     output: {
-        path: path.resolve(__dirname, "static", "build"),
-        filename: 'app.js',
+        path:path.resolve(__dirname,'src','dist'),
+        filename:'bundle.js',
     },
     resolve: {
-        modules: [`${__dirname}/static_src`, 'node_modules'],
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js','.jsx'],
+        alias: {
+            components: path.resolve(__dirname, 'src', 'components')
+        }
     },
-
     module: {
-        rules: [
+        rules:[
             {
-                test: /\.(js|jsx)$/,
-                include: `${__dirname}/static_src`,
+                test:/\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                query: {
-                    presets: ['@babel/env','@babel/react'],
-                    plugins: [
-                        [
-                            "@babel/plugin-proposal-class-properties",
-                            {
-                                "loose":true
-                            }
-                        ]
-
-                    ]
-                }
             },
             {
-                test: /\.css$/,
-                loader:'style-loader!css-loader',
-            },
+                test: /\.s?css$/,
+                use: [
+                    'style-loader',
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader',//выполняется первым
+                ],
+            }
         ],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template:path.resolve(__dirname,'src','index.html'),
+            filename: 'index.html',
+        }),
+        new MiniCssExtractPlugin({
+            filename:'main.css',
+        }),
+    ]
 };
