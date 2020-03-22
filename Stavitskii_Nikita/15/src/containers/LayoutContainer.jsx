@@ -3,11 +3,10 @@ import {connect} from 'react-redux';
 
 import {Layout} from 'components/Layout';
 import {chatsLoad, chatsSend, chatsAdd} from 'actions/chats';
-import {profileLoad} from 'actions/profile'
 
 class LayoutContainer extends Component {
     componentDidMount() {
-        const {loadChats, loadProfile} = this.props;
+        const {loadChats} = this.props;
         loadChats();
     }
 
@@ -48,7 +47,7 @@ class LayoutContainer extends Component {
     }
 
     render() {
-        const {chats, messages, profileName} = this.props;
+        const {chats, messages} = this.props;
         return (<Layout
             chats={chats}
             messages={messages}
