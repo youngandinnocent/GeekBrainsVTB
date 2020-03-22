@@ -16,9 +16,8 @@ class ProfileContainer extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     const profiles = state.profile.entries;
-    //const {match} = ownProps;
 
     let profilesArrayForShow = [];
     for(let key in profiles){
