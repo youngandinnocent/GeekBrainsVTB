@@ -1,5 +1,5 @@
 import AppContainer from "./components/App";
-import Profile from "./Pages/Profile";
+import ProfileContainer from "./Pages/Profile";
 import NotFound from "./Pages/NotFound";
 
 export const routes = [
@@ -9,9 +9,9 @@ export const routes = [
     component: AppContainer
   },
   {
-    path: '/profile',
+    path: '/profiles/:id([\\d]+)',
     exact: true,
-    component: Profile
+    component: ProfileContainer
   },
   {
     path: '/chats/:id([\\d]+)',

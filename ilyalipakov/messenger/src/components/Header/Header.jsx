@@ -10,7 +10,7 @@ const Header = (props) => {
     return (
         <header className="header">
             <div className='header__logo'>
-                <Link to="/profile"><ChatIcon /></Link>
+                <Link to="/profiles/1"><ChatIcon /></Link>
             </div>
             <div className="header__chat-name">
               {chat && chat.title}
