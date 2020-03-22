@@ -1,5 +1,5 @@
 import update from 'react-addons-update';
-import { CHATS_LOAD, CHATS_SEND, CHAT_SET } from 'actions/chats';
+import { CHATS_LOAD, CHATS_SEND, CHAT_SET, CHAT_ADD } from 'actions/chats';
 
 const dataBackend = {
     '1': {
@@ -49,7 +49,15 @@ export const chatsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chatId: action.payload
-            };
+            }
+        case CHAT_ADD:
+            return {
+                ...state,
+                entries: {
+                    ...state.entries,
+                    [Object.keys(state.entries).length + 1]: { id: Object.keys(state.entries).length + 1, name: action.payload.name, messages: [] }
+                }
+            }
         default:
             return state;
     }
