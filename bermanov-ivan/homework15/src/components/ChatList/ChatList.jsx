@@ -6,6 +6,9 @@ import Avatar from '@material-ui/core/Avatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 import './ChatList.css';
 
@@ -14,26 +17,48 @@ export class ChatList extends Component {
       super(props);
   }
 
-  handleClickLink = (event) => {
+  state = {
+    name: '',
+    src: ''
+  };
+
+  handleClickItem = (event) => {
     const currentActive = event.target.closest('.chat-list').querySelector('.active');
-    console.log('currentActive: ', currentActive);
     const nextActive = event.target.closest('.item');
-    console.log('nextActive: ', nextActive);
     if (currentActive) {
       currentActive.classList.toggle('active');
     }
     nextActive.classList.toggle('active');
   };
 
+  handleInputChange = (event) => {
+    const fieldName = event.target.name;
+    this.setState({
+        [fieldName]: event.target.value
+    });
+  }
+
+  handleChatAdd = () => {
+    const { onSend } = this.props;
+    if (typeof onSend === 'function') {
+        onSend(this.state);
+        this.setState({
+          name: '',
+          src: ''
+        });
+    }
+  }
+
   render() {
     const { chats } = this.props;
+    const { name, src } = this.state;
     return (
       <List className="chat-list">
         { Object.keys(chats).map((id) => (
           <div key = { +id }>
             <Link className="chat-link" to = {`/chats/${id}`}>
-              <ListItem className="item" alignItems="center" onClick = { this.handleClickLink }>
-                <ListItemAvatar><Avatar alt = { chats[id].avatarAlt } src = { chats[id].avatarSrc } /></ListItemAvatar>
+              <ListItem className="item" alignItems="center" onClick = { this.handleClickItem }>
+                <ListItemAvatar><Avatar src = { chats[id].avatarSrc } /></ListItemAvatar>
                 <ListItemText primary = { chats[id].name } />
               </ListItem>
             </Link>
@@ -41,6 +66,11 @@ export class ChatList extends Component {
           </div>
           ))
         }
+        <div className="chat-add">
+          <TextField label="Chat name" name="name" value = { name } autoFocus onChange = { this.handleInputChange } />
+          <TextField label="Avatar source" name="src" value = { src } onChange = { this.handleInputChange } />
+          <Fab variant="round" color="primary" onClick = { this.handleChatAdd }><AddIcon /></Fab>
+        </div>
       </List>
     );
   }

@@ -16,55 +16,42 @@ export class MessageField extends Component {
                 id: 1,
                 name: 'GeekBrains.JS+React для молодых специалистов Банка ВТБ (ПАО)',
                 messages: [],
-                avatarAlt: 'GeekBrains.JS',
                 avatarSrc: ''
             },
             '2': {
                 id: 2,
                 name: 'VTB_Scrubs',
                 messages: [],
-                avatarAlt: 'VTB_Scrubs',
                 avatarSrc: ''
             },
             '3': {
                 id: 3,
                 name: 'Стажеры ВТБ',
                 messages: [],
-                avatarAlt: 'Стажеры ВТБ',
                 avatarSrc: ''
             },
             '4': {
                 id: 4,
                 name: 'FrontEndDev',
                 messages: [],
-                avatarAlt: 'FrontEndDev',
                 avatarSrc: ''
             },
             '5': {
                 id: 5,
                 name: 'Flutter Mobile Dev | Skill-Branch',
                 messages: [],
-                avatarAlt: 'Flutter',
                 avatarSrc: ''
             },
         }
     };
 
     componentDidUpdate() {
-        if (this.messages && this.messages.length) {
+        console.log('5.this.state: ', this.state);
+        if (this.messages.length) {
             const { author } = this.messages[this.messages.length - 1];
             if (author !== 'NDR-114') {
                 setTimeout(() => {
                     if (this.messages[this.messages.length - 1].author !== 'NDR-114') {
-                        // this.setState({
-                        //     messages: [
-                        //         ...this.state.messages,
-                        //         {
-                        //             content: `Hello, ${author ? author : 'Author'}, my name is Andrew`,
-                        //             author: 'NDR-114'
-                        //         }
-                        //     ]
-                        // });
                         this.handleMessageSend({
                             content: `Hello, ${author ? author : 'Author'}, my name is Andrew`,
                             author: 'NDR-114'
@@ -93,7 +80,6 @@ export class MessageField extends Component {
 
         const chat = chats[match.params.id];
         const messages = [...this.messages, message];
-        // const messages = this.messages.concat([message]);
 
         chat.messages = messages;
 
@@ -105,11 +91,28 @@ export class MessageField extends Component {
         });
     };
 
+    handleChatSend = (chat) => {
+        const { chats } = this.state;
+        const index = `${Object.keys(chats).length + 1}`;
+
+        const addChat = {
+            id: +index,
+            name: chat.name,
+            messages: [],
+            avatarSrc: chat.src
+        };
+
+        this.setState({
+            chats: { ...this.state.chats, [index]: addChat }
+        });
+
+    }
+
     render() {
         const { chats } = this.state;
         return(
             <div className="body">
-                <ChatList chats = { chats } />
+                <ChatList chats = { chats } onSend = { this.handleChatSend } />
                 <div className="message-field">
                     { this.messages ? <MessageList messages = { this.messages } /> : <p className="select-chat">Please select chat from list</p> }
                     { this.messages && <MessageForm onSend = { this.handleMessageSend }/> }
