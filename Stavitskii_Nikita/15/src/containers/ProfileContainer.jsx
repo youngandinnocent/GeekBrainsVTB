@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {Profile} from 'pages/../components/Profile';
+import {Profile} from '/components/Profile';
 import {profileLoad} from 'actions/profile';
 
 class ProfileContainer extends Component {
