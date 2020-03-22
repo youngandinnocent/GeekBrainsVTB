@@ -8,7 +8,6 @@ import {profileLoad} from 'actions/profile'
 class LayoutContainer extends Component {
     componentDidMount() {
         const {loadChats, loadProfile} = this.props;
-        loadProfile();
         loadChats();
     }
 
@@ -88,7 +87,6 @@ function mapDispatchToProps(dispatch) {
         loadChats: () => dispatch(chatsLoad()),
         sendMessage: (message) => dispatch(chatsSend(message)),
         addChat: (title) => dispatch(chatsAdd(title)),
-        loadProfile: () => dispatch(profileLoad()),
     }
 }
 
