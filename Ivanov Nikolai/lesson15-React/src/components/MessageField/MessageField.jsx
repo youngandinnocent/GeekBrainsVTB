@@ -7,17 +7,17 @@ import Button from '@material-ui/core/Button';
 
 export class MessageField extends Component {
     state = {
+        inputText: '',
         disable: true
     };
 
     componentDidUpdate() {
-        const {user, messages, chats} = this.props.state;
+        const {user, messages} = this.props.state;
         const {chatId, updateDataSendMessage} = this.props;
-        const messageId = Object.keys(messages).length + 1;
         if ((Object.values(messages)[Object.values(messages).length - 1]).author !== 'robot') {
             setTimeout(() => {
                 if ((Object.values(messages)[Object.values(messages).length - 1]).author !== 'robot') {
-                    updateDataSendMessage(messages, messageId, 'robot', `Dear ${user}, Я робот!`, chats, chatId);
+                    updateDataSendMessage('robot', `Dear ${user}, Я робот!`, chatId);
                 }
             }, 1000);
         }
@@ -26,10 +26,10 @@ export class MessageField extends Component {
     sendMessage = (e, text) => {
         e.preventDefault();
         const {chatId, updateDataSendMessage} = this.props;
-        const {user, messages, chats} = this.props.state;
-        const messageId = Object.keys(messages).length + 1;
-        updateDataSendMessage(messages, messageId, user, text, chats, chatId, '');
+        const {user} = this.props.state;
+        updateDataSendMessage(user, text, chatId);
         this.setState({
+            inputText: '',
             disable: true
         });
     };
@@ -41,16 +41,15 @@ export class MessageField extends Component {
     };
 
     changeInputText = (e) => {
-        const {updateDataChangeInputText} = this.props;
-        updateDataChangeInputText(e.target.value);
         this.setState({
+            inputText: e.target.value,
             disable: false
         });
     };
 
     render() {
         const {chatId} = this.props;
-        const {messages, inputText, chats} = this.props.state;
+        const {messages, chats} = this.props.state;
         const messageElements = chats[chatId].messageList.map((messageId, index) => (
             <Message key={index}
                      text={messages[messageId].text}
@@ -73,13 +72,13 @@ export class MessageField extends Component {
                         variant="outlined"
                         multiline
                         onChange={this.changeInputText}
-                        onKeyDown={e => this.sendKeyboardButtons(e, inputText)}
-                        value={inputText}/>
+                        onKeyDown={e => this.sendKeyboardButtons(e, this.state.inputText)}
+                        value={this.state.inputText}/>
                     <Button
                         className="send-message"
                         variant="contained"
                         color="secondary"
-                        onClick={e => this.sendMessage(e, inputText)}
+                        onClick={e => this.sendMessage(e, this.state.inputText)}
                         disabled={this.state.disable}
                     >&gt;</Button>
                 </form>
