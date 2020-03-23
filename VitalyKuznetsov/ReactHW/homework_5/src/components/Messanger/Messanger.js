@@ -23,55 +23,55 @@ export class Messanger extends Component {
     number = 5;
     link = `/chats/${this.number++}`;
 
-// state = {
-//     chats: [
-//         {
-//             id: 1,
-//             link: '/chats/1',
-//             name: 'Mom',
-//             messages: [
-//                 {text: 'Welcome to 1st chat', author: 'Robot'}
-//             ]
-//         },
-//         {
-//             id: 2,
-//             link: '/chats/2',
-//             name: 'Best friend',
-//             messages: [
-//                 {text: 'Welcome to 2st chat', author: 'Robot'}
-//             ]
-//         },
-//         {
-//             id: 3,
-//             link: '/chats/3',
-//             name: 'Grnadma',
-//             messages: [
-//                 {text: 'Welcome to 3st chat', author: 'Robot'}
-//             ]
-//         },
-//         {
-//             id: 4,
-//             link: '/chats/4',
-//             name: 'Teacher',
-//             messages: [
-//                 {text: 'Welcome to 4st chat', author: 'Robot'}
-//             ]
-//         },
-//     ]
-// }
+//state = {
+//    chats: [
+//        {
+//            id: 1,
+//            link: '/chats/1',
+//            name: 'Mom',
+//            messages: [
+//                {text: 'Welcome to 1st chat', author: 'Robot'}
+//            ]
+//        },
+//        {
+//            id: 2,
+//            link: '/chats/2',
+//            name: 'Best friend',
+//            messages: [
+//                {text: 'Welcome to 2st chat', author: 'Robot'}
+//            ]
+//        },
+//        {
+//            id: 3,
+//            link: '/chats/3',
+//            name: 'Grnadma',
+//            messages: [
+//                {text: 'Welcome to 3st chat', author: 'Robot'}
+//            ]
+//        },
+//        {
+//            id: 4,
+//            link: '/chats/4',
+//            name: 'Teacher',
+//            messages: [
+//                {text: 'Welcome to 4st chat', author: 'Robot'}
+//            ]
+//        },
+//    ]
+//}
+
+//componentDidUpdate() {
 //
-// componentDidUpdate() {
-//
-//     if(this.messages.length) {
-//         const { author } = this.messages[this.messages.length - 1];
-//         if(author !== 'Robot') {
-//             setTimeout(() => {
-//                 this.handleMessageSend({text: `Hi, ${author}! Это автоответ бота`, author: 'Robot'});
-//             }, 1000);
-//         }
-//     } */
-// } 
-//
+//    if(this.messages.length) {
+//        const { author } = this.messages[this.messages.length - 1];
+//        if(author !== 'Robot') {
+//            setTimeout(() => {
+//                this.handleMessageSend({text: `Hi, ${author}! Это автоответ бота`, author: 'Robot'});
+//            }, 1000);
+//        }
+//    } 
+//} 
+
 // get messages() {
 //     const { chats } = this.state;
 //     const { match } = this.props;
@@ -84,34 +84,34 @@ export class Messanger extends Component {
 //     
 //     return messages;
 // }
+
+//handleMessageSend = (message) => {
+//    const { chats } = this.state;
+//    const { match } = this.props;
+//    //console.log(match.params.id)
+//    
+//    const chat = chats[match.params.id];
+//    console.log(chat)
+//    const messages = this.messages.concat([message]);
+//    chat.messages = messages;
 //
-// handleMessageSend = (message) => {
-//     const { chats } = this.state;
-//     const { match } = this.props;
-//     //console.log(match.params.id)
-//     
-//     const chat = chats[match.params.id];
-//     console.log(chat)
-//     const messages = this.messages.concat([message]);
-//     chat.messages = messages;
-//
-//     this.setState(() => {
-//         return {
-//                 chats: [
-//                     ...this.state.chats, //wrong need props
-//                 ]
-//         }
-//     }
-//     
-//     );
-// }
-//
-// robotMessages = () => {
-//     this.setState((state) => {
-//         return {messages: [...state.messages, {author: 'Robot', text: 'Hello'}],
-//         }
-//     });
-// }
+//    this.setState(() => {
+//        return {
+//                chats: [
+//                    ...this.state.chats, //wrong need props
+//                ]
+//        }
+//    }
+//    
+//    );
+//}
+
+    robotMessages = () => {
+        this.setState((state) => {
+            return {messages: [...state.messages, {author: 'Robot', text: 'Hello'}],
+            }
+        });
+    }
 
     deleteChat = (id) => {
         

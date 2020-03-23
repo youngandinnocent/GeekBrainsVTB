@@ -1,4 +1,4 @@
-import { Messanger } from './components/Messanger';
+import { MessangerRedux } from './containers/MessangerContainer';
 import { Profile } from 'pages/Profile';
 import { NotFoundPage } from 'pages/NotFoundPage';
 
@@ -6,7 +6,7 @@ export const routes = [
     {
         path: '/',
         exact: true,
-        component: Messanger
+        component: MessangerRedux
     },
     {
         path: '/profile',
@@ -16,12 +16,12 @@ export const routes = [
     {
         path: '/settings',
         exact: true,
-        component: Messanger
+        component: MessangerRedux
     },
     {
         path: '/chats/:id([\\d]+)',
         exact: true,
-        component: Messanger
+        component: MessangerRedux
     },
     {
         path: '*',

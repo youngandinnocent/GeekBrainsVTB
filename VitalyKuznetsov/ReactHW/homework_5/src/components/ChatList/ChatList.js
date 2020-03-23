@@ -34,12 +34,12 @@ export default function SimpleList(props) {
                 <ListItemIcon>
                     <ForumIcon color="primary" /> 
                 </ListItemIcon>
+                <div className='button-delete'>
+                    <DeleteIcon onClick={() => onDeleted(id)}/>    
+                </div>
                 <Link to={link}>
                 <ListItemText primary={name} />
                 </Link>
-                <button onClick={() => onDeleted(id)}>
-                    <DeleteIcon/>
-                </button>       
             </ListItem>
         </div>
     );
