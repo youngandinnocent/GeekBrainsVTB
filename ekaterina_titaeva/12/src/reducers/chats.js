@@ -55,7 +55,7 @@ export const chatsReducer = (state = initialState, action) => {
                 ...state,
                 entries: {
                     ...state.entries,
-                    [Object.keys(state.entries).length + 1]: { id: Object.keys(state.entries).length + 1, name: action.payload.name, messages: [] }
+                    [Object.keys(state.entries).length + 1]: { id: Object.keys(state.entries).length + 1, name: action.payload, messages: [] }
                 }
             }
         default:
