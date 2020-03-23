@@ -1,6 +1,7 @@
-import {combineReducers} from 'redux';
+//основной редюсер
+import { combineReducers } from 'redux';
 
-import {chatsReducer} from './chats';
+import { chatsReducer } from './chats';
 
 export const rootReducer = combineReducers({
     chats: chatsReducer
