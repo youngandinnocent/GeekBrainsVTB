@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { profileLoad } from '../../actions/profile';
 
-import './Header.scss';
-
-class Header extends Component {
+class Profile extends Component {
 
     componentDidMount() {
         const { loadProfile } = this.props;
@@ -15,11 +12,7 @@ class Header extends Component {
     render() {
         const { name } = this.props;
         return (
-            <div className="header">
-                <Link to='/profile'>
-                    {name}
-                </Link>
-            </div>
+            <div>Вы пользуетесь приложением {name}. Спасибо, что выбираете нас!</div>
         )
     }
 }
@@ -33,8 +26,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        loadProfile: () => dispatch(profileLoad())
+        loadProfile: () => (dispatch(profileLoad()))
     }
 }
 
-export const HeaderRedux = connect(mapStateToProps, mapDispatchToProps)(Header);
+export const ProfileRedux = connect(mapStateToProps, mapDispatchToProps)(Profile);

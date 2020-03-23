@@ -1,11 +1,8 @@
 .chatList{
     background-color: #1d2733;
+    border-right: 1px solid black;
     width: 30%;
-    color: white;
-}
-.listItem{
-    border-bottom: 1px solid black;
-    &:last-child{
-        border-bottom: none;
+    ul, li{
+        padding: 0;
     }
 }

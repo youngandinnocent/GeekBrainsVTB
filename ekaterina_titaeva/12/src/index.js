@@ -1,8 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDom from 'react-dom';
-import { Layout } from './components/Layout'
+import { Provider } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import { store } from './store';
+import { routes } from './routes';
 
 ReactDom.render(
-    <Layout />,
+    <Provider store={store}>
+        <BrowserRouter>
+            <Switch>
+                {routes.map((route, index) => <Route key={index} {...route} />)}
+            </Switch>
+        </BrowserRouter>
+    </Provider>,
     document.getElementById('root')
 );

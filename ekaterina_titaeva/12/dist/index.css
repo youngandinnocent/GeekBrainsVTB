@@ -1,18 +1,3 @@
-.header {
-  width: 100%;
-  height: 10px;
-  background-color: #1d2733; }
-
-.chatList {
-  background-color: #1d2733;
-  width: 30%;
-  color: white; }
-
-.listItem {
-  border-bottom: 1px solid black; }
-  .listItem:last-child {
-    border-bottom: none; }
-
 .message {
   color: white;
   background-color: #3e6189;
@@ -31,13 +16,14 @@
   display: flex;
   flex-direction: column;
   background-color: #161d27;
-  padding: 20px; }
+  padding: 20px;
+  overflow-y: auto;
+  height: 80%; }
 
+.messageForm {
+  padding: 10px; }
 
 .chat {
   flex-direction: column;
   width: 70%; }
-
-.layout__flex-container {
-  display: flex; }
 

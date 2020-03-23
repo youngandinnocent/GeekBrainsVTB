@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import { List, ListItem } from '@material-ui/core';
+import { List } from '@material-ui/core';
+import { BrowserRouter } from 'react-router-dom';
+import ChatListItem from '../ChatListItem/ChatListItem';
+import ChatForm from '../ChatForm/ChatForm';
 
 import './ChatList.scss';
-
-const chats = ['Стажеры ВТБ', 'Группа 2461', 'Анна', 'Настя', 'Иван Иванов']
 
 export class ChatList extends Component {
 
     render() {
 
+        const { chats } = this.props;
         return (
-            <List className="chatList">
-                {chats.map((item, index) => <ListItem key={index} className='listItem'>{item}</ListItem>)}
-            </List>
+            <div className="chatList">
+                <BrowserRouter>
+                    <List>
+                        {chats ? chats.map((chat, index) => <ChatListItem key={index} chat={chat} />) : null}
+                    </List>
+                </BrowserRouter>
+                <ChatForm />
+            </div>
         )
     }
-};
+}

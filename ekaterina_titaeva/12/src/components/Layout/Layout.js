@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import { Header } from '../Header'
+import { HeaderRedux } from '../Header'
 import { ChatList } from '../ChatList'
-import { Chat } from '../Chat'
+import { Messenger } from '../Messenger'
 
 import './Layout.scss';
 
@@ -10,14 +9,15 @@ export class Layout extends Component {
 
     render() {
 
+        const { chats, messages, sendMessage } = this.props;
         return (
-            <div>
-                <Header />
+            <div className='layout'>
+                <HeaderRedux />
                 <div className='layout__flex-container'>
-                    <ChatList />
-                    <Chat />
+                    <ChatList chats={chats} />
+                    <Messenger messages={messages} sendMessage={sendMessage} />
                 </div>
             </div>
         )
     }
-};
+}
