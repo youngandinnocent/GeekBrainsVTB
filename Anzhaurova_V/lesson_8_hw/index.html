@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegExp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form  class="user-form" action="POST" >
+    <div class="flex-row">
+        <input id="login" class="form--input" placeholder="Введите логин" type="text" oninput="errorCounter()">
+    </div>
+    <div class="flex-row">
+        <input  id="email" class="form--input" placeholder="Введите e-mail" type="text" oninput="errorCounter()">
+    </div>
+    <div class="flex-row">
+        <input  id="pass" class="form--input" placeholder="Введите пароль" type="password" oninput="errorCounter()">
+    </div>
+    <div class="flex-row">
+        <input  id="passwordTwo" class="form--input"  type="password" placeholder="Подтвердите пароль" oninput="errorCounter()">
+    </div>
+
+    <div class="flex-row">
+        <input id="uf-btn--submit" class="uf--submit" type="submit" value='Зарегистрироваться' disabled>
+    </div>
+</form>
+<script src="script.js"></script>
+</body>
+</html>
+

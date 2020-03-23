@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+
+<div class="ui grid">
+    <div class="one wide column"></div>
+    <div class="fourteen wide column" style="margin-top: 5px; padding-left: 0; padding-right: 0">
+        <div class="ui inverted segment">
+            <div class="ui inverted secondary pointing menu">
+                <a class="active item">
+                    Ilia hw#6
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="one wide column"></div>
+
+    <div class="one wide column"></div>
+    <div class="ui form six wide column" style="padding: 0">
+
+        <div class="field">
+            <label>Название Задачи</label>
+            <input type="text" id="post-name" placeholder="Post header">
+        </div>
+
+        <div class="field">
+            <label>Описание задачи</label>
+            <textarea id="post-description" placeholder="Post description"></textarea>
+        </div>
+
+        <div class="ui form">
+            <div class="fields">
+                <div class="field">
+                    <label>Дата дедлайна</label>
+                    <input type="date" id="deadline-date" value="2020-03-02">
+                </div>
+
+                <div class="field">
+                    <label>Время дедлайна</label>
+                    <input type="time" id="deadline-time" value="10:00">
+                </div>
+            </div>
+        </div>
+
+        <button class="ui button" id="add-button" type="button">Добавить</button>
+        <button class="ui button" id="delete-button" type="button" style="margin-bottom: 2.5vh">Удалить все</button>
+        <div class="ui padded grid">
+            <div class="red row">
+                <div class="column">Deadline is missed</div>
+            </div>
+            <div class="yellow row">
+                <div class="column">12 hours before deadline</div>
+            </div>
+            <div class="green row">
+                <div class="column">More 24 hours before deadline</div>
+            </div>
+        </div>
+    </div>
+    <div class="one wide column"></div>
+    <div class="ui seven wide column" style="border: 1px solid lightgray; border-radius: 10px">
+        <h1 style="padding-bottom: 20px; font-weight: lighter">Карточки дедлайнов:</h1>
+        <div class="ui cards centered" id="cards-container"></div>
+    </div>
+    <div class="one wide column"></div>
+</div>
+
+
+<!--Интерфейс для добавления дедлайнов: -->
+<!--    - Добавить название задачи header -->
+<!--    - Добавить время дедлайна deadline -->
+<!--        - Проверка на то, что время не может быть раньше текущей даты-->
+<!--    - Добавить описание дедлайна description -->
+
+<script src="./script.js"></script>
+</body>
+</html>

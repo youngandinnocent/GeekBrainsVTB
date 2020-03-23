@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DEADLINE</title>
+		<link rel="stylesheet" href="styles/main.less">
+  </head>
+  <body>
+		<div class="deadlines"></div>
+		<div class='add'>+</div>
+
+		<div class="popup hide">
+			<h2 class="popup__name">Создать таску</h2>
+			<input class="popup__title" type="text" placeholder="Название">
+			<textarea class="popup__desc" placeholder="Описание"></textarea>
+			<div class="popup__wrapper">
+				<input class="popup__date" type="date">
+				<input class="popup__time" type="time">
+			</div>
+			<div class="popup__btn">Создать</div>
+			<div class="popup__close"></div>
+		</div>
+
+		<div class="overlay hide"></div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

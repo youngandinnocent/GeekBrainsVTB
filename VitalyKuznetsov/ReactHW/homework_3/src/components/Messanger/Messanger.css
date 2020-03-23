@@ -1,0 +1,14 @@
+.messanger {
+    height: 100%;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

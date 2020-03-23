@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 1.5rem;
+}
+
+.form__label {
+    margin-bottom: 5px;
+}
+
+.form__input {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid grey;
+    padding: 2px 5px;
+    position: relative;
+    margin-left: 5px;
+}
+
+.form__label {
+    position: relative;
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+.form__login-button {
+    width: 100%;
+    padding: 2px;
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+.invalid::after {
+    content: '\2716';
+    position: absolute;
+    right: 0;
+    top: 0;bottom: 0;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(110%);
+    color: white;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.valid {
+    border: 1px solid green;
+}
+
+.valid::after {
+    content: '\2713';
+    position: absolute;
+    right: 0;
+    top: 0;bottom: 0;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(110%);
+    color: white;
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+@keyframes shake {
+    0%, 50%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30% {
+        transform: rotate(-10deg);
+    }
+    20%, 40% {
+        transform: rotate(10deg);
+    }
+}
+
+.shake-baby-shake {
+    animation: 1s ease-in-out 0s normal forwards shake;
+}

@@ -1,0 +1,27 @@
+.message {
+    margin: 5px;
+    padding: 10px 15px 10px;
+    border-radius: 15px;
+
+    color: #ffffff;
+    font: 13px Arial;
+}
+
+.message-owner {
+    align-self: flex-start;
+    background: #ff4b48;
+}
+
+.message-bot {
+    align-self: flex-end;
+    background: #ff9255;
+}
+
+.message__author {
+    margin-top: 7px;
+
+    font: 10px Arial;
+    text-align: right;
+
+    color: #f1f1f1;
+}
