@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {Profile} from 'pages/Profile';
+import {Profile} from 'components/Profile';
 import {profileLoad} from 'actions/profile';
 
 class ProfileContainer extends Component {
@@ -16,9 +16,8 @@ class ProfileContainer extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     const profiles = state.profile.entries;
-    //const {match} = ownProps;
 
     let profilesArrayForShow = [];
     for(let key in profiles){
