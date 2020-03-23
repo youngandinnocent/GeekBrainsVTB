@@ -36,5 +36,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'styles.[contenthash].css'
         })
-    ]
+    ],
+    devServer: {
+        historyApiFallback: true
+    },
+    devtool: 'cheap-inline-module-source-map'
+
 };
