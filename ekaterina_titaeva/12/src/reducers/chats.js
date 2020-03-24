@@ -63,16 +63,10 @@ export const chatsReducer = (state = initialState, action) => {
                 }
             })
         case CHAT_DELETE:
-            // delete state.entries[action.payload];
-            console.log(state.entries)
-            console.log(action.payload)
-            return update(state, {
-                entries: {
-                    $delete:
-                        [action.payload]
-
-                }
-            })
+            return {
+                ...state,
+                entries: Object.fromEntries(Object.entries(state.entries).filter(([key, value]) => key != action.payload))
+            }
         default:
             return state;
     }
