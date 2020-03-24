@@ -70,8 +70,15 @@ export const chatsReducer = (state = initialState, action) => {
                 }}
             })
         case CHATS_DELETE:
-            delete state.entries[action.payload.chatId];
-            return state;
+            const newState = {
+                ...state,
+                entries: {
+                    ...state.entries,
+                }
+            }
+            delete newState.entries[action.payload.chatId];
+            console.log(state)
+            return newState;
         case CHATS_ACTIVE:
              return update(state, {
                  entries: {
