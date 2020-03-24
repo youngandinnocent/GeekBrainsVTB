@@ -6,8 +6,9 @@ import { chatsLoad, chatsSend } from 'actions/chats';
 class LayoutContainer extends Component {
 
     componentDidMount() {
-        const { loadChats } = this.props;
-        loadChats();
+        const { loadChats, chats } = this.props;
+        if (!chats.length)
+            loadChats();
     }
 
     handleSend = (message) => {
@@ -22,6 +23,7 @@ class LayoutContainer extends Component {
     render() {
         const { chats, messages } = this.props;
         return (<Layout chats={chats} messages={messages} sendMessage={this.handleSend} />);
+        // дз: надо понять, что что-то произошло, и в layout передать еще одно свойство "активный чат"
     }
 }
 

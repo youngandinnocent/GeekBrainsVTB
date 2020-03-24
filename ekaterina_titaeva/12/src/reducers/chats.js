@@ -51,13 +51,17 @@ export const chatsReducer = (state = initialState, action) => {
                 chatId: action.payload
             }
         case CHAT_ADD:
-            return {
-                ...state,
+            return update(state, {
                 entries: {
-                    ...state.entries,
-                    [Object.keys(state.entries).length + 1]: { id: Object.keys(state.entries).length + 1, name: action.payload.name, messages: [] }
+                    $merge: {
+                        [Object.keys(state.entries).length + 1]: {
+                            id: Object.keys(state.entries).length + 1,
+                            name: action.payload,
+                            messages: []
+                        }
+                    }
                 }
-            }
+            })
         default:
             return state;
     }

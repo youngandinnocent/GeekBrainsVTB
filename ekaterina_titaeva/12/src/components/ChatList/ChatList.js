@@ -12,6 +12,8 @@ export class ChatList extends Component {
 
         const { chats } = this.props;
         return (
+            // дз: здесь или в chatlistitem добавляем класс через библиотеку classnames (или как там она). через settimeout (секунду-2) снять класс. 
+            //то есть вызываем сетстейт, чтобы изменилось состояние и удалился тот класс
             <div className="chatList">
                 <BrowserRouter>
                     <List>
