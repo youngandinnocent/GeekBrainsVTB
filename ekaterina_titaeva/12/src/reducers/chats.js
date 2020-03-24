@@ -1,5 +1,5 @@
 import update from 'react-addons-update';
-import { CHATS_LOAD, CHATS_SEND, CHAT_SET, CHAT_ADD } from 'actions/chats';
+import { CHATS_LOAD, CHATS_SEND, CHAT_SET, CHAT_ADD, CHAT_DELETE } from 'actions/chats';
 
 const dataBackend = {
     '1': {
@@ -60,6 +60,17 @@ export const chatsReducer = (state = initialState, action) => {
                             messages: []
                         }
                     }
+                }
+            })
+        case CHAT_DELETE:
+            // delete state.entries[action.payload];
+            console.log(state.entries)
+            console.log(action.payload)
+            return update(state, {
+                entries: {
+                    $delete:
+                        [action.payload]
+
                 }
             })
         default:
