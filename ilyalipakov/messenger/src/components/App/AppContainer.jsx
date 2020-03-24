@@ -10,11 +10,13 @@ import './App.css';
 class AppContainer extends Component {
 
   componentDidMount() {
+    const {loadChats, setCurrentChat} = this.props;
+
     setTimeout(() => {
       const { chatId } = this.props;
-      this.props.loadChats();
-      this.props.setCurrentChat({chatId});
-    }, 500);
+      loadChats();
+      setCurrentChat({chatId});
+      }, 500);
   }
 
   render() {

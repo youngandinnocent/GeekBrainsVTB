@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev1": "webpack --mode development",
-    "dev2": "webpack-dev-server --mode development --port 5001 --open",
+    "dev2": "webpack-dev-server --mode development --port 5000 --open",
     "build": "webpack --mode prodaction"
   },
   "repository": {
@@ -43,6 +43,7 @@
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6"
   }
 }

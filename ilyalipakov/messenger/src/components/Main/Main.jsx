@@ -7,7 +7,7 @@ const Main = (props) => {
   return (
     <>
       <ChatList chats={chats} chatId={chatId} />
-      <MessengerContainer messages={messages} chatId={chatId} />
+      <MessengerContainer isClick messages={messages} chatId={chatId} />
     </>
   )
 };
