@@ -7,6 +7,7 @@ import ChatItem from "../ChatItem";
 import {loadChats} from "../../actions/chatActions";
 
 import './ChatList.css';
+import ChatForm from "../Chat-form";
 
 class ChatList extends Component {
 
@@ -25,6 +26,7 @@ class ChatList extends Component {
                 <List component="nav" aria-label="main mailbox folders">
                     {chatsUI}
                 </List>
+                <ChatForm chats={chats} />
             </div>
         );
     }

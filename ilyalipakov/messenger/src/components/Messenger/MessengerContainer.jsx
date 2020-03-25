@@ -4,26 +4,12 @@ import { connect } from 'react-redux';
 import Messenger from "./Messenger.jsx";
 
 import {sendMessage} from "../../actions/chatActions";
-import {answerRobot} from "../../helpers/robot";
 
 class MessengerContainer extends Component {
 
-  componentDidUpdate() {
-    if (!this.props.messages.length) {
-      return;
-    }
-
-    if (this.props.messages[this.props.messages.length - 1].author !=='Robot' &&
-      this.state.author === '' &&
-      this.state.message === '') {
-      this.answerRobot();
-    }
-  }
-
   state = {
     message: '',
-    author: '',
-    isClick: true
+    author: ''
   };
 
   handleChange = () => (e) => {
@@ -35,34 +21,24 @@ class MessengerContainer extends Component {
   };
 
   handleSendMessage = (message, author) => () => {
-    const {chatId, sendMessage} = this.props;
+    const {chatId, sendMessage, isClick} = this.props;
 
     if (message === '' || author === '') {
       return
     }
 
-    if (!this.state.isClick) {
+    if (!isClick) {
       return;
     }
 
-    sendMessage({chatId, author, message});
+    sendMessage({chatId, author, message, isClick: false});
 
     this.setState({
       author: '',
       message: '',
-      isClick: false
     });
   };
 
-  answerRobot = () => {
-    const {chatId, sendMessage} = this.props;
-    setTimeout(() => {
-      sendMessage({chatId, author: 'Robot', message: answerRobot()});
-      this.setState({
-        isClick: true
-      });
-    },1000);
-  };
 
   render() {
     const {message, author} = this.state;
@@ -77,10 +53,16 @@ class MessengerContainer extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    isClick: state.chats.isClick
+  }
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     sendMessage: (payload) => dispatch(sendMessage(payload)),
   }
 };
 
-export default connect(null, mapDispatchToProps)(MessengerContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MessengerContainer);
