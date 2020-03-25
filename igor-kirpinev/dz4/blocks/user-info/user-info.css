@@ -1,0 +1,16 @@
+@import url(./__button/user-info__button.css);
+
+.user-info {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  color: white;
+  width: 100%;
+}
+
+@media screen and (max-width: 980px) {
+  .user-info {
+    flex-direction: column;
+    align-items: center;
+  }
+}

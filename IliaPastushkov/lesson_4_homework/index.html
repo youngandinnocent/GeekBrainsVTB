@@ -1,0 +1,61 @@
+<!--1) реализовать форму с 4 полями:-->
+<!-- - название поста (input)-->
+<!-- - описание (textarea)-->
+<!-- - ссылка на картинку (input)-->
+<!-- - ссылка на источник (input)-->
+<!--и одной кнопкой "добавить"-->
+
+<!--
+при нажатии на кнопку добавить должна появляться карточка
+с указанным текстом, названием, картинкой и ссылкой на источник.
+Карточки должны быть стилизованы через css.
+-->
+
+<!--2) добавьте кнопку "удалить все карточки" которая должна удалять все карточки-->
+
+<!--3) * у каждой карточки добавьте кнопку для удаления именно этой карточки.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <meta charset="UTF-8">
+    <title>Homework_4</title>
+</head>
+<body>
+
+<div class="ui grid">
+    <div class="sixteen wide column"></div>
+    <div class="two wide column"></div>
+    <div class="ui form six wide column">
+        <div class="field">
+            <label>Название поста</label>
+            <input type="text" id="post-name" placeholder="Post header" value="Заголовок поста">
+        </div>
+        <div class="field">
+            <label>Описание</label>
+            <textarea id="post-description">Описание поста</textarea>
+        </div>
+        <div class="field">
+            <label>Ссылка на картинку</label>
+            <input type="text" id="img-link" placeholder="Image link" value="https://semantic-ui.com/images/wireframe/image.png">
+        </div>
+        <div class="field">
+            <label>Ссылка на источник</label>
+            <input type="text" id="img-source" placeholder="Post header" value="https://semantic-ui.com/images/wireframe/image.png">
+        </div>
+        <button class="ui button" id="add-button" type="button">Добавить</button>
+        <button class="ui button" id="delete-button" type="button">Удалить все</button>
+    </div>
+
+    <div class="six wide column" style="border: 1px solid lightgray; border-radius: 10px">
+        <h1 style="padding-bottom: 20px">Карточки:</h1>
+        <div class="ui cards centered" id="cards-container"></div>
+    </div>
+    <div class="two wide column"></div>
+
+
+</div>
+<script src="./index.js"></script>
+</body>
+</html>

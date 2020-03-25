@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,AAAC,CACD,OAAO,CAAE,IAAI,CAChB,AACD,AAAA,IAAI,AAAC,CACD,KAAK,CAAE,KAAK,CACZ,WAAW,CAAE,KAAK,CAClB,MAAM,CAAE,cAAc,CACtB,aAAa,CAAE,IAAI,CACnB,OAAO,CAAE,IAAI,CAIhB,AATD,AAMI,IANA,CAMA,CAAC,AAAC,CACE,SAAS,CAAE,IAAI,CAClB",
+    "sources": [
+        "../homework/style.scss"
+    ],
+    "names": [],
+    "file": "style.min.css"
+}

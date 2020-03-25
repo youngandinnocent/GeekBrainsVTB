@@ -1,0 +1,19 @@
+{
+  "name": "lesson-11",
+  "version": "1.0.0",
+  "description": "homework",
+  "main": "app.js",
+  "scripts": {
+    "test": "jasmine",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  }
+}

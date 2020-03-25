@@ -1,0 +1,74 @@
+.form-wrap {
+    padding: 20px 20px;
+    margin: 0 auto;
+    border: 2px solid #999999;
+}
+
+div.form-example {
+    display: table-row;
+}
+
+label, input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+label {
+    padding-right: 10px;
+}
+.remove {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.btn-add {
+    background-color: darkseagreen;
+    color: ghostwhite;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btn-del-all {
+    background-color: cornflowerblue;
+    color: ghostwhite;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+input {
+    border: 1px dotted #999;
+    border-radius: 5px;
+    -webkit-appearance: none;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    width: 400px;
+    padding: 50px;
+    margin: 20px 20px;
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.card p {
+    overflow: hidden;
+}
+
+input:invalid {
+    box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+    box-shadow: none;
+}
+textarea:invalid {
+    border: 2px dashed red;
+}
+
+
+textarea:valid {
+    border: 2px solid lime;
+}

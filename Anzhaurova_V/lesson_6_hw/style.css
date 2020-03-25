@@ -1,0 +1,118 @@
+body {
+    text-align: center;
+    /*background: #00ecb9;*/
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+.task-form {
+    display: block;
+    background: lightgrey;
+    padding: 10px;
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 20px;
+}
+.task-title,
+.task-limit{
+    font-size: 40px;
+    margin: 40px 0px 20px;
+    width: 100%;
+    padding-top: 4px;
+    display: block;
+    background: 0;
+    border: 0;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-weight: 200;
+    outline: 0;
+    text-align: center;
+    transition: border-color .5s ease;
+}
+
+.task-add-btn {
+    background: greenyellow;
+    border-radius: 8px;
+    border: none;
+    color: darkolivegreen;
+    padding: 15px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+body {
+    text-align: center;
+    /*background: #00ecb9;*/
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+.wrap {
+    display: block;
+    background: #00ecb9;
+    padding: 10px;
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 20px;
+}
+.countdown-title {
+    color: #396;
+    font-weight: 100;
+    font-size: 40px;
+    margin: 40px 0px 20px;
+}
+
+.countdown {
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
+
+.countdown-number {
+    padding: 10px;
+    border-radius: 3px;
+    background: #00bf96;
+    display: inline-block;
+}
+
+.countdown-time {
+    padding: 15px;
+    border-radius: 3px;
+    background: #00816a;
+    display: inline-block;
+}
+
+.countdown-text {
+    display: block;
+    padding-top: 5px;
+    font-size: 16px;
+}
+.countdown-buttons {
+    display: block;
+}
+.add-btn {
+    background: greenyellow;
+    border-radius: 3px;
+    border: none;
+    color: darkolivegreen;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+input.rm-button {
+    background: greenyellow;
+    border-radius: 3px;
+    border: none;
+    color: darkolivegreen;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.newTask {
+  margin-top: 10px;
+}
