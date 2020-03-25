@@ -14,8 +14,6 @@
 
 // p.s. Напоминаю, с этого занятия все дз принимаются только в виде ссылки на github.
 
-let lists = [];
-
 const inputName = document.querySelector('.todo__name-post');
 const inputDesc = document.querySelector('.todo__desc');
 const inputLinkImg = document.querySelector('.todo__link-img');
@@ -36,11 +34,11 @@ addBtn.addEventListener('click', e => {
 
   if (isEmptyField(valuePostName, valueDesc, valueLinkImg, valueSrcImg)) {
     if (errorField.classList.contains('hide')) {
-      errorText.innerHTML = 'Не все поля заполнены';
+      errorText.innerText = 'Не все поля заполнены';
       errorField.classList.toggle('hide');
     }
 
-    if (!lists.length) {
+    if (!todoList.childElementCount) {
       deleteBtn.classList.add('hide');
       deleteBtn.classList.remove('show');
     }
@@ -49,16 +47,9 @@ addBtn.addEventListener('click', e => {
       errorField.classList.toggle('hide');
     }
 
-    lists.push({
-      post: valuePostName,
-      desc: valueDesc,
-      linkImg: valueLinkImg,
-      srcImg: valueSrcImg,
-    });
-
     createElementsWith(valuePostName, valueDesc, valueLinkImg, valueSrcImg);
 
-    if (lists.length) {
+    if (todoList.childElementCount) {
       deleteBtn.classList.add('show');
       deleteBtn.classList.remove('hide');
     }
@@ -66,8 +57,7 @@ addBtn.addEventListener('click', e => {
 });
 
 deleteBtn.addEventListener('click', e => {
-  lists = [];
-  if (!lists.length) {
+  if (todoList.childElementCount) {
     deleteBtn.classList.add('hide');
     deleteBtn.classList.remove('show');
   }
@@ -87,6 +77,10 @@ const createElementsWith = (
   const card = document.createElement('div');
   card.classList.add('todo__list-card');
 
+  const currentDeleteBtn = document.createElement('div');
+  currentDeleteBtn.classList.add('todo__current-delete-btn');
+  currentDeleteBtn.innerText = 'X';
+
   const postName = document.createElement('h2');
   postName.classList.add('todo__list__name');
 
@@ -104,11 +98,23 @@ const createElementsWith = (
   card.appendChild(imgPost);
   card.appendChild(linkImg);
 
+  card.appendChild(currentDeleteBtn);
+
   todoList.appendChild(card);
 
-  postName.innerHTML = valuePostName;
-  postDesc.innerHTML = valueDesc;
+  postName.innerText = valuePostName;
+  postDesc.innerText = valueDesc;
   imgPost.setAttribute('src', valueLinkImg);
   linkImg.setAttribute('href', valueSrcImg);
-  linkImg.innerHTML = 'Ссылка на картинку';
+  linkImg.innerText = 'Ссылка на картинку';
+
+  currentDeleteBtn.addEventListener('click', function(event) {
+    const currentCard = this.parentElement;
+    currentCard.remove();
+
+    if (!todoList.childElementCount) {
+      deleteBtn.classList.add('hide');
+      deleteBtn.classList.remove('show');
+    }
+  });
 };

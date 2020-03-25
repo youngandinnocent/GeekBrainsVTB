@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+input {
+    margin: 10px;
+}
+textarea {
+    margin: 10px;
+}
+button {
+    margin: 10px;
+}

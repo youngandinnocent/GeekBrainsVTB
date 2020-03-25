@@ -1,5 +1,4 @@
 .DS_Store
-.idea
-*.txt
-node_modules
-.gitignore
+.iml
+.idea/
+node_modules/

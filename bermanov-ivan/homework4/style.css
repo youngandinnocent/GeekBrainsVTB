@@ -44,7 +44,7 @@
     color: rgb(95, 95, 95);
 }
 
-.submit {
+.add {
     width: 120px;
     background: rgb(143, 167, 245);
     margin-top: 20px;
@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 
-.submit:hover {
+.add:hover {
     background: rgb(93, 129, 248);
 }
 

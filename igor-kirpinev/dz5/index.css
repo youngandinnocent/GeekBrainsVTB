@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  padding: 0;
+  margin: 0;
+}
+
+.slideshow-container {
+  max-width: 1400px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: flex;
+  justify-content: center;
+}
+
+.mySlides:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(39, 60, 117, 0.6);
+  transition: opacity 0.9s ease-in-out;
+  opacity: 0.5;
+  border-radius: 4.6px;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dots {
+  text-align: center;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.img {
+  border-radius: 50%;
+  height: auto;
+  width: 88px;
+}
+
+.text__container {
+  max-width: 550px;
+  margin-left: 40px;
+}
+
+.text__image-who {
+  margin: 0;
+  font-size: 20px;
+}
+
+.text__image-about {
+  margin: 0;
+  font-size: 16px;
+}
+
+.text__about {
+  text-align: center;
+}
+
+.text__what {
+  font-size: 20px;
+}
+
+.mySlides__img {
+  max-height: 530px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.mySlides__partners {
+  position: absolute;
+}

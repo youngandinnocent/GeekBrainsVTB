@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    position: absolute;
+    top: 5%;
+    z-index: 10;
+    left: 5%;
+
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 45px;
+    line-height: 53px;
+    color: #FFFFFF;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.viewContainer {
+    width: 75%;
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+    background-image: url("./img/background.png");
+    z-index: 3;
+}
+
+.viewContainer::after {
+    position: absolute;
+    content: "";
+    background-color: #273C75;
+    opacity: 60%;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.cardContainer {
+    display: flex;
+    position: absolute;
+    transition: left .5s;
+    z-index: 5;
+    left: 0;
+}
+
+/*.cardContainer > div {*/
+/*    !*outline: 2px solid black;*!*/
+/*    outline-offset: -2px;*/
+/*    color: white;*/
+/*    z-index: 5;*/
+/*}*/
+
+.cardElem {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.postText {
+    margin-top: 15vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-grow: 3;
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 29px;
+}
+.personContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    padding-right: 5vw;
+}
+
+.personName {
+    font-family: "Times New Roman";
+    font-style: normal;
+    font-size: 20px;
+    align-items: flex-end;
+    display: flex;
+    flex-grow: 0.05;
+    justify-content: flex-end;
+}
+.personPosition {
+    font-family: "Arial Black";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    align-items: flex-start;
+    display: flex;
+    flex-grow: 0.025;
+    justify-content: flex-end;
+}
+.personImg {
+    margin-top: 15vh;
+    align-items: center;
+    display: flex;
+    flex-grow: 0.1;
+    justify-content: flex-end;
+}
+
+.personPhoto {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    /*background-color: #1e7e34;*/
+}
+
+#prevBtn{
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    left: 7%;
+    cursor: pointer;
+}
+
+#nextBtn{
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    right: 7%;
+    cursor: pointer;
+}
+
+.dot {
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    margin: 0 10px;
+    background-color: #414778;
+    border-radius: 50%;
+    border: 2px solid #EC406E;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot {
+    height: 18px;
+    width: 18px;
+    margin: 0 10px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    background-color: #EC406E;
+    border: 2px solid #000000;
+}
+
+
+.dot:hover {
+    background-color: #E892A9;
+    border: 2px solid #ffffff;
+}
+
+.navButtonContainer {
+    position: absolute;
+    bottom: 10%;
+    left: 25%;
+    right: 25%;
+    margin: 20px;
+    text-align: center;
+    z-index: 10;
+}

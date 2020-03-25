@@ -1,0 +1,13 @@
+.message-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-form__author {
+    width: 20%;
+}
+
+.message-form__content {
+    width: 70%;
+}
