@@ -1,5 +1,7 @@
 import { CHATS_SEND, chatsSend } from 'actions/chats';
 
+const timers = {};
+
 export function botMiddleware(store) {
     return function (next) {
         return function (action) {
@@ -7,13 +9,13 @@ export function botMiddleware(store) {
                 const { chatId, author } = action.payload;
 
                 if (author !== 'Bot') {
-                    setTimeout(() => {
+                    clearTimeout(timers[chatId]);
+                    timers[chatId] = setTimeout(() => {
                         store.dispatch(chatsSend({ chatId, text: `${author}, привет! Это бот.`, author: 'Bot' }));
-                    }, 1000);
+                    }, 3000);
                 }
             }
             return next(action);
         }
     }
 }
-// дз: action activeChat, когда его вызываем сработает редьюсер который обновит компонент.

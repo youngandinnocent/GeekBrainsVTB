@@ -23,7 +23,6 @@ class LayoutContainer extends Component {
     render() {
         const { chats, messages } = this.props;
         return (<Layout chats={chats} messages={messages} sendMessage={this.handleSend} />);
-        // дз: надо понять, что что-то произошло, и в layout передать еще одно свойство "активный чат"
     }
 }
 
@@ -48,7 +47,7 @@ function mapStateToProps(state, ownProps) {
     let chatsArrayForShow = [];
     for (let key in chats) {
         if (chats.hasOwnProperty(key)) {
-            chatsArrayForShow.push({ id: chats[key].id, name: chats[key].name, link: `/chats/${chats[key].id}` });
+            chatsArrayForShow.push({ id: chats[key].id, name: chats[key].name, link: `/chats/${chats[key].id}`, unread: chats[key].unread });
         }
     }
 

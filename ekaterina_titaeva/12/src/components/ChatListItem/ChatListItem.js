@@ -13,7 +13,7 @@ class ChatListItem extends Component {
     handleSelectChat = () => {
         const { chat, setChat, redirect } = this.props;
         setChat(chat.id);
-        redirect(chat.id);
+        redirect(chat.link);
     };
 
     handleClick = () => {
@@ -26,7 +26,7 @@ class ChatListItem extends Component {
         const { chat } = this.props;
         return (
             <ListItem className="chatListItem">
-                <ListItemText primary={chat.name} onClick={this.handleSelectChat} />
+                <ListItemText primary={chat.name} onClick={this.handleSelectChat} secondary={chat.unread && "unread"} />
                 <IconButton aria-label="delete" color="primary" onClick={this.handleClick}>
                     <DeleteIcon />
                 </IconButton>
