@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { profileLoad } from '../../actions/profile';
+import { profileLoad, profileLoad2 } from '../../actions/profile';
 
 class Profile extends Component {
 
@@ -10,23 +10,47 @@ class Profile extends Component {
     }
 
     render() {
-        const { name } = this.props;
+        const { name, lastName, age, progrLang, isLoading, isError } = this.props;
+        console.log('JJJJJJ', this.props)
+
+        if (isLoading) {
+            return (<div>Loading...</div>);
+        }
+
+        if (isError) {
+            return (<div>Попробуйте обновить страницу, сервис временно недоступен.</div>);
+        }
+
         return (
-            <div>Вы пользуетесь приложением {name}. Спасибо, что выбираете нас!</div>
+            <>
+                <div>Имя: {name}</div>
+                <div>Фамилия: {lastName}</div>
+                <div>Возраст: {age}</div>
+                <div>Языки программирования:
+                {progrLang && progrLang.map((elem, index) => <span key={index}>{elem} </span>)}
+                </div>
+            </>
         )
     }
 }
 
 function mapStateToProps(state) {
-    const { name } = state.profile;
+    const { name, lastName, age, progrLang } = state.profile.entries;
+    const { loading, error } = state.profile;
+    console.log('mapStateToProps', state)
     return {
-        name: name
+        name,
+        lastName,
+        age,
+        progrLang,
+        isLoading: loading,
+        isError: error
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        loadProfile: () => (dispatch(profileLoad()))
+        loadProfile: () => (dispatch(profileLoad2()))
     }
 }
 
