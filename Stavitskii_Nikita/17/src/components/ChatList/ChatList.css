@@ -1,0 +1,33 @@
+.chat-list {
+    width: 30%;
+    background-color: #2C2F33;
+}
+
+.chat-item>div>p {
+    color: #99AAB5;
+}
+
+.active-chat {
+    background-color: #23272A;
+    animation: blinkingBackground 2s infinite;
+}
+@keyframes blinkingBackground {
+    0% {background-color: #23272A}
+    25% {background-color: #2C2F33}
+    50% {background-color: #23272A}
+    75% {background-color: #2C2F33}
+    100% {background-color: #23272A}
+}
+
+.MuiListItem-root>div>div>input {
+    color: #99AAB5;
+}
+
+.MuiListItem-root>div>label {
+    color: #99AAB5;
+}
+
+a {
+    text-decoration: none;
+    color: #99AAB5;
+}

@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.card__add {
+    flex-shrink: 1;
+}
+
+.card__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__field {
+    text-align: center;
+}
+
+.card__description {
+    resize: none;
+}
+
+.card__button--delete {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid rgba(red, green, blue, alpha);
+
+    text-align: center;
+
+    border-radius: 5px;
+    background: #ffffff;
+    outline: none;
+}
+
+.cards {
+    flex-grow: 1;
+
+    background-color: rgba(137, 196, 244, 0.1);
+}
+
+.cards__list {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 0;
+
+    list-style: none;
+}
+
+.list__item {
+    min-width: 200px;
+    padding: 0 10px;
+    border: 1px solid transparent;
+    margin: 10px;
+
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px 0 grey;
+}

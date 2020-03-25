@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #fff;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.viewContainer {
+    width: 100%;
+    max-width: 1440px;
+    height: 100vh;
+    max-height: 612px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cardContainer {
+    display: flex;
+    position: absolute;
+    transition: left .5s;
+}
+
+.cardContainer > div {
+    outline: 2px solid black;
+    outline-offset: -2px;
+}
+
+.header {
+    position: relative;
+    top: 25px;
+    left: 41px;
+    font-size: 45px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 200px;
+    height: 210px;
+}
+
+.avatarImg {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.paragraph {
+    font-size: 20px;
+    padding: 0 20px;
+    line-height: 1.8rem;
+}
+
+.centerBlock {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    width: 65%;
+    top: 25%;
+}
+
+.dots {
+    position: relative;
+    left: 45%;
+    top: 85%;
+    margin-right: 21px;
+    width: 21px;
+    height: 21px;
+    background: #414778;
+    border-radius: 50%;
+    border: 2px solid #EC406E;
+}
+
+.cardElem {
+    background: rgba(39, 60, 117, 0.6);
+    width: 100%;
+    height: 100%;
+}
+
+.triggerLeft {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    font-weight: lighter;
+    font-size: 140px;
+    color: #fff;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.triggerRight {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 35%;
+    right: 10%;
+    font-weight: lighter;
+    font-size: 140px;
+    color: #fff;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.dots.active {
+    position: relative;
+    left: 45%;
+    top: 85%;
+    margin-right: 21px;
+    width: 21px;
+    height: 21px;
+    background: #EC406E;
+    border-radius: 50%;
+    border: 1px solid #000000;
+}
+
+.modal {
+    display: flex;
+    border: 2px solid #fff;
+    align-items: center;
+    background: rgb(95, 102, 197);
+    position: absolute;
+    left: 20px;
+    top: 10%;
+    width: 1400px;
+    height: 500px;
+    z-index: 999;
+}
+.modal h1 {
+    display: none;
+}
+.modal .centerBlock {
+    top: 0;
+}
+
+.none {
+    display: none;
+}

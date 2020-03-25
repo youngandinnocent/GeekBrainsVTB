@@ -1,0 +1,14 @@
+.chat-item {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.active {
+    background: #FF7172;
+    color: #ffffff;
+}
+
+.chat-item__show {
+    background: #dc40b1;
+}
