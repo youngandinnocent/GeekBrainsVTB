@@ -32,7 +32,7 @@ export class MessageForm extends Component {
     handleClick = () => {
         const { onSend } = this.props;
 
-        if (this.state.text !== '') {
+        if (this.state.author !== '' && this.state.text !== '') {
             onSend(this.state);
             this.setState({ text: '' });
         }

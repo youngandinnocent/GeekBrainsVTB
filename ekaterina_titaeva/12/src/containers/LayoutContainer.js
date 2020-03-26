@@ -6,8 +6,9 @@ import { chatsLoad, chatsSend } from 'actions/chats';
 class LayoutContainer extends Component {
 
     componentDidMount() {
-        const { loadChats } = this.props;
-        loadChats();
+        const { loadChats, chats } = this.props;
+        if (!chats.length)
+            loadChats();
     }
 
     handleSend = (message) => {
@@ -46,7 +47,7 @@ function mapStateToProps(state, ownProps) {
     let chatsArrayForShow = [];
     for (let key in chats) {
         if (chats.hasOwnProperty(key)) {
-            chatsArrayForShow.push({ id: chats[key].id, name: chats[key].name, link: `/chats/${chats[key].id}` });
+            chatsArrayForShow.push({ id: chats[key].id, name: chats[key].name, link: `/chats/${chats[key].id}`, unread: chats[key].unread });
         }
     }
 
