@@ -1,0 +1,30 @@
+
+            Date: Wed Mar 25 2020 19:09:20 GMT+0300 (GMT+03:00)
+            Url: /Users/viktoria/Desktop/vtb/GeekBrainsVTB/bermanov-ivan/homework10/
+            HTTP method: GET
+            Status code: 200
+
+            Date: Wed Mar 25 2020 19:09:22 GMT+0300 (GMT+03:00)
+            Url: /Users/viktoria/Desktop/vtb/GeekBrainsVTB/bermanov-ivan/homework10/test
+            HTTP method: GET
+            Status code: 404
+
+            Date: Wed Mar 25 2020 19:09:34 GMT+0300 (GMT+03:00)
+            Url: /Users/viktoria/Desktop/vtb/GeekBrainsVTB/bermanov-ivan/homework10/tothemoon
+            HTTP method: GET
+            Status code: 200
+
+            Date: Wed Mar 25 2020 19:09:38 GMT+0300 (GMT+03:00)
+            Url: /Users/viktoria/Desktop/vtb/GeekBrainsVTB/bermanov-ivan/homework10/tothemoonall
+            HTTP method: GET
+            Status code: 404
+
+            Date: Wed Mar 25 2020 19:09:52 GMT+0300 (GMT+03:00)
+            Url: /Users/viktoria/Desktop/vtb/GeekBrainsVTB/bermanov-ivan/homework10/youngandinnocent
+            HTTP method: GET
+            Status code: 200
+
+            Date: Wed Mar 25 2020 19:09:59 GMT+0300 (GMT+03:00)
+            Url: /Users/viktoria/Desktop/vtb/GeekBrainsVTB/bermanov-ivan/homework10/youngandinnocentandyou
+            HTTP method: GET
+            Status code: 404
