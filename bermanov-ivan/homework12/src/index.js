@@ -1,49 +1,54 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-const messages = ['Hello', 'How are you?', 'Nice!', 'How do you do?'];
+let messageData = '';
+const messagesData = [];
 
-const MessageComponent = (props) => <div className="element">Message: { props.content }</div>;
-
-const MessageField = (props) => props.messages
-    .map((message, index) => <MessageComponent content = { message } key = { index } />);
-
-const Input = (props) => {
-    const handleInput = (value) => {
-        ReactDom.render(
-            <div>
-                <Button text = { value }/>
-                <Input />
-                <MessageField messages = { messages }/>
-            </div>,
-            document.getElementById('root')
-        );
-    };
-
-    return <input onInput = { (e) => handleInput(e.target.value) } value = { props.value }></input>
+const Message = ({ content }) => {
+    return (
+        <div className="greetings">Message content: { content }</div>
+    );
 };
 
-const Button = (props) => {
-    const handleClick = (message) => {
-        messages.push(message);
+const MessageList = ({ messages }) => {
+    return messages.map((message, index) => (
+        <Message key = { index } content = { message }/>)
+    );
+};
+
+// удалось только в этом инпуте избавиться от дублирования рендера,
+// но, кстати, взамен получил неработающее очищение value при отправке сообщения
+// не понимаю, почему пропс для инпута из следующего компонента (кнопки),
+// не приходит сюда (полагаю, это как-то связано с отсутствием перерендеринга)
+const Input = ({ value }) => {
+    const handleInput = (event) => {
+        messageData = event.target.value;
+    };
+    return <input onInput = { handleInput } defaultValue = { value } />
+};
+
+// не удается избавиться здесь от рендера - не понимаю, как по-другому перерендерить список сообщений
+const Button = () => {
+    const handleClick = () => {
+        messagesData.push(messageData);
         ReactDom.render(
             <div>
+                <MessageList messages = { messagesData }/>
                 <Button />
-                <Input value = ''/>
-                <MessageField messages = { messages }/>
+                <Input value = '' />
             </div>,
             document.getElementById('root')
         );
     };
 
-    return <button onClick = { () => handleClick(props.text) }>Send</button>;
+    return <button onClick = { handleClick }>Send</button>;
 };
 
 ReactDom.render(
     <div>
+        <MessageList messages = { messagesData }/>
         <Button />
         <Input />
-        <MessageField messages = { messages }/>
     </div>,
     document.getElementById('root')
 );
