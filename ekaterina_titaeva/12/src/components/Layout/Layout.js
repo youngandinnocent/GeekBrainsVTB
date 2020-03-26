@@ -9,7 +9,16 @@ export class Layout extends Component {
 
     render() {
 
-        const { chats, messages, sendMessage } = this.props;
+        const { chats, messages, sendMessage, isLoading, isError } = this.props;
+
+        if (isLoading) {
+            return (<div>Loading...</div>);
+        }
+
+        if (isError) {
+            return (<div>Попробуйте обновить страницу, сервис временно недоступен.</div>);
+        }
+
         return (
             <div className='layout'>
                 <HeaderRedux />

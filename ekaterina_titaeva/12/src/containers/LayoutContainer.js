@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Layout } from 'components/Layout';
-import { chatsLoad, chatsSend } from 'actions/chats';
+import { chatsLoad, chatsLoad2, chatsSend } from 'actions/chats';
 
 class LayoutContainer extends Component {
 
@@ -21,8 +21,8 @@ class LayoutContainer extends Component {
     };
 
     render() {
-        const { chats, messages } = this.props;
-        return (<Layout chats={chats} messages={messages} sendMessage={this.handleSend} />);
+        const { chats, messages, isLoading, isError } = this.props;
+        return (<Layout isLoading={isLoading} isError={isError} chats={chats} messages={messages} sendMessage={this.handleSend} />);
     }
 }
 
@@ -54,13 +54,15 @@ function mapStateToProps(state, ownProps) {
     return {
         chats: chatsArrayForShow,
         messages,
-        chatId
+        chatId,
+        isLoading: state.chats.loading,
+        isError: state.chats.error
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        loadChats: () => dispatch(chatsLoad()),
+        loadChats: () => dispatch(chatsLoad2()),
         sendMessage: (message) => dispatch(chatsSend(message)),
     }
 }

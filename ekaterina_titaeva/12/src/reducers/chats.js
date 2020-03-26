@@ -6,7 +6,10 @@ import {
     CHAT_ADD,
     CHAT_DELETE,
     CHAT_FIRE,
-    CHAT_UNFIRE
+    CHAT_UNFIRE,
+    CHATS_REQUEST,
+    CHATS_SUCCESS,
+    CHATS_FAILURE
 } from 'actions/chats';
 
 const dataBackend = {
@@ -98,6 +101,24 @@ export const chatsReducer = (state = initialState, action) => {
                     }
                 }
             })
+        case CHATS_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: false,
+            };
+        case CHATS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                entries: action.payload,
+            };
+        case CHATS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: true,
+            };
         default:
             return state;
     }
