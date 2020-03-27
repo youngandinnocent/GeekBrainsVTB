@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+export const messageType = {
+    author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired
+};
+
 export class Message extends Component {
 
-    static propTypes = {
-        author: PropTypes.string.isRequired,
-        content: PropTypes.string.isRequired
-    };
+    static propTypes = messageType;
 
     static defaultProps = {
         author: 'Author is undefined',
