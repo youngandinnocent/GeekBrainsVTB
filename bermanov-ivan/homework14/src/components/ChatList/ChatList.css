@@ -1,3 +1,14 @@
 .chat-list {
     width: 40%;
 }
+
+.chat-item:hover {
+    color: #064add;
+    cursor: pointer;
+}
+
+.active,
+.active:hover {
+    background: #3b5998;
+    color: #fff;
+}

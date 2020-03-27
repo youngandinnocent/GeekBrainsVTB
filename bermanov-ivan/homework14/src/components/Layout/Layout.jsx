@@ -5,11 +5,7 @@ import { ChatList } from 'components/ChatList'
 import { MessageField } from 'components/MessageField';
 import './Layout.css';
 
-
 export class Layout extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return(

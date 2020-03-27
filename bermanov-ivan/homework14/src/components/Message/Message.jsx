@@ -10,20 +10,16 @@ export const messageType = {
 };
 
 export class Message extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     static propTypes = messageType;
 
     static defaultProps = {
-        author: 'Author',
-        content: 'Message'
+        author: 'Author is undefined',
+        content: 'Empty message'
     };
 
     render() {
         const { author, content } = this.props;
-        console.log('message: ', this.props);
         const classes = className('message', {
             'message-owner': author !== 'NDR-114',
             'message-robot': author === 'NDR-114'
