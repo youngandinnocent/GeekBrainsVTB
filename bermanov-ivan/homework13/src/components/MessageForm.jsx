@@ -11,7 +11,7 @@ export class MessageForm extends Component {
         onSend: PropTypes.func.isRequired
     };
 
-    static defualtProps = {
+    static defaultProps = {
         onSend: () => {}
     };
 
