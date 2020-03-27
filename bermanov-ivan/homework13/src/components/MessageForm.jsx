@@ -2,35 +2,27 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export class MessageForm extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     state = {
         author: '',
         content: ''
     };
-
+    
     static propTypes = {
-        onSend: PropTypes.func.isRequired,
-        // author: PropTypes.string.isRequired,
-        // content: PropTypes.string.isRequired
+        onSend: PropTypes.func.isRequired
     };
 
     static defualtProps = {
-        onSend: () => {},
-        // author: 'Author',
-        // content: 'Message'
+        onSend: () => {}
     };
 
-    handleInputChange = (event) => {
+    handleInput = (event) => {
         const fieldName = event.target.name;
         this.setState({
             [fieldName]: event.target.value
         });
-    }
+    };
 
-    handleInputSend = () => {
+    handleClick = () => {
         const { onSend } = this.props;
         if (typeof onSend === 'function') {
             onSend(this.state);
@@ -39,24 +31,23 @@ export class MessageForm extends Component {
                 content: ''
             });
         }
-    }
+    };
 
     render() {
         const { author, content } = this.state;
-        console.log('form: ', this.props);
+
         return (
             <div>
                 <div>
-                    <input name="author" value = { author } onChange = { this.handleInputChange } placeholder="Author"/>
+                    <input name="author" value = { author } onChange = { this.handleInput } type="text" placeholder="Your name"/>
                 </div>
                 <div>
-                    <textarea name="content" value = { content } onChange = { this.handleInputChange } placeholder="Content"/>
+                    <textarea name="content" value = { content } onChange = { this.handleInput } type="text" placeholder="Type your message"/>
                 </div>
-                <button onClick = { this.handleInputSend }>Send</button>
+                <div>
+                    <button onClick = { this.handleClick }>Send</button>
+                </div>
             </div>
         );
-
     }
 }
-
-// Props 2.2 MessageForm - получает пропс (функцию onSend()) от Messanger
