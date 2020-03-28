@@ -7,15 +7,11 @@ import SendIcon from '@material-ui/icons/Send';
 import './MessageForm.css';
 
 export class MessageForm extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     state = {
         author: '',
         content: ''
     };
-
+    
     static propTypes = {
         onSend: PropTypes.func.isRequired
     };
@@ -24,14 +20,14 @@ export class MessageForm extends Component {
         onSend: () => {}
     };
 
-    handleInputChange = (event) => {
+    handleInput = (event) => {
         const fieldName = event.target.name;
         this.setState({
             [fieldName]: event.target.value
         });
-    }
+    };
 
-    handleInputSend = () => {
+    handleSend = () => {
         const { onSend } = this.props;
         if (typeof onSend === 'function') {
             onSend(this.state);
@@ -40,24 +36,24 @@ export class MessageForm extends Component {
                 content: ''
             });
         }
-    }
+    };
 
-    handleKeyDownEnter = (event) => {
+    handleKeyDownCtrlEnter = (event) => {
         if (event.ctrlKey && event.keyCode === 13) {
-            this.handleInputSend();
+            this.handleSend();
         }
     };
 
     render() {
         const { author, content } = this.state;
-        // console.log('form: ', this.props);
+    
         return (
             <div className="message-form">
-                <TextField className="message-form__author" label="Author" name="author" value = { author } onChange = { this.handleInputChange } />
-                <TextField className="message-form__content" label="Content" name="content" multiline autoFocus value = { content } onKeyDown = { this.handleKeyDownEnter } onChange = { this.handleInputChange } />
-                <Fab variant="round" color="primary" onClick = { this.handleInputSend }><SendIcon /></Fab>
+                <TextField className="message-form__author" label="Author" name="author" value = { author } onChange = { this.handleInput } />
+                <TextField className="message-form__content" label="Content" name="content" multiline autoFocus value = { content } onKeyDown = { this.handleKeyDownCtrlEnter } onChange = { this.handleInput } />
+                <Fab variant="round" color="primary" onClick = { this.handleSend }><SendIcon /></Fab>
             </div>
         );
-
+    
     }
 }

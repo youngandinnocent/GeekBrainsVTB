@@ -1,7 +1,5 @@
 import { Layout } from 'components/Layout';
 import { ProfilePage } from 'pages/ProfilePage';
-// import { AboutPage } from 'pages/AboutPage';
-// import { ContactsPage } from 'pages/ContactsPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 
 export const routes = [
@@ -20,16 +18,6 @@ export const routes = [
         exact: true,
         component: ProfilePage
     },
-    // {
-    //     path: '/about',
-    //     exact: true,
-    //     component: AboutPage
-    // },
-    // {
-    //     path: '/contacts',
-    //     exact: true,
-    //     component: ContactsPage
-    // },
     {
         path: '*',
         exact: false,

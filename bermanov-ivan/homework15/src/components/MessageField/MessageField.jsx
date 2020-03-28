@@ -6,10 +6,7 @@ import { MessageList } from 'components/MessageList';
 import './MessageField.css';
 
 export class MessageField extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+    
     state = {
         chats: {
             '1': {
@@ -46,15 +43,14 @@ export class MessageField extends Component {
     };
 
     componentDidUpdate() {
-        console.log('5.this.state: ', this.state);
-        if (this.messages.length) {
+        if (this.messages && this.messages.length) {
             const { author } = this.messages[this.messages.length - 1];
             if (author !== 'NDR-114') {
                 setTimeout(() => {
                     if (this.messages[this.messages.length - 1].author !== 'NDR-114') {
                         this.handleMessageSend({
-                            content: `Hello, ${author ? author : 'Author'}, my name is Andrew`,
-                            author: 'NDR-114'
+                            author: 'NDR-114',
+                            content: `Hello, ${author}, my name is Andrew`
                         });
                     }
                 }, 1000);
@@ -74,9 +70,17 @@ export class MessageField extends Component {
         return messages;
     }
 
-    handleMessageSend = (message) => {
+    handleMessageSend = ({ author, content }) => {
         const { chats } = this.state;
         const { match } = this.props;
+
+        const message = {};
+        if (author) {
+            message.author = author;
+        }
+        if (content) {
+            message.content = content;
+        }
 
         const chat = chats[match.params.id];
         const messages = [...this.messages, message];
@@ -91,11 +95,12 @@ export class MessageField extends Component {
         });
     };
 
-    handleChatSend = (chat) => {
+
+    handleChatAdd = (chat) => {
         const { chats } = this.state;
         const index = `${Object.keys(chats).length + 1}`;
 
-        const addChat = {
+        const newChat = {
             id: +index,
             name: chat.name,
             messages: [],
@@ -103,16 +108,16 @@ export class MessageField extends Component {
         };
 
         this.setState({
-            chats: { ...this.state.chats, [index]: addChat }
+            chats: { ...this.state.chats, [index]: newChat }
         });
-
     }
 
     render() {
         const { chats } = this.state;
+
         return(
             <div className="body">
-                <ChatList chats = { chats } onSend = { this.handleChatSend } />
+                <ChatList chats = { chats } addChat = { this.handleChatAdd } />
                 <div className="message-field">
                     { this.messages ? <MessageList messages = { this.messages } /> : <p className="select-chat">Please select chat from list</p> }
                     { this.messages && <MessageForm onSend = { this.handleMessageSend }/> }
