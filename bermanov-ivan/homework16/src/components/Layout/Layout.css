@@ -3,3 +3,8 @@
     width: 50%;
     margin: 50px auto;
 }
+
+.body {
+    height: 477px;
+    display: flex;
+}

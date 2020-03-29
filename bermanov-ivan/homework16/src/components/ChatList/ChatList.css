@@ -1,5 +1,5 @@
 .chat-list {
-    width: 40%;
+    width: 30%;
 }
 
 .chat-link {
@@ -7,7 +7,7 @@
     color: black;
 }
 
-.item:hover {
+.chat-item:hover {
     color: #064add;
 }
 
@@ -15,8 +15,4 @@
 .active:hover {
     background: #3b5998;
     color: #fff;
-}
-
-.chat-add {
-    margin: 20px;
 }

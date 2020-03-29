@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 
 import { Header } from 'components/Header';
-// import { ChatList } from 'components/ChatList'
-// import { MessageField } from 'components/MessageField';
-import { MessangerRedux } from 'containers/MessangerContainer';
+import { ChatList } from 'components/ChatList';
+import { MessageField } from 'components/MessageField';
 import './Layout.css';
 
-
 export class Layout extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
-        const { match } = this.props;
+        const { chats, messages, sendMessage, addChat } = this.props;
+        
         return(
             <div className="layout">
                 <Header />
-                {/* <div className="body"> */}
-                    {/* <ChatList /> */}
-                {/* <MessageField match = { match }/> */}
-                <MessangerRedux match = { match }/>
-                {/* </div> */}
+                <div className="body">
+                    <ChatList chats = { chats } addChat = { addChat } />
+                    <MessageField messages = { messages } sendMessage = { sendMessage } />
+                </div>
             </div>
         );
     }

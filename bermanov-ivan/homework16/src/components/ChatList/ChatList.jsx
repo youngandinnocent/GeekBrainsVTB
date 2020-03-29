@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -10,27 +11,42 @@ import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
+import { messageType } from 'components/Message';
 import './ChatList.css';
 
 export class ChatList extends Component {
-  constructor(props) {
-      super(props);
-  }
 
   state = {
     name: '',
     src: ''
   };
 
+  static propTypes = {
+    addChat: PropTypes.func.isRequired,
+
+    // тут нужно поменять PropTypes для чатов
+    
+    // chats: PropTypes.shape({
+    //   [/\d+/]: {
+    //     id: PropTypes.number.isRequired,
+    //     name: PropTypes.string.isRequired,
+    //     messages: PropTypes.arrayOf(PropTypes.shape(messageType)),
+    //     avatarSrc: PropTypes.string.isRequired
+    //   }
+    // })
+  };
+
+  static defaultProps = {
+    addChat: () => {}
+  };
+
   handleClickItem = (event) => {
     const currentActive = event.target.closest('.chat-list').querySelector('.active');
-    // console.log('currentActive: ', currentActive);
-    const nextActive = event.target.closest('.item');
-    // console.log('nextActive: ', nextActive);
+    const nextActive = event.target.closest('.chat-item');
     if (currentActive) {
-      currentActive.classList.toggle('active');
+      currentActive.classList.remove('active');
     }
-    nextActive.classList.toggle('active');
+    nextActive.classList.add('active');
   };
 
   handleInputChange = (event) => {
@@ -41,13 +57,16 @@ export class ChatList extends Component {
   }
 
   handleChatAdd = () => {
-    const { onSend } = this.props;
-    if (typeof onSend === 'function') {
-        onSend(this.state);
+    const { name } = this.state;
+    if (name) {
+      const { addChat } = this.props;
+      if (typeof addChat === 'function') {
+        addChat(this.state);
         this.setState({
           name: '',
           src: ''
         });
+      }
     }
   }
 
@@ -60,7 +79,7 @@ export class ChatList extends Component {
         { chats.map((chat, index) => (
           <div key = { index }>
             <Link className="chat-link" to = { chat.link }>
-              <ListItem className="item" alignItems="center" onClick = { this.handleClickItem }>
+              <ListItem className="chat-item" alignItems="center" onClick = { this.handleClickItem }>
                 <ListItemAvatar><Avatar src = { chat.avatarSrc } /></ListItemAvatar>
                 <ListItemText primary = { chat.name } />
               </ListItem>
@@ -76,44 +95,5 @@ export class ChatList extends Component {
         </div>
       </List>
     );
-
-    // return (
-    //   <List className="chat-list">
-    //     { Object.keys(chats).map((id) => (
-    //       <div key = { +id }>
-    //         <Link className="chat-link" to = {`/chats/${id}`}>
-    //           <ListItem className="item" alignItems="center" onClick = { this.handleClickItem }>
-    //             <ListItemAvatar><Avatar src = { chats[id].avatarSrc } /></ListItemAvatar>
-    //             <ListItemText primary = { chats[id].name } />
-    //           </ListItem>
-    //         </Link>
-    //         <Divider variant="inset" component="li" />
-    //       </div>
-    //       ))
-    //     }
-    //     <div className="chat-add">
-    //       <TextField label="Chat name" name="name" value = { name } autoFocus onChange = { this.handleInputChange } />
-    //       <TextField label="Avatar source" name="src" value = { src } onChange = { this.handleInputChange } />
-    //       <Fab variant="round" color="primary" onClick = { this.handleChatAdd }><AddIcon /></Fab>
-    //     </div>
-    //   </List>
-    // );
-
-
-    // const { chats } = this.state;
-    // return (
-    //   <List className="chat-list">
-    //     { chats.map((chat, index) => (
-    //       <div key = { index }>
-    //         <ListItem alignItems="center">
-    //           <ListItemAvatar><Avatar alt = { chat.avatarAlt } src = { chat.avatarSrc } /></ListItemAvatar>
-    //           <ListItemText primary = { chat.chatTitle } />
-    //         </ListItem>
-    //         <Divider variant="inset" component="li" />
-    //       </div>
-    //       ))
-    //     }
-    //   </List>
-    // );
   }
 }

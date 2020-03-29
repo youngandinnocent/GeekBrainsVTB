@@ -1,35 +1,23 @@
-import { Layout } from 'components/Layout';
-import { ProfilePage } from 'pages/ProfilePage';
-// import { AboutPage } from 'pages/AboutPage';
-// import { ContactsPage } from 'pages/ContactsPage';
+import { LayoutRedux } from 'containers/LayoutContainer';
+import { ProfileRedux } from 'containers/ProfileContainer';
 import { NotFoundPage } from 'pages/NotFoundPage';
 
 export const routes = [
     {
         path: '/',
         exact: true,
-        component: Layout
+        component: LayoutRedux
     },
     {
         path: '/chats/:id([\\d]+)',
         exact: true,
-        component: Layout
+        component: LayoutRedux
     },
     {
         path: '/profile',
         exact: true,
-        component: ProfilePage
+        component: ProfileRedux
     },
-    // {
-    //     path: '/about',
-    //     exact: true,
-    //     component: AboutPage
-    // },
-    // {
-    //     path: '/contacts',
-    //     exact: true,
-    //     component: ContactsPage
-    // },
     {
         path: '*',
         exact: false,

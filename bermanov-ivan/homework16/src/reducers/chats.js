@@ -1,10 +1,9 @@
 import update from 'react-addons-update';
 import {
-    CHATS_LOAD,
-    CHATS_SEND
+    CHATS_LOAD, CHATS_ADD, CHATS_MESSAGE_SEND
 } from 'actions/chats';
 
-const dataBase = {
+const dataBackend = {
     '1': {
         id: 1,
         name: 'GeekBrains.JS+React для молодых специалистов Банка ВТБ (ПАО)',
@@ -47,43 +46,33 @@ export const chatsReducers = (state = initialState, action) => {
         case CHATS_LOAD:
             return {
                 ...state,
-                entries: dataBase
-            };
-        case CHATS_SEND:
-            // return Object.assign({}, state, {
-            //     entries: {
-            //         [action.payload.chatId]: {
-            //             messages: state.entries[action.payload.chatId].messages.concat([{
-            //                 content: action.payload.content,
-            //                 author: action.payload.author
-            //             }])
-            //         }
-            //     }
-            // });
-            
-            // return {
-            //     ...state,
-            //     entries: {
-            //         ...state.entries,
-            //         [action.payload.chatId]: {
-            //             ...state.entries[action.paylosd.chatId],
-            //             messages: [
-            //                 ...state.entries[action.paylosd.chatId].messages,
-            //                 { content: action.payload.content ,author: action.payload.author }
-            //             ]
-            //         }
-            //     }
-            // };
-
+                entries: dataBackend
+            }
+        case CHATS_ADD:
+            return update(state, {
+                entries: { $merge: {
+                    [action.payload.chatIndex]: {
+                        id: action.payload.id,
+                        name: action.payload.name,
+                        messages: action.payload.messages,
+                        avatarSrc: action.payload.avatarSrc
+                    }
+                } }
+            });
+        case CHATS_MESSAGE_SEND:
             return update(state, {
                 entries: {
-                    [action.payload.chatId]: {
-                        messages: { $push: [{ content: action.payload.content ,author: action.payload.author }] }
+                    [action.payload.chatIndex]: {
+                        messages: { $push: [
+                            {
+                                author: action.payload.author,
+                                content: action.payload.content
+                            }
+                        ] }
                     }
                 }
             });
-
         default:
             return state;
     }
-}
+};
