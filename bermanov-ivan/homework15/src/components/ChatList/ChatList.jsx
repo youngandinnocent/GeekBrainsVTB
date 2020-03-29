@@ -41,9 +41,9 @@ export class ChatList extends Component {
     const currentActive = event.target.closest('.chat-list').querySelector('.active');
     const nextActive = event.target.closest('.chat-item');
     if (currentActive) {
-      currentActive.classList.toggle('active');
+      currentActive.classList.remove('active');
     }
-    nextActive.classList.toggle('active');
+    nextActive.classList.add('active');
   };
 
   handleInputChange = (event) => {
