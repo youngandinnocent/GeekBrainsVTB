@@ -1,0 +1,203 @@
+﻿form {
+    margin:50px auto;
+    padding:20px;
+    border-radius: 10px;
+    box-shadow: -4px 4px 3px #999999;
+    border:3px solid #ff3bed;
+    width:400px;
+    background-image:url(img/img1.gif);
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+form p {
+    color:white;
+    font-size:20px;
+    text-transform: uppercase;
+    line-height:100%;
+    font-weight:bold;
+    text-align:center;
+}
+form input {
+    margin:0 0 20px 0;
+    padding:0 10px;
+    border-radius: 5px;
+    border:2px dotted #188711;
+    width:380px;
+    height:20px;
+    line-height:20px;
+    font-size:12px;
+}
+
+form input:focus {
+    color:blue;
+}
+
+#reset {
+    display:block;
+    width:100px;
+    margin:0 auto;
+    cursor:pointer;    
+}
+
+form textarea {
+    resize: none;
+    width:380px;
+    padding:10px 10px;
+    margin:0 0 20px 0;
+}
+
+#root section:nth-child(2) {display: none;}
+
+section {
+    float:left;
+    position: relative;
+    width:300px;
+    margin:0 20px 20px 0;
+    padding:0;
+    border:1px solid;
+    box-shadow: 6px 6px 5px grey;
+}
+
+section img {
+    border:0;
+    width:auto;
+    height:300px;
+}
+
+section span {
+    display:block;
+    position: relative;    
+    color:grey;
+    font-size:24px;
+    font-style:italic;
+    text-align:center;
+    margin:0;
+    padding:10px;
+    word-break: break-all;    
+}
+
+section div {
+    position: relative;
+    color:#5b0b07;
+    font-size:14px;
+    font-weight:bold;
+    text-align:justify;
+    padding:20px;
+    overflow: hidden;
+    width: auto;
+    word-break: break-all;
+}
+
+div.imgDiv {
+    height:300px;
+    width:300px;
+    border-radius: 300px;
+    overflow: hidden;
+    margin:0 auto;
+    padding:0;
+    text-align: center;
+}
+
+section a {
+    display: block;
+    text-decoration: overline;
+    color:black;
+    font-size:12px;
+    font-style:normal;
+    text-align:left;
+    padding:20px;
+    cursor:pointer;
+}
+section a:hover {
+    color:red;
+    text-decoration: none;
+}
+
+#removeCards {
+    display: block;
+    position:absolute;
+    margin:0;
+    padding:0 20px;
+    top:100px;
+    left:100px;
+    width:auto;
+    height:80px;
+    line-height: 80px;
+    border-radius: 100px;
+    border:0;
+    background: orange;
+    cursor:pointer;    
+    font-size:24px;
+    font-style:normal;
+    font-weight:bold;
+    text-align:center;
+    text-transform: uppercase;
+    color:green;
+    outline:none;
+}
+#removeCards:hover {
+    opacity: 0.3;
+    background:green;
+    color:orange;
+}
+
+.Remove {
+    display:none;
+}
+
+.RemoveOneCards {
+    display: block;
+    position:absolute;
+    margin:0;
+    padding:0 20px;
+    bottom:10px;
+    right:10px;
+    width:auto;
+    height:20px;
+    line-height: 20px;
+    border-radius: 20px;
+    border:0;
+    background: pink;
+    cursor:pointer;    
+    font-size:10px;
+    font-style:normal;
+    font-weight:100;
+    text-align:center;
+    text-transform: lowercase;
+    color:white;
+    outline:none;
+}
+.RemoveOneCards:hover {
+    opacity: 0.5;
+    background:grey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

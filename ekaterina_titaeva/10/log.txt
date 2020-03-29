@@ -1,0 +1,8 @@
+Время: Thu Mar 05 2020 18:08:28 GMT+0300 (RTZ 2 (зима)). Путь: C:\Users\Cat\стажировка\lessons\10/graph. HTTP-метод: GET. Ответ сервера: 200.
+Время: Thu Mar 05 2020 18:08:31 GMT+0300 (RTZ 2 (зима)). Путь: C:\Users\Cat\стажировка\lessons\10/slider. HTTP-метод: GET. Ответ сервера: 200.
+Время: Thu Mar 05 2020 18:08:35 GMT+0300 (RTZ 2 (зима)). Путь: C:\Users\Cat\стажировка\lessons\10/. HTTP-метод: GET. Ответ сервера: 200.
+Время: Thu Mar 05 2020 18:18:45 GMT+0300 (RTZ 2 (зима)). Путь: C:\Users\Cat\стажировка\lessons\10/graph. HTTP-метод: GET. Ответ сервера: 200.
+Время: Thu Mar 05 2020 18:18:50 GMT+0300 (RTZ 2 (зима)). Путь: C:\Users\Cat\стажировка\lessons\10/slider. HTTP-метод: GET. Ответ сервера: 200.
+Время: Thu Mar 05 2020 18:39:52 GMT+0300 (RTZ 2 (зима)). Путь: C:\Users\Cat\стажировка\GeekBrainsVTB\ekaterina_titaeva\10/. HTTP-метод: GET. Ответ сервера: 200.
+Время: Thu Mar 05 2020 18:40:05 GMT+0300 (RTZ 2 (зима)). Путь: C:\Users\Cat\стажировка\GeekBrainsVTB\ekaterina_titaeva\10/slider. HTTP-метод: GET. Ответ сервера: 200.
+Время: Thu Mar 05 2020 18:40:17 GMT+0300 (RTZ 2 (зима)). Путь: C:\Users\Cat\стажировка\GeekBrainsVTB\ekaterina_titaeva\10/graph. HTTP-метод: GET. Ответ сервера: 200.

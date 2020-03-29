@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/hover-min.css">
+    <link rel="stylesheet" href="../css/style.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="name">Введите имя</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="введите своё имя" required>
+                <p>*допустимы символы латиницы,кириллицы, цифры и _ от 5 до 10 символов</p>
+            </div>
+            <div class="form-group">
+                <label for="email">Введите почту</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="введите свой email" required>
+                <p>*должен иметь вид example@domen.ru</p>
+            </div>
+            <div class="form-group">
+                <label for="password">Введите пароль</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="введите придумманый пароль" required>
+                <p>*минимум 10 символов, обязательна одна цифра и одна буква капсом</p>
+            </div>
+            <div class="form-group">
+                <label for='password2'>Введите пароль снова</label>
+                <input type="password" id="password2" name="password2" class="form-control" placeholder="введите пароль заново" required>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Даю согласие на обработку персональных данных</label>
+              </div>
+            <input type="submit" id='button' class="btn btn-primary"></input>
+        </form>
+    </div>
+
+
+    <script src='./homework.js'></script>
+</body>
+</html>

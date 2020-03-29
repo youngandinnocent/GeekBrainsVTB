@@ -1,0 +1,22 @@
+.header {
+    width: 100%;
+    display: flex;
+    background-color: #23272A;
+    height: 50px;
+    font-size: 30px;
+}
+
+.header-list {
+    padding-top: 10px;
+    padding-left: 20px;
+    width: calc(30% - 12px);
+    display: flex;
+    border-right: 2px solid #2C2F33;
+}
+
+.header-chat {
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 70%;
+    display: flex;
+}

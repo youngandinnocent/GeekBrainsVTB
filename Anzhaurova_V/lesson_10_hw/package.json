@@ -1,0 +1,16 @@
+{
+  "name": "lesson_10_hw",
+  "version": "1.0.0",
+  "description": "homework10",
+  "main": "server.js",
+  "dependencies": {
+    "package.json": "^2.0.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

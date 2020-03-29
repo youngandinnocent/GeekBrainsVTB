@@ -1,0 +1,29 @@
+.message {
+  color: white;
+  background-color: #3e6189;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px; }
+  .message-owner {
+    align-self: flex-end; }
+  .message-bot {
+    align-self: flex-start; }
+  .message-sender {
+    font-size: 0.8em;
+    color: #94c2f3; }
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #161d27;
+  padding: 20px;
+  overflow-y: auto;
+  height: 80%; }
+
+.messageForm {
+  padding: 10px; }
+
+.chat {
+  flex-direction: column;
+  width: 70%; }
+

@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    background-color: rgb(226, 231, 235);
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+input {
+    display: flex;
+    margin: 20px;
+    margin-top: 8px;
+    padding-left: 10px;
+    width: 500px;
+    align-self: center;
+    border-radius: 5px;
+    height: 45px;
+}
+
+deadline-timer {
+    display: block;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 750px;
+    margin-top: 40px;
+}
+
+h2, p {
+    background-color: inherit;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: block;
+    max-width: 75%;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.input-container {
+    background-color: whitesmoke;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 5px 5px 15px gray;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+}
+
+.confirm-btn {
+    display: flex;
+    margin: 20px;
+    margin-top: 8px;
+    padding-left: 10px;
+    width: 500px;
+    align-self: center;
+    border-radius: 5px;
+    height: 45px;
+    width: 150px;
+    display: inline-block;
+    color: cornsilk;
+    border: 0px;
+    background-color: black;
+}
+
+.remove-btn {
+    background-color: black;   
+    width: 150px;
+    height: 45px;
+    margin: 20px;
+    color: cornsilk;
+    border: 0px;
+    border-radius: 5px;
+}

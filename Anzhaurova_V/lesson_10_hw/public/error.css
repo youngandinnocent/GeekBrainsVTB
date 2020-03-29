@@ -1,0 +1,10 @@
+body{
+    width: auto;
+}
+
+.error {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 400px;
+    line-height: 50vh;
+}
