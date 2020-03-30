@@ -31,10 +31,10 @@ describe('Calculator function', () => {
         expect(calculator(1, 0, undefined)).toBeUndefined();
     });
 
-    it('5.should return undefined for unexpected operation', () => {
-        expect(calculator(5, 5, '!')).toBeUndefined();
-        expect(calculator(5, 5, '?')).toBeUndefined();
-        expect(calculator(5, 25, '//')).toBeUndefined();
-        expect(calculator(40, 23, 'Hello, BDD!')).toBeUndefined();
+    it('5.should return null for unexpected operation', () => {
+        expect(calculator(5, 5, '!')).toBeNull();
+        expect(calculator(5, 5, '?')).toBeNull();
+        expect(calculator(5, 25, '//')).toBeNull();
+        expect(calculator(40, 23, 'Hello, BDD!')).toBeNull();
     });
 });
