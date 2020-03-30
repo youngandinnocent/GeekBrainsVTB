@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import className from 'classnames';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -7,6 +8,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
 import './ChatList.css';
+
+// let classes;
 
 export class ChatList extends Component {
 
@@ -40,22 +43,35 @@ export class ChatList extends Component {
     ]
   }
 
+  // handleClickItem = (event) => {
+  //   const currentActive = event.target.closest('.chat-list').querySelector('.active');
+  //   const nextActive = event.target.closest('.chat-item');
+  //   if (currentActive) {
+  //     currentActive.classList.toggle('active');
+  //   }
+  //   nextActive.classList.toggle('active');
+  // };
+
   handleClickItem = (event) => {
-    const currentActive = event.target.closest('.chat-list').querySelector('.active');
-    const nextActive = event.target.closest('.chat-item');
-    if (currentActive) {
-      currentActive.classList.toggle('active');
-    }
-    nextActive.classList.toggle('active');
+    // console.log(event.currentTarget);
+    // console.log(!!event.currentTarget);
+    classes = className('chat-item', {
+      'active': !!event.currentTarget
+    });
+    // return classes;
+  // console.log(classes);
   };
 
   render() {
     const { chats } = this.state;
+    // let classes = this.handleClickItem;
+    let classes;
+
     return (
       <List className="chat-list">
         { chats.map((chat) => (
           <div key = { chat.id }>
-            <ListItem className="chat-item" alignItems="center" onClick = { this.handleClickItem }>
+            <ListItem className = { classes } alignItems="center" onClick = { this.handleClickItem }>
                 <ListItemAvatar><Avatar src = { chat.avatarSrc } /></ListItemAvatar>
                 <ListItemText primary = { chat.name } />
             </ListItem>
