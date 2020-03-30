@@ -21,7 +21,7 @@ const calculator = (operandOne, operandTwo, operation) => {
                 }
                 return operandOne / operandTwo;
             default:
-                return undefined;
+                return null;
             }
     }
 };
