@@ -23,18 +23,25 @@ export class ChatList extends Component {
 
   static propTypes = {
     addChat: PropTypes.func.isRequired,
-    chats: PropTypes.shape({
-      [/\d+/]: {
+    chats: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         messages: PropTypes.arrayOf(PropTypes.shape(messageType)),
         avatarSrc: PropTypes.string.isRequired
-      }
-    })
+      })
+    )
   };
 
   static defaultProps = {
-    addChat: () => {}
+    addChat: () => {},
+    chats: [
+      {
+        id: 0,
+        name: '',
+        messages: [],
+        avatarSrc: ''
+      }
+    ]
   };
 
   handleClickItem = (event) => {
@@ -71,7 +78,6 @@ export class ChatList extends Component {
     const { chats } = this.props;
     const { name, src } = this.state;
 
-    // приемлема ли такая реализация разворачивания списка чатов, или нужно использовать match?
     return (
       <List className="chat-list">
         { Object.keys(chats).map((id) => (

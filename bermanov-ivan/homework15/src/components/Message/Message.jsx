@@ -13,11 +13,6 @@ export class Message extends Component {
 
     static propTypes = messageType;
 
-    static defaultProps = {
-        author: 'Author is undefined',
-        content: 'Empty message'
-    };
-
     render() {
         const { author, content } = this.props;
         const classes = className('message', {
