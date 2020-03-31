@@ -8,7 +8,7 @@ import './MessageForm.css';
 
 export class MessageForm extends Component {
     state = {
-        author: '',
+        author: 'Human',
         content: ''
     };
     
@@ -28,13 +28,16 @@ export class MessageForm extends Component {
     };
 
     handleSend = () => {
-        const { onSend } = this.props;
-        if (typeof onSend === 'function') {
-            onSend(this.state);
-            this.setState({
-                author: '',
-                content: ''
-            });
+        const { author, content } = this.state;
+        if (author && content) {
+            const { onSend } = this.props;
+            if (typeof onSend === 'function') {
+                onSend(this.state);
+                this.setState({
+                    author,
+                    content: ''
+                });
+            }
         }
     };
 

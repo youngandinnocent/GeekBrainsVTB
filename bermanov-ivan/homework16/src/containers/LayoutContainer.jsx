@@ -29,16 +29,8 @@ export class LayoutContainer extends Component {
         }
     }
 
-    handleMessageSend = ({ author, content }) => {
+    handleMessageSend = (message) => {
         const { sendMessage, chatIndex } = this.props;
-
-        const message = {};
-        if (author) {
-            message.author = author;
-        }
-        if (content) {
-            message.content = content;
-        }
 
         sendMessage({
             chatIndex,
@@ -53,8 +45,7 @@ export class LayoutContainer extends Component {
         const newChat = {
             id: chatIndex,
             name: chat.name,
-            messages: [],
-            avatarSrc: chat.src
+            avatarSrc: chat.avatarSrc
         };
 
         addChat({
@@ -84,7 +75,8 @@ function mapStateToProps(state, ownProps) {
         ...acc,
         {
             name: chats[key].name,
-            link: `/chats/${chats[key].id}`
+            link: `/chats/${chats[key].id}`,
+            avatarSrc: chats[key].avatarSrc
         }
     ], []);
 

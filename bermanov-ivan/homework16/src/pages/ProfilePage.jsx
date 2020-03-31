@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Header } from 'components/Header';
 import { ProfileForm } from 'pages/ProfileForm';
 import './Pages.css';
 
 export class ProfilePage extends Component {
-    // state = {
-    //     name: 'messenger prototype',
-    //     content: 'This is super-puper messenger prototype'
-    // };
 
-    // handleForm = (newState) => {
-    //     this.setState({ name: newState.name });
-    // };
+    static propTypes = {
+        handleForm: PropTypes.func.isRequired,
+        name: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired
+    };
+
+    static defaultProps = {
+        handleForm: () => {},
+        name: '',
+        content: ''
+    };
 
     render() {
         const { name, content, handleForm } = this.props;

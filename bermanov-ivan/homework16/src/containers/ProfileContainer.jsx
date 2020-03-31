@@ -11,9 +11,12 @@ export class ProfileContainer extends Component {
         loadProfile();
     }
 
-    // не понимаю, почему здесь получается ReferenceError: changeProfile is not defined ?
-    handleForm = (newName) => {
-        changeProfile({ ...newName });
+    handleForm = ({ name, content }) => {
+        const { changeProfile } = this.props;
+        const newData = {};
+        newData.name = name ? name : this.props.name;
+        newData.content = content ? content : this.props.content;
+        changeProfile({ ...newData });
     };
 
     render() {
@@ -25,15 +28,15 @@ export class ProfileContainer extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
-    const name = state.name;
-    console.log(ownProps);
-    // const { match } = ownProps;
+function mapStateToProps(state) {
+    const name = state.profile.entries.name;
+    const content = state.profile.entries.content;
 
-    return { name };
+    return { name, content };
 }
 
 function mapDispatchToProps(dispatch) {
+
     return {
         loadProfile: () => dispatch(profileLoad()),
         changeProfile: (name) => dispatch(profileChange(name))

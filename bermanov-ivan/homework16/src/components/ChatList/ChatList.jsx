@@ -18,26 +18,30 @@ export class ChatList extends Component {
 
   state = {
     name: '',
-    src: ''
+    avatarSrc: ''
   };
 
   static propTypes = {
     addChat: PropTypes.func.isRequired,
-
-    // тут нужно поменять PropTypes для чатов
-    
-    // chats: PropTypes.shape({
-    //   [/\d+/]: {
-    //     id: PropTypes.number.isRequired,
-    //     name: PropTypes.string.isRequired,
-    //     messages: PropTypes.arrayOf(PropTypes.shape(messageType)),
-    //     avatarSrc: PropTypes.string.isRequired
-    //   }
-    // })
+    chats: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        messages: PropTypes.arrayOf(PropTypes.shape(messageType)),
+        avatarSrc: PropTypes.string.isRequired
+      })
+    )
   };
 
   static defaultProps = {
-    addChat: () => {}
+    addChat: () => {},
+    chats: [
+      {
+        id: 0,
+        name: '',
+        messages: [],
+        avatarSrc: ''
+      }
+    ]
   };
 
   handleClickItem = (event) => {
@@ -64,7 +68,7 @@ export class ChatList extends Component {
         addChat(this.state);
         this.setState({
           name: '',
-          src: ''
+          avatarSrc: ''
         });
       }
     }
@@ -72,7 +76,7 @@ export class ChatList extends Component {
 
   render() {
     const { chats } = this.props;
-    const { name, src } = this.state;
+    const { name, avatarSrc } = this.state;
 
     return (
       <List className="chat-list">
@@ -90,7 +94,7 @@ export class ChatList extends Component {
         }
         <div className="chat-add">
           <TextField label="Chat name" name="name" value = { name } autoFocus onChange = { this.handleInputChange } />
-          <TextField label="Avatar source" name="src" value = { src } onChange = { this.handleInputChange } />
+          <TextField label="Avatar source" name="avatarSrc" value = { avatarSrc } onChange = { this.handleInputChange } />
           <Fab variant="round" color="primary" onClick = { this.handleChatAdd }><AddIcon /></Fab>
         </div>
       </List>

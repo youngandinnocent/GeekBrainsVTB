@@ -7,14 +7,14 @@ import EditIcon from '@material-ui/icons/Edit';
 export class ProfileForm extends Component {
     state = {
         name: '',
-        // content: ''
+        content: ''
     };
     
     static propTypes = {
         onSend: PropTypes.func.isRequired
     };
 
-    static defualtProps = {
+    static defaultProps = {
         onSend: () => {}
     };
 
@@ -29,11 +29,20 @@ export class ProfileForm extends Component {
         const { onSend } = this.props;
         if (typeof onSend === 'function') {
             onSend(this.state);
-            this.setState({
-                name: '',
-                // content: ''
-            });
+            this.setState({ name: '', content: '' });
         }
+        // const { onSend } = this.props;
+        // if (typeof onSend === 'function') {
+        //     if (event.target.closest('.edit-profile_name') && this.state.name) {
+        //         onSend(this.state);
+        //         this.setState({ name: '' });
+        //     } else {
+        //         if (this.state.content) {
+        //             onSend(this.state);
+        //             this.setState({ content: '' });
+        //         }
+        //     }
+        // }
     };
 
     render() {
@@ -56,7 +65,7 @@ export class ProfileForm extends Component {
                         size="small"
                     ><EditIcon /></Fab>
                 </div>
-                {/* <div className="edit-profile_content">
+                <div className="edit-profile_content">
                     <TextField
                         className="edit-profile_content-field"
                         label="Something contains"
@@ -73,7 +82,7 @@ export class ProfileForm extends Component {
                         color="primary"
                         size="small"
                     ><EditIcon /></Fab>
-                </div> */}
+                </div>
             </div>
         );
     }
