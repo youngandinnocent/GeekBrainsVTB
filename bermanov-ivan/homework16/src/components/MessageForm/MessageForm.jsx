@@ -9,7 +9,9 @@ import './MessageForm.css';
 export class MessageForm extends Component {
     state = {
         author: 'Human',
-        content: ''
+        content: '',
+        authorError: false,
+        contentError: false
     };
     
     static propTypes = {
@@ -23,7 +25,8 @@ export class MessageForm extends Component {
     handleInput = (event) => {
         const fieldName = event.target.name;
         this.setState({
-            [fieldName]: event.target.value
+            [fieldName]: event.target.value,
+            [fieldName + 'Error']: event.target.value ? false : true
         });
     };
 
@@ -34,10 +37,16 @@ export class MessageForm extends Component {
             if (typeof onSend === 'function') {
                 onSend(this.state);
                 this.setState({
-                    author,
-                    content: ''
+                    content: '',
+                    authorError: false,
+                    contentError: false
                 });
             }
+        } else {
+            this.setState({
+                authorError: author ? false : true,
+                contentError: content ? false : true
+            });
         }
     };
 
@@ -48,12 +57,29 @@ export class MessageForm extends Component {
     };
 
     render() {
-        const { author, content } = this.state;
+        const { author, content, authorError, contentError } = this.state;
     
         return (
             <div className="message-form">
-                <TextField className="message-form__author" label="Author" name="author" value = { author } onChange = { this.handleInput } />
-                <TextField className="message-form__content" label="Content" name="content" multiline autoFocus value = { content } onKeyDown = { this.handleKeyDownCtrlEnter } onChange = { this.handleInput } />
+                <TextField
+                    className="message-form__author"
+                    label="Author"
+                    name="author"
+                    value = { author }
+                    error = { authorError }
+                    onChange = { this.handleInput }
+                />
+                <TextField
+                    className="message-form__content"
+                    label="Content"
+                    name="content"
+                    multiline
+                    autoFocus
+                    value = { content }
+                    error = { contentError }
+                    onKeyDown = { this.handleKeyDownCtrlEnter }
+                    onChange = { this.handleInput }
+                />
                 <Fab variant="round" color="primary" onClick = { this.handleSend }><SendIcon /></Fab>
             </div>
         );

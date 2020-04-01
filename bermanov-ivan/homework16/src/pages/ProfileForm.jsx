@@ -7,7 +7,9 @@ import EditIcon from '@material-ui/icons/Edit';
 export class ProfileForm extends Component {
     state = {
         name: '',
-        content: ''
+        content: '',
+        nameError: false,
+        contentError: false
     };
     
     static propTypes = {
@@ -21,32 +23,39 @@ export class ProfileForm extends Component {
     handleInput = (event) => {
         const fieldName = event.target.name;
         this.setState({
-            [fieldName]: event.target.value
+            [fieldName]: event.target.value,
+            [fieldName + 'Error']: event.target.value ? false : true
         });
     };
 
-    handleSend = () => {
+    handleSend = (event) => {
         const { onSend } = this.props;
         if (typeof onSend === 'function') {
-            onSend(this.state);
-            this.setState({ name: '', content: '' });
+            const { name, content } = this.state;
+            if (name) {
+                onSend(this.state);
+                this.setState({
+                    name: '',
+                    namerError: false,
+                    contentError: false
+                });
+            } else if (content) {
+                onSend(this.state);
+                this.setState({
+                    content: '',
+                    namerError: false,
+                    contentError: false
+                });
+            } else {
+                this.setState({
+                    [event.currentTarget.name + 'Error']: true
+                });
+            }
         }
-        // const { onSend } = this.props;
-        // if (typeof onSend === 'function') {
-        //     if (event.target.closest('.edit-profile_name') && this.state.name) {
-        //         onSend(this.state);
-        //         this.setState({ name: '' });
-        //     } else {
-        //         if (this.state.content) {
-        //             onSend(this.state);
-        //             this.setState({ content: '' });
-        //         }
-        //     }
-        // }
     };
 
     render() {
-        const { name, content } = this.state;
+        const { name, content, nameError, contentError } = this.state;
         return(
             <div className="edit-profile">
                 <div className="edit-profile_name">
@@ -54,11 +63,13 @@ export class ProfileForm extends Component {
                         label="Profile name"
                         name="name"
                         value = { name }
+                        error = { nameError }
                         autoFocus
                         onChange = { this.handleInput }
                         variant="outlined"
                     />
                     <Fab
+                        name="name"
                         onClick = { this.handleSend }
                         variant="round"
                         color="primary"
@@ -71,12 +82,14 @@ export class ProfileForm extends Component {
                         label="Something contains"
                         name="content"
                         value = { content }
+                        error = { contentError }
                         onChange = { this.handleInput }
                         multiline
                         rows="3"
                         variant="outlined"
                     />
                     <Fab
+                        name="content"
                         onClick = { this.handleSend }
                         variant="round"
                         color="primary"
