@@ -1,0 +1,11 @@
+.message-field {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select-chat {
+    position: relative;
+    margin: auto;
+}

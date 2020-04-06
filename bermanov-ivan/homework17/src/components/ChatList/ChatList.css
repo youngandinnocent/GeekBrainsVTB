@@ -1,0 +1,33 @@
+.chat-list {
+    width: 30%;
+}
+
+.chat-list li button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.chat-item:hover {
+    color: #064add;
+    cursor: pointer;
+}
+
+.active,
+.active:hover {
+    background: #3b5998;
+    color: #fff;
+}
+
+.blink {
+    animation: blink .4s linear 2;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

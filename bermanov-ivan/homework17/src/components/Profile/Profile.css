@@ -1,0 +1,14 @@
+.profile {
+    height: 100%;
+    width: 50%;
+    margin: 50px auto;
+}
+
+.edit-profile_name,
+.edit-profile_content {
+    margin: 30px 10px;
+}
+
+.edit-profile_content-field {
+    width: 50%;
+}
