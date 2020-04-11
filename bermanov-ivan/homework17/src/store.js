@@ -1,6 +1,6 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-// import { rootReducer } from 'reducers';
-// import logger from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 import { persistStore, persistReducer } from 'redux-persist';
@@ -22,18 +22,11 @@ export const initStore = () => {
     const store = createStore(
         persistReducer(persistConfig, initReducer(history)),
         initialStore,
-        compose(
+        composeWithDevTools(
             applyMiddleware(loggerMiddleware, robotMiddleware, routerMiddleware(history)),
-            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
         )
     );
     const persistor = persistStore(store);
 
     return { store, persistor };
 };
-
-// export const store = createStore(initReducer(history), applyMiddleware(loggerMiddleware, robotMiddleware, routerMiddleware(history)));
-
-// export const store = createStore(rootReducer, applyMiddleware(logger));
-// export const store = createStore(rootReducer, applyMiddleware(loggerMiddleware, robotMiddleware));
-// export const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
