@@ -1,0 +1,22 @@
+.profile {
+    height: 100%;
+    width: 50%;
+    margin: 50px auto;
+}
+
+.profile-body {
+    padding: 0 30px;
+}
+
+.profile-body_edit h3 {
+    margin-top: 50px;
+}
+
+.edit-name,
+.edit-content {
+    margin-top: 10px;
+}
+
+.edit-content_field {
+    width: 50%;
+}
