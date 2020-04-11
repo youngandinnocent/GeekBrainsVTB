@@ -19,7 +19,7 @@ export class LayoutContainer extends Component {
 
         chatsState: PropTypes.object.isRequired,
         chats: chatsType,
-        messages: PropTypes.shape(messagesType),
+        messages: messagesType,
         chatIndex: PropTypes.string,
         newChatIndex: PropTypes.number.isRequired,
         profileName: PropTypes.string,

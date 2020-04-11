@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { Message, messageType } from 'components/Message';
 import './MessageList.css';
 
-export const messagesType = {
-    messages: PropTypes.arrayOf(PropTypes.shape(messageType))
-};
+export const messagesType = PropTypes.arrayOf(PropTypes.shape(messageType));
 
 export class MessageList extends Component {
 
-    static propTypes = messagesType;
+    static propTypes = {
+        messages: messagesType
+    };
 
     static defaultProps = {
         messages: [
