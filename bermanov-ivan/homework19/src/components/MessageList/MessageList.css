@@ -1,0 +1,16 @@
+.message-list {
+    display: flex;
+    flex-direction: column;
+    background: #eef1f5;
+    height: 71%;
+    width: calc(100% - 40px);
+    padding: 20px;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+}
+
+@media screen and (max-width: 555px) {
+    .message-list {
+        margin-bottom: 0;
+    }
+}

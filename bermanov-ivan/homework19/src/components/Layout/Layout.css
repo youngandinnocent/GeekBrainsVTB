@@ -1,0 +1,119 @@
+.layout {
+    height: 100%;
+    width: 60%;
+    margin: 50px auto;
+}
+
+.body {
+    height: 650px;
+    display: flex;
+}
+
+.container-chat-list {
+    width: 30%
+}
+
+@media screen and (max-width: 1700px) {
+  .container-chat-list {
+    width: 35%;
+  }
+}
+  
+@media screen and (max-width: 1360px) {
+    .container-chat-list {
+      width: 40%;
+    }
+}
+  
+@media screen and (max-width: 1024px) {
+    .layout {
+        width: 100%;
+        margin: auto;
+    }
+    .container-chat-list {
+      width: 30%;
+    }
+}
+  
+@media screen and (max-width: 900px) {
+    .container-chat-list {
+      width: 40%;
+    }
+}
+
+
+@media (min-width: 415px) {
+    .container-profile-page,
+    .mobile-profile-page {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 414px) and (max-height: 896px) {
+    .container-chat-list {
+        position: fixed;
+        width: 70%;
+        left: -70%;
+        transition: .3s;
+    }
+    .modal-chat-list {
+        left: 2%;
+        height: 100%;
+        background: white;
+        z-index: 10;
+        transition: .8s;
+    }
+    .container-profile-page {
+        position: fixed;
+        width: 70%;
+        top: 8%;
+        right: -70%;
+        transition: .3s;
+    }
+    .modal-profile-page {
+        right: 2%;
+        height: 100%;
+        background: white;
+        z-index: 10;
+        transition: .8s;
+    }
+}
+
+@media screen and (max-width: 414px) and (max-height: 890px) {
+    .container-profile-page {
+        top: 10%;
+    }
+}
+
+@media screen and (max-width: 384px) and (max-height: 640px) {
+    .body {
+        height: 560px;
+    }
+    .container-profile-page {
+        top: 12%;
+    }
+}
+
+@media screen and (max-width: 375px) and (max-height: 812px) {
+    .body {
+        height: 570px;
+    }
+    .container-profile-page {
+        top: 8%;
+    }
+}
+
+@media screen and (max-width: 375px) and (max-height: 740px) {
+    .container-profile-page {
+        top: 10%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .body {
+        height: 500px;
+    }
+    .container-profile-page {
+        top: 12%;
+    }
+}
