@@ -34,9 +34,12 @@ export class Layout extends Component {
         } else if (event.target
             && (event.target.closest('.message-field') || event.target.closest('.chat-item'))) {
             this.setState({
-                showChats: event.chats ? true : false,
-                showProfile: event.profile ? true : false,
+                showChats: false,
+                showProfile: false,
                 onClickBody: true
+                // showChats: event.chats ? true : false,
+                // showProfile: event.profile ? true : false,
+                // onClickBody: true
             });
         }
     };

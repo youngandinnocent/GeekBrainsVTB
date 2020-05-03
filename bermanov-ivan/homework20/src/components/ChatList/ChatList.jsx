@@ -12,14 +12,19 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
-import { messagesType } from 'components/MessageList';
+// import { messagesType } from 'components/MessageList';
 import './ChatList.css';
 
 export const chatsType = PropTypes.arrayOf(PropTypes.shape({
   id: PropTypes.number,
   name: PropTypes.string,
-  messages: messagesType,
+  unread: PropTypes.bool,
+  marked: PropTypes.bool,
   avatarSrc: PropTypes.string
+  // id: PropTypes.number,
+  // name: PropTypes.string,
+  // messages: messagesType,
+  // avatarSrc: PropTypes.string
 }));
 
 export class ChatList extends Component {
@@ -45,10 +50,17 @@ export class ChatList extends Component {
       {
         id: 0,
         name: 'Chat0',
-        messages: [],
         unread: false,
+        marked: true,
         avatarSrc: ''
       }
+      // {
+      //   id: 0,
+      //   name: 'Chat0',
+      //   messages: [],
+      //   unread: false,
+      //   avatarSrc: ''
+      // }
     ]
   };
 

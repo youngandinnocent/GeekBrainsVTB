@@ -1,14 +1,35 @@
 {
-  "name": "lesson20",
+  "name": "lesson21",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "http-server dist",
     "dev": "webpack --mode development",
-    "dev-server": "webpack-dev-server --mode development",
+    "dev-s": "webpack-dev-server --mode development --port 3000",
     "build": "webpack --mode production"
+  },
+  "jest": {
+    "cacheDirectory": "src/tests/cache",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/coverage/**",
+      "!**/dist/**",
+      "!**/node_modules/**",
+      "!**/src/*.js/**",
+      "!**/src/actions/**",
+      "!**/src/reducers/**",
+      "!webpack.config.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|webp|svg|ttf)$": "<rootDir>/src/tests/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "<rootDir>/src/tests/__mocks__/styleMock.js"
+    },
+    "modulePaths": [
+      "src"
+    ]
   },
   "keywords": [],
   "author": "Ivan Bermanov",
@@ -16,16 +37,25 @@
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
+    "babel-jest": "^25.4.0",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "html-webpack-plugin": "^3.2.0",
-    "http-server": "^0.12.1",
+    "http-server": "^0.12.3",
+    "jest": "^25.4.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
+    "prettier": "^2.0.5",
+    "pretty": "^2.0.0",
+    "react-test-renderer": "^16.13.1",
     "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.4",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",
     "webpack": "^4.42.0",
